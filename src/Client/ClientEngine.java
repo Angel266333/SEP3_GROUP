@@ -1,6 +1,5 @@
 package Client;
 
-import Commons.Order;
 
 import java.util.ArrayList;
 
@@ -20,16 +19,6 @@ public class ClientEngine {
 		return me;
 	}
 
-	public Order[] getAllOrders() {
-		String s[] = restParser.get("/orders/all/").split("\n");
-		ArrayList<Order> ol = new ArrayList<>();
-		for(String st : s) {
-			ol.add(Order.fromString(st));
-		}
-		Order[] orders = new Order[ol.size()];
-		ol.toArray(orders);
-		return orders;
-	}
 
 //	Make a method for each type of action that the client should support.
 //	Each method performs the REST http reuest on the server, interprets the
