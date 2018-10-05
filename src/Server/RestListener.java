@@ -1,5 +1,6 @@
 package Server;
 
+import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -16,6 +17,7 @@ public class RestListener {
 	public RestListener() throws IOException {
 		server = HttpServer.create(new InetSocketAddress(8001), 0);
 		server.setExecutor(null);
+		HttpContext menuList = server.createContext("/menu/list/", menuListHandler);
 	}
 
 	public void start() {
@@ -26,4 +28,10 @@ public class RestListener {
 		server.stop(0);
 	}
 
+	public HttpHandler menuListHandler = new HttpHandler() {
+		@Override
+		public void handle(HttpExchange httpExchange) throws IOException {
+
+		}
+	};
 }

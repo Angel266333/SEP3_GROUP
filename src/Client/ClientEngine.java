@@ -1,15 +1,17 @@
 package Client;
 
 
+import Shared.MenuItem;
+
 import java.util.ArrayList;
 
 //Singleton class that contains all the functionality of the client
 public class ClientEngine {
 	private static ClientEngine me = null;
-	private IRestHandler restParser;
+	private IRestHandler restHandler;
 
 	private ClientEngine() {
-		restParser = new RestHandler("http://localhost:8001");
+		restHandler = new RestHandler("http://localhost:8001");
 	}
 
 	public static ClientEngine getInstance() {
@@ -19,6 +21,18 @@ public class ClientEngine {
 		return me;
 	}
 
+	public MenuItem[] getMenu() {
+		String[] ss = restHandler.get("/menu/list/").split("\n");
+
+		ArrayList<MenuItem> al = new ArrayList<>();
+		for(String s : ss) {
+			al.add(MenuItem.fromString(s));
+		}
+
+		MenuItem[] res = new MenuItem[al.size()];
+		al.toArray(res);
+		return res;
+	}
 
 //	Make a method for each type of action that the client should support.
 //	Each method performs the REST http reuest on the server, interprets the
