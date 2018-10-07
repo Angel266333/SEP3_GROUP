@@ -17,7 +17,7 @@ public class RestListener {
 	public RestListener() throws IOException {
 		server = HttpServer.create(new InetSocketAddress(8001), 0);
 		server.setExecutor(null);
-		HttpContext menuList = server.createContext("/menu/list/", menuListHandler);
+		server.createContext("/menu/list/", menuListHandler);
 	}
 
 	public void start() {
