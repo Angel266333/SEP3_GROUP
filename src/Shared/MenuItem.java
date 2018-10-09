@@ -15,14 +15,15 @@ public class MenuItem {
 
 	@Override
 	public String toString() {
-		return "";
-		//TODO
-		//Make actual serialisation
+		JsonBuilder jb = new JsonBuilder();
+		jb.add("id", id);
+		jb.add("name", name);
+		jb.add("description", description);
+		jb.add("isAvailable", isAvailable);
+		return jb.toString();
 	}
 
 	public static MenuItem fromString(String serial) {
-		return new MenuItem(0, "","", true);
-		//TODO
-		//Make real de-serialisation
+		return null;
 	}
 }
