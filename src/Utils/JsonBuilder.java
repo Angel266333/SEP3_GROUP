@@ -55,7 +55,7 @@ public class JsonBuilder {
 		return String.copyValueOf(ca);
 	}
 
-	public String buildArray(String... s) {
+	public static String buildArray(String... s) {
 		StringBuilder a = new StringBuilder();
 		a.append('[');
 		for(String str : s) {
@@ -67,7 +67,7 @@ public class JsonBuilder {
 		return a.toString();
 	}
 
-	public String buildArray(int... s) {
+	public static String buildArray(int... s) {
 		StringBuilder a = new StringBuilder();
 		a.append('[');
 		for(int str : s) {
@@ -78,7 +78,7 @@ public class JsonBuilder {
 		return a.toString();
 	}
 
-	public String buildArray(long... s) {
+	public static String buildArray(long... s) {
 		StringBuilder a = new StringBuilder();
 		a.append('[');
 		for(long str : s) {
@@ -89,7 +89,7 @@ public class JsonBuilder {
 		return a.toString();
 	}
 
-	public String buildArray(boolean... s) {
+	public static String buildArray(boolean... s) {
 		StringBuilder a = new StringBuilder();
 		a.append('[');
 		for(boolean str : s) {
