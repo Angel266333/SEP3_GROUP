@@ -1,4 +1,4 @@
-package Shared;
+package Utils;
 
 public class JsonBuilder {
 	StringBuilder sb;
