@@ -54,4 +54,49 @@ public class JsonBuilder {
 		ca[ca.length - 1] = '}';
 		return String.copyValueOf(ca);
 	}
+
+	public String buildArray(String... s) {
+		StringBuilder a = new StringBuilder();
+		a.append('[');
+		for(String str : s) {
+			a.append('"');
+			a.append(s);
+			a.append("\",");
+		}
+		a.append(']');
+		return a.toString();
+	}
+
+	public String buildArray(int... s) {
+		StringBuilder a = new StringBuilder();
+		a.append('[');
+		for(int str : s) {
+			a.append(s);
+			a.append(',');
+		}
+		a.append(']');
+		return a.toString();
+	}
+
+	public String buildArray(long... s) {
+		StringBuilder a = new StringBuilder();
+		a.append('[');
+		for(long str : s) {
+			a.append(s);
+			a.append(',');
+		}
+		a.append(']');
+		return a.toString();
+	}
+
+	public String buildArray(boolean... s) {
+		StringBuilder a = new StringBuilder();
+		a.append('[');
+		for(boolean str : s) {
+			a.append(s);
+			a.append(',');
+		}
+		a.append(']');
+		return a.toString();
+	}
 }
