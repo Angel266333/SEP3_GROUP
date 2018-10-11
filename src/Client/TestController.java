@@ -14,17 +14,11 @@ public class TestController extends UIController {
 
 	private TestController() {
 		try {
-			parent = FXMLLoader.load(getClass().getResource("Test.fxml"));
+			parent = FXMLLoader.load(getClass().getResource("ServerMainView.fxml"));
 		} catch(IOException e) {
 			System.out.println(e.getMessage());
 		}
 
-		parent.lookup("#GoTest2").addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent event) {
-				container.loadController(TestController2.getInstance());
-			}
-		});
 	}
 
 	public static TestController getInstance() {

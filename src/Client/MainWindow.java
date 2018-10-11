@@ -14,4 +14,11 @@ public class MainWindow extends Application {
 		primaryStage.setScene(new Scene(container));
 		primaryStage.show();
 	}
+	
+	
+	public static void main(String [] args)
+	{
+	   launch();
+	}
+	
 }
