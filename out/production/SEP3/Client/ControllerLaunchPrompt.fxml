@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="256.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="btn0_getMenuUIClient" layoutX="22.0" layoutY="49.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" text="getMenuUIClient" />
+      <Button fx:id="btn1_ServerMainView" layoutX="22.0" layoutY="87.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" text="ServerMainView" />
+      <Button fx:id="btn2_Controller3" layoutX="22.0" layoutY="122.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" text="Controller #3 WIP" />
+      <Button fx:id="btn3_Controller4" layoutX="22.0" layoutY="163.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" text="Controller #4 WIP" />
+      <Label fx:id="lbl0_SelectController" layoutX="11.0" layoutY="14.0" text="Select Controller to Launch:" />
+   </children>
+</Pane>
