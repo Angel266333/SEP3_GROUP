@@ -2,21 +2,37 @@ package Client;
 
 import java.io.IOException;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 
 public class ControllerLaunchPrompt extends UIController {
 
 	Parent parent;
-
-	public ControllerLaunchPrompt() {
+	
+	
+   public ControllerLaunchPrompt() {
 
 		try {
 			parent = FXMLLoader.load(getClass().getResource("ControllerLaunchPrompt.fxml"));
 		} catch (IOException e) {
 			System.out.println("Could not load resource! Error.");
 			e.printStackTrace();
+			
 		}
+	//	button = parent.lookup("#btn0_getMenuUIClient");
+		parent.lookup("#btn0_getMenuUIClient").addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+         @Override
+         public void handle(MouseEvent event)
+         {
+            
+            container.loadController(new ControllerGetMenuUI());
+         }
+		   
+		});
 	}
 
 	@Override
@@ -28,4 +44,6 @@ public class ControllerLaunchPrompt extends UIController {
 	Parent getParent() {
 		return parent;
 	}
+	
+	
 }
