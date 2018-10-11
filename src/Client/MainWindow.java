@@ -14,7 +14,17 @@ public class MainWindow extends Application {
 		primaryStage.setScene(new Scene(container));
 		primaryStage.show();
 	}
+<<<<<<< HEAD
 	public static void main(String[] args) {
 		launch();
 	}
+=======
+	
+	
+	public static void main(String [] args)
+	{
+	   launch();
+	}
+	
+>>>>>>> master
 }
