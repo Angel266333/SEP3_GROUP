@@ -33,6 +33,39 @@ public class ControllerLaunchPrompt extends UIController {
          }
 		   
 		});
+		
+		parent.lookup("#btn1_ServerMainView").addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+         @Override
+         public void handle(MouseEvent event)
+         {
+            
+            container.loadController(new ControllerServerMainView());
+         }
+         
+      });
+		parent.lookup("#btn2_Controller3").addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+         @Override
+         public void handle(MouseEvent event)
+         {
+            
+            container.loadController(new ControllerTest());
+         }
+         
+      });
+		
+		parent.lookup("#btn3_Controller4").addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+         @Override
+         public void handle(MouseEvent event)
+         {
+            
+            container.loadController(new ControllerTest2());
+         }
+         
+      });
+		
 	}
 
 	@Override
