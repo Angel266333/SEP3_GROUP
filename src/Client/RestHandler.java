@@ -1,6 +1,5 @@
 package Client;
 
-
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPut;
@@ -30,7 +29,6 @@ public class RestHandler implements IRestHandler {
 		try {
 			HttpGet req = new HttpGet(server + uri);
 			req.setHeader("session", session);
-			System.out.println("sfsg");
 			CloseableHttpResponse response = client.execute(req);
 
 			if(response.getStatusLine().getStatusCode() != 200) {
