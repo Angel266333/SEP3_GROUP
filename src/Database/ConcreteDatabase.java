@@ -19,7 +19,7 @@ public class ConcreteDatabase implements IDatabase
       Class.forName("org.postgresql.Driver");
       
       
-      connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=Kartofil", "postgres", "dana");
+      connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
    }
    
    
@@ -29,10 +29,10 @@ public class ConcreteDatabase implements IDatabase
       PreparedStatement statement;
       try
       {
-         statement = connection.prepareStatement("SELECT * FROM ingredient");
+         statement = connection.prepareStatement("SELECT * FROM \"Kartofil\".ingredient");
          ResultSet rs = statement.executeQuery();
          rs.next();
-         System.out.println(rs.getString(2));
+         System.out.println(rs.getString(1));
         
       }
       catch (SQLException e)
