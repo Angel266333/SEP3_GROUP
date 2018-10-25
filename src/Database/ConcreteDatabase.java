@@ -19,7 +19,7 @@ public class ConcreteDatabase implements IDatabase
       Class.forName("org.postgresql.Driver");
       
       
-      connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
+      connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "dana");
    }
    
    
