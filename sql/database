@@ -51,7 +51,7 @@ INSERT INTO restTable(nameof_table)
 VALUES('first'),
       ('second');
 
-INSERT INTO orders(table_id,status,feedback,recipt)
+INSERT INTO orders(table_id,status,feedback,receipt)
 VALUES(1,'in process', 'i like it','the price is 200DKK'),
       (2,'done','i love it','the price is 100DKK');
 
