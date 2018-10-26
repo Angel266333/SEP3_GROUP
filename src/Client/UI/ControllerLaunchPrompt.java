@@ -1,11 +1,10 @@
-package Client;
+package Client.UI;
 
 import java.io.IOException;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 
 public class ControllerLaunchPrompt extends UIController {
@@ -50,7 +49,7 @@ public class ControllerLaunchPrompt extends UIController {
          public void handle(MouseEvent event)
          {
             
-            container.loadController(new ControllerTest());
+           // container.loadController(new ControllerTest());
          }
          
       });
@@ -61,7 +60,7 @@ public class ControllerLaunchPrompt extends UIController {
          public void handle(MouseEvent event)
          {
             
-            container.loadController(new ControllerTest2());
+           // container.loadController(new ControllerTest2());
          }
          
       });
@@ -77,6 +76,4 @@ public class ControllerLaunchPrompt extends UIController {
 	Parent getParent() {
 		return parent;
 	}
-	
-	
 }

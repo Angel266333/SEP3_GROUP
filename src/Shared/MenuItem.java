@@ -3,9 +3,14 @@ package Shared;
 import Utils.JsonMapper;
 
 import javax.json.Json;
+
+import java.io.Serializable;
 import java.util.Map;
 
-public class MenuItem {
+public class MenuItem implements Serializable {
+	
+	private static final long serialVersionUID = 5362694205303093435L;
+	
 	public int id;
 	public String name;
 	public String description;

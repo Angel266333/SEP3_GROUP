@@ -1,4 +1,4 @@
-package Client;
+package Client.UI;
 
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;

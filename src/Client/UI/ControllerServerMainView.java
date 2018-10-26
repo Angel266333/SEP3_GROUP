@@ -1,4 +1,4 @@
-package Client;
+package Client.UI;
 
 import java.io.IOException;
 

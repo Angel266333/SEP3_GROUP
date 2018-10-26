@@ -1,37 +1,43 @@
 package Server;
 
-import com.sun.net.httpserver.HttpContext;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.InetSocketAddress;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
+import Shared.MenuItem;
 
 public class RestListener {
-	HttpServer server;
+	Server server;
+	HttpServer HTTPServer;
 
-	public RestListener() throws IOException {
-		server = HttpServer.create(new InetSocketAddress(8001), 0);
-		server.setExecutor(null);
-		server.createContext("/menu/list/", menuListHandler);
-	}
+	public RestListener(Server server) throws IOException {
 
-	public void start() {
-		server.start();
-	}
+		this.server = server;
 
-	public void stop() {
-		server.stop(0);
+		HTTPServer = HttpServer.create(new InetSocketAddress(8001), 0);
+		HTTPServer.setExecutor(null);
+		HTTPServer.createContext("/menu/list/", menuListHandler);
 	}
 
 	public HttpHandler menuListHandler = new HttpHandler() {
 		@Override
 		public void handle(HttpExchange httpExchange) throws IOException {
-
+			MenuItem[] menuItems = server.getMenuItems(null);
+			StringBuilder sb = new StringBuilder();
+			for (MenuItem m : menuItems) {
+				sb.append(m.toString());
+				sb.append('\n');
+			}
+			String response = sb.toString();
+			httpExchange.sendResponseHeaders(200, response.getBytes().length);
+			OutputStream os = httpExchange.getResponseBody();
+			os.write(response.getBytes());
+			os.flush();
+			os.close();
 		}
 	};
 }

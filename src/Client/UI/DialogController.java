@@ -1,4 +1,4 @@
-package Client;
+package Client.UI;
 
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
