@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 
+import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -12,21 +13,38 @@ import Shared.MenuItem;
 
 public class RestListener {
 	Server server;
-	HttpServer HTTPServer;
+	HttpServer hServer;
 
 	public RestListener(Server server) throws IOException {
-
 		this.server = server;
-
-		HTTPServer = HttpServer.create(new InetSocketAddress(8001), 0);
-		HTTPServer.setExecutor(null);
-		HTTPServer.createContext("/menu/list/", menuListHandler);
+		hServer = HttpServer.create(new InetSocketAddress(8001), 0);
+		hServer.setExecutor(null);
+		hServer.createContext("/menu/list/", menuListHandler);
+		hServer.createContext("/", stdHandler);
 	}
+
+	public HttpHandler stdHandler = new HttpHandler() {
+		@Override
+		public void handle(HttpExchange httpExchange) throws IOException {
+			if(httpExchange.getRequestMethod().equals("GET")) {
+				System.out.println("it's get");
+			}
+			String response = "Hello world";
+			httpExchange.sendResponseHeaders(200, response.getBytes().length);
+			OutputStream os = httpExchange.getResponseBody();
+			os.write(response.getBytes());
+			os.close();
+		}
+	};
 
 	public HttpHandler menuListHandler = new HttpHandler() {
 		@Override
 		public void handle(HttpExchange httpExchange) throws IOException {
+			if(!httpExchange.getRequestMethod().equals("GET")) {
+				return;
+			}
 			MenuItem[] menuItems = server.getMenuItems(null);
+			System.out.println("menu-list");
 			StringBuilder sb = new StringBuilder();
 			for (MenuItem m : menuItems) {
 				sb.append(m.toString());
@@ -40,4 +58,12 @@ public class RestListener {
 			os.close();
 		}
 	};
+
+	public void start() {
+		hServer.start();
+	}
+
+	public void stop() {
+		hServer.stop(0);
+	}
 }

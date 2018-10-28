@@ -28,7 +28,7 @@ public class RestHandler implements IRestHandler {
 	public String get(String uri) {
 		try {
 			HttpGet req = new HttpGet(server + uri);
-			req.setHeader("session", session);
+//			req.setHeader("session", session);
 			CloseableHttpResponse response = client.execute(req);
 
 			if(response.getStatusLine().getStatusCode() != 200) {
@@ -37,6 +37,7 @@ public class RestHandler implements IRestHandler {
 
 			return EntityUtils.toString(response.getEntity());
 		} catch(IOException e) {
+			System.out.println("We have ioexception");
 			return null;
 		}
 	}

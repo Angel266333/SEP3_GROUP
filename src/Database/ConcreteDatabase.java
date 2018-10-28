@@ -16,7 +16,7 @@ public class ConcreteDatabase implements IDatabase {
 	public ConcreteDatabase() throws ClassNotFoundException, SQLException {
 		Class.forName("org.postgresql.Driver");
 
-		connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "12131213");
+		connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
 	}
 
 	@Override
@@ -48,6 +48,7 @@ public class ConcreteDatabase implements IDatabase {
 				ArrayList<MenuItem> menuItems = new ArrayList<>();
 				ResultSet rs = statement.executeQuery();
 				while (rs.next()) {
+					System.out.println("looping on database");
 					MenuItem item = new MenuItem(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4));
 					menuItems.add(item);
 				}

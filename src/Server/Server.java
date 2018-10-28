@@ -20,6 +20,7 @@ public class Server {
 		registry = LocateRegistry.getRegistry("localhost", 1099);
 		database = (IDatabase) registry.lookup("Database");
 		rs = new RestListener(this);
+		rs.start();
 	}
 
 	public MenuItem[] getMenuItems(Filter filter) throws RemoteException {
@@ -37,5 +38,6 @@ public class Server {
 				break;
 			}
 		}
+		server.rs.stop();
 	}
 }

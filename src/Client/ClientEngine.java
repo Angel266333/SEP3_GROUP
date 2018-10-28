@@ -10,19 +10,20 @@ public class ClientEngine {
 	private IRestHandler restHandler;
 
 	private ClientEngine() {
-		restHandler = new RestHandler("http://localhost:8001");
+		restHandler = new RestHandler("localhost:8001");
 	}
 
 	public static ClientEngine getInstance() {
 		if (me == null) {
 			me = new ClientEngine();
+			System.out.println("created new clientengine");
 		}
 		return me;
 	}
 
 	public MenuItem[] getMenu() {
-		
 		String[] ss = restHandler.get("/menu/list/").split("\n");
+
 
 		ArrayList<MenuItem> al = new ArrayList<>();
 		for (String s : ss) {
