@@ -3,6 +3,8 @@ package Database;
 import Shared.Filter;
 import Shared.MenuItem;
 
+import java.rmi.RemoteException;
+
 public class ProxyDatabase implements IDatabase
 {
    private ConcreteDatabase database;

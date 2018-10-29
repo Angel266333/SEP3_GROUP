@@ -26,31 +26,23 @@ public class RestListener {
 	public HttpHandler stdHandler = new HttpHandler() {
 		@Override
 		public void handle(HttpExchange httpExchange) throws IOException {
-			if(httpExchange.getRequestMethod().equals("GET")) {
-				System.out.println("it's get");
-			}
-			String response = "Hello world";
-			httpExchange.sendResponseHeaders(200, response.getBytes().length);
-			OutputStream os = httpExchange.getResponseBody();
-			os.write(response.getBytes());
-			os.close();
+			httpExchange.sendResponseHeaders(200, "Hello World".getBytes().length);
+			httpExchange.getResponseBody().write("Hello World".getBytes());
+			httpExchange.getResponseBody().close();
 		}
 	};
 
 	public HttpHandler menuListHandler = new HttpHandler() {
 		@Override
 		public void handle(HttpExchange httpExchange) throws IOException {
-			if(!httpExchange.getRequestMethod().equals("GET")) {
-				return;
-			}
 			MenuItem[] menuItems = server.getMenuItems(null);
-			System.out.println("menu-list");
 			StringBuilder sb = new StringBuilder();
 			for (MenuItem m : menuItems) {
 				sb.append(m.toString());
 				sb.append('\n');
 			}
 			String response = sb.toString();
+			System.out.println(response);
 			httpExchange.sendResponseHeaders(200, response.getBytes().length);
 			OutputStream os = httpExchange.getResponseBody();
 			os.write(response.getBytes());

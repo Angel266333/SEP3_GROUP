@@ -10,13 +10,12 @@ public class ClientEngine {
 	private IRestHandler restHandler;
 
 	private ClientEngine() {
-		restHandler = new RestHandler("localhost:8001");
+		restHandler = new RestHandler("http://localhost:8001");
 	}
 
 	public static ClientEngine getInstance() {
 		if (me == null) {
 			me = new ClientEngine();
-			System.out.println("created new clientengine");
 		}
 		return me;
 	}

@@ -16,18 +16,28 @@ public class Server {
 	RestListener rs;
 	IDatabase database;
 
-	public Server() throws NotBoundException, IOException {
-		registry = LocateRegistry.getRegistry("localhost", 1099);
-		database = (IDatabase) registry.lookup("Database");
-		rs = new RestListener(this);
-		rs.start();
+	public Server() {
+		try {
+			registry = LocateRegistry.getRegistry("localhost", 1099);
+			database = (IDatabase) registry.lookup("Database");
+			rs = new RestListener(this);
+			rs.start();
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
-	public MenuItem[] getMenuItems(Filter filter) throws RemoteException {
-		return database.search(filter);
+	public MenuItem[] getMenuItems(Filter filter) {
+		try {
+			return database.search(filter);
+		} catch(RemoteException re) {
+			System.out.println(re.getMessage());
+			re.printStackTrace();
+			return null;
+		}
 	}
 
-	public static void main(String[] args) throws NotBoundException, IOException {
+	public static void main(String[] args) {
 		System.out.println("Type 'exit' to terminate server");
 		Scanner keyboard = new Scanner(System.in);
 		Server server = new Server();

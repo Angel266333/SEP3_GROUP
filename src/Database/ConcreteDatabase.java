@@ -1,5 +1,6 @@
 package Database;
 
+import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -41,6 +42,7 @@ public class ConcreteDatabase implements IDatabase {
 
 	@Override
 	public MenuItem[] search(Filter menuFilter) {
+		System.out.println("Running");
 		if (menuFilter == null) {
 			PreparedStatement statement;
 			try {
@@ -48,7 +50,6 @@ public class ConcreteDatabase implements IDatabase {
 				ArrayList<MenuItem> menuItems = new ArrayList<>();
 				ResultSet rs = statement.executeQuery();
 				while (rs.next()) {
-					System.out.println("looping on database");
 					MenuItem item = new MenuItem(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4));
 					menuItems.add(item);
 				}
