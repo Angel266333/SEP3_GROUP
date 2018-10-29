@@ -1,6 +1,7 @@
 package Shared;
 
-public class Filter
-{
+import java.io.Serializable;
+
+public class Filter implements Serializable {
 
 }
