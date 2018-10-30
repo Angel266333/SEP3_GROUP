@@ -1,11 +1,16 @@
 package Shared;
 
-import Utils.JsonBuilder;
-import Utils.JsonParser;
+import Utils.JsonMapper;
 
+import javax.json.Json;
+
+import java.io.Serializable;
 import java.util.Map;
 
-public class MenuItem {
+public class MenuItem implements Serializable {
+	
+	private static final long serialVersionUID = 5362694205303093435L;
+	
 	public int id;
 	public String name;
 	public String description;
@@ -22,18 +27,18 @@ public class MenuItem {
 
 	@Override
 	public String toString() {
-		JsonBuilder jb = new JsonBuilder();
-		jb.add("id", id);
-		jb.add("name", name);
-		jb.add("description", description);
-		jb.add("isAvailable", isAvailable);
-		return jb.toString();
+		return Json.createObjectBuilder()
+				.add("id", id)
+				.add("name", name)
+				.add("description", description)
+				.add("isAvailable", isAvailable)
+				.build().toString();
 	}
 
 	public static MenuItem fromString(String serial) {
-		Map<String, String> map = JsonParser.parse(serial);
-		int id = Integer.parseInt(map.get("id"));
-		boolean ia = ("true".equals(map.get("isAvailable")));
-		return new MenuItem(id, map.get("name"), map.get("description"), ia);
+		Map<String, String> map = JsonMapper.parse(serial);
+		int i = Integer.parseInt(map.get("id"));
+		boolean ia = map.get("isAvailable").equals("true");
+		return new MenuItem(i, map.get("name"), map.get("description"), ia);
 	}
 }

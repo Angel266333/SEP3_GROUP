@@ -1,6 +1,5 @@
 package Client;
 
-
 import Shared.MenuItem;
 
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ public class ClientEngine {
 	}
 
 	public static ClientEngine getInstance() {
-		if(me == null) {
+		if (me == null) {
 			me = new ClientEngine();
 		}
 		return me;
@@ -24,8 +23,9 @@ public class ClientEngine {
 	public MenuItem[] getMenu() {
 		String[] ss = restHandler.get("/menu/list/").split("\n");
 
+
 		ArrayList<MenuItem> al = new ArrayList<>();
-		for(String s : ss) {
+		for (String s : ss) {
 			al.add(MenuItem.fromString(s));
 		}
 
@@ -35,9 +35,8 @@ public class ClientEngine {
 	}
 
 //	Make a method for each type of action that the client should support.
-//	Each method performs the REST http reuest on the server, interprets the
+//	Each method performs the REST request on the server, interprets the
 //	response and returns appropriate data objects.
 //
 //	Client and server are tied using a REST protocol
-
 }
