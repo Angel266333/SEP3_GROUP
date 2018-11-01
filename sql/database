@@ -4,7 +4,7 @@ set search_path = 'Kartofil';
 
 CREATE DOMAIN nameof VARCHAR(255);
 
-CREATE TABLE restTable(
+CREATE TABLE seat(
 id_table SERIAL Primary Key,
 nameof_table nameof
 );
