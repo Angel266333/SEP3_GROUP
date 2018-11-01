@@ -18,12 +18,21 @@ public class MenuItemTest
       item.isAvailable = true;
    }
    
+   
+   // Serialization does not corrupt the object.
    @Test
    public void test()
    {
       MenuItem item2 = MenuItem.fromString(item.toString());
       
       assertEquals(item.toString(), item2.toString());
+      
+      item.id = 10;
+      
+      assertNotEquals(item.toString(), item2.toString());
+      
+      
    }
- 
+  
+  
 }
