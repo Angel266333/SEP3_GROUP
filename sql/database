@@ -47,7 +47,7 @@ CONSTRAINT fk_menuItem_ingredient_ingredient FOREIGN KEY (nameof) REFERENCES ing
 
 --Populating Database 
 
-INSERT INTO restTable(nameof_table)
+INSERT INTO seat(nameof_table)
 VALUES('first'),
       ('second');
 
@@ -77,7 +77,7 @@ VALUES (1,'Tomato'),
        
 --Testing DataBase
 
-SELECT * FROM restTable;
+SELECT * FROM seat;
 SELECT * FROM orders;
 SELECT * FROM menuItem;
 SELECT * FROM menuItem_order;
