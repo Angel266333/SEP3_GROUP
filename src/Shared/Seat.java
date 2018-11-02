@@ -1,6 +1,11 @@
 package Shared;
 
 import java.io.Serializable;
+import java.util.Map;
+
+import javax.json.Json;
+
+import Utils.JsonMapper;
 
 public class Seat implements Serializable
 {  
@@ -18,17 +23,25 @@ public class Seat implements Serializable
    @Override
    public String toString()
    {
-      return null;
-      
-      //TO DO
+      return Json.createObjectBuilder()
+            .add("id",id)
+            .add("isOccupied", isOccupied)
+            .build().toString();
+ 
    }
    
    
-   public static String fromString()
+   public static Seat fromString(String serial)
    {
-      return null;
+      Map<String,String> map = JsonMapper.parse(serial);
       
-      //TO DO
+      int id = Integer.parseInt(map.get("id"));
+      
+      boolean isO = map.get("isOccupied").equals("true");
+      
+      return new Seat(id, isO);
+      
+      
    }
    
    

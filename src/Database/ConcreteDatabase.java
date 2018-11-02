@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import Shared.Filter;
 import Shared.MenuItem;
+import Shared.Seat;
 
 public class ConcreteDatabase implements IDatabase {
 	public Connection connection;
@@ -17,7 +18,7 @@ public class ConcreteDatabase implements IDatabase {
 	public ConcreteDatabase() throws ClassNotFoundException, SQLException {
 		Class.forName("org.postgresql.Driver");
 
-		connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
+		connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "dana");
 	}
 
 	@Override
@@ -70,5 +71,27 @@ public class ConcreteDatabase implements IDatabase {
 			System.out.println(m);
 		}
 	}
+
+   @Override
+   public Seat getSeat(int id) throws RemoteException
+   {
+     PreparedStatement statement;
+     try
+   {
+      statement = connection.prepareStatement("SELECT * FROM \"Kartofil\".seat WHERE id_table =?");
+      statement.setInt(1, id);
+      ResultSet rs = statement.executeQuery();
+      rs.next();
+      return new Seat(rs.getInt(1),rs.getBoolean(2));
+      
+   }
+   catch (SQLException e)
+   {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+   }
+     
+     return null;
+   }
 }
 

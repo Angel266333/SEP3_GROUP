@@ -36,6 +36,20 @@ public class Server {
 			return null;
 		}
 	}
+	
+	public Seat getSeat(int id)
+	{
+	   try
+      {
+         return database.getSeat(id);
+      }
+      catch (RemoteException e)
+      {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
+	   return null;
+	}
 
 	public static void main(String[] args) {
 		System.out.println("Type 'exit' to terminate server");
@@ -50,4 +64,6 @@ public class Server {
 		}
 		server.rs.stop();
 	}
+	
+	
 }

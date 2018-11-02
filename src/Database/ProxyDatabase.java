@@ -2,6 +2,7 @@ package Database;
 
 import Shared.Filter;
 import Shared.MenuItem;
+import Shared.Seat;
 
 import java.rmi.RemoteException;
 
@@ -26,6 +27,13 @@ public class ProxyDatabase implements IDatabase
 
    @Override
    public MenuItem[] search(Filter menuFilter)
+   {
+      // TODO Auto-generated method stub
+      return null;
+   }
+
+   @Override
+   public Seat getSeat(int id) throws RemoteException
    {
       // TODO Auto-generated method stub
       return null;
