@@ -2,6 +2,10 @@ create schema "Kartofil";
 
 set search_path = 'Kartofil';
 
+create schema "Kartofil";
+
+set search_path = 'Kartofil';
+
 CREATE DOMAIN nameof VARCHAR(255);
 
 CREATE TABLE seat(
@@ -15,7 +19,7 @@ CREATE TABLE orders(
 	status VARCHAR(255),
 	feedback VARCHAR(255),
 	receipt TEXT,
-	CONSTRAINT fk_orders_restTable FOREIGN KEY (table_id) REFERENCES restTable(id_table)
+	CONSTRAINT fk_orders_seat FOREIGN KEY (table_id) REFERENCES seat(id_table)
 );
 CREATE TABLE menuItem(
 	item_id SERIAL Primary Key,
@@ -47,9 +51,9 @@ CONSTRAINT fk_menuItem_ingredient_ingredient FOREIGN KEY (nameof) REFERENCES ing
 
 --Populating Database 
 
-INSERT INTO seat(nameof_table)
-VALUES('first'),
-      ('second');
+INSERT INTO seat(isOccupied)
+VALUES(true),
+      (false);
 
 INSERT INTO orders(table_id,status,feedback,receipt)
 VALUES(1,'in process', 'i like it','the price is 200DKK'),
@@ -84,4 +88,3 @@ SELECT * FROM menuItem_order;
 SELECT * FROM ingredient;
 SELECT * FROM menuItem_ingredient;
 DELETE FROM menuItem_ingredient WHERE nameof = 'Tomato';
-
