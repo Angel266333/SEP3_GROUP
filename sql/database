@@ -6,7 +6,7 @@ CREATE DOMAIN nameof VARCHAR(255);
 
 CREATE TABLE seat(
 id_table SERIAL Primary Key,
-nameof_table nameof
+isOccupied boolean
 );
 
 CREATE TABLE orders(
