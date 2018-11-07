@@ -5,11 +5,11 @@ import com.sun.net.httpserver.HttpHandler;
 
 import java.io.IOException;
 
+import static Server.REST.Response.OK;
+
 public class StdHandler implements HttpHandler {
 	@Override
 	public void handle(HttpExchange httpExchange) throws IOException {
-		httpExchange.sendResponseHeaders(200, "Hello World".getBytes().length);
-		httpExchange.getResponseBody().write("Hello World".getBytes());
-		httpExchange.getResponseBody().close();
+		OK(httpExchange, "Hello World".getBytes());
 	}
 }
