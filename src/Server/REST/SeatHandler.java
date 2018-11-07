@@ -13,16 +13,16 @@ import static Server.REST.Response.notFound;
 public class SeatHandler implements HttpHandler {
 	@Override
 	public void handle(HttpExchange httpExchange) throws IOException {
-		String method = httpExchange.getRequestMethod();
-		if(method.equals("GET")) {
-			GET(httpExchange);
-			return;
+		switch(httpExchange.getRequestMethod()) {
+			case "GET":
+				GET(httpExchange);
+				break;
+			case "PUT":
+				PUT(httpExchange);
+				break;
+			default:
+				badRequest(httpExchange);
 		}
-		if(method.equals("PUT")) {
-			PUT(httpExchange);
-			return;
-		}
-		badRequest(httpExchange);
 	}
 
 	// user story two
