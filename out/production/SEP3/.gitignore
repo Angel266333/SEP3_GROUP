@@ -1,4 +1,6 @@
-/test/
-/Shared/
+/Client/
 /Database/
 /Server/
+/Shared/
+/Utils/
+/test/
