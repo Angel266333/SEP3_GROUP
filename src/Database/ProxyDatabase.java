@@ -39,4 +39,11 @@ public class ProxyDatabase implements IDatabase
       return null;
    }
 
+   @Override
+   public int update(Seat seat) throws RemoteException
+   {
+      // TODO Auto-generated method stub
+      return 0;
+   }
+
 }

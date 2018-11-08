@@ -9,36 +9,45 @@ import Database.IDatabase;
 import Server.REST.RestListener;
 import Shared.*;
 
-public class Server {
+public class Server
+{
 
-	Registry registry;
-	RestListener rs;
-	IDatabase database;
+   Registry registry;
+   RestListener rs;
+   IDatabase database;
 
-	public Server() {
-		try {
-			registry = LocateRegistry.getRegistry("localhost", 1099);
-			database = (IDatabase) registry.lookup("Database");
-			rs = new RestListener(this);
-			rs.start();
-		} catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
+   public Server()
+   {
+      try
+      {
+         registry = LocateRegistry.getRegistry("localhost", 1099);
+         database = (IDatabase) registry.lookup("Database");
+         rs = new RestListener(this);
+         rs.start();
+      }
+      catch (Exception e)
+      {
+         System.out.println(e.getMessage());
+      }
+   }
 
-	public MenuItem[] getMenuItems(Filter filter) {
-		try {
-			return database.search(filter);
-		} catch(RemoteException re) {
-			System.out.println(re.getMessage());
-			re.printStackTrace();
-			return null;
-		}
-	}
-	
-	public Seat getSeat(int id)
-	{
-	   try
+   public MenuItem[] getMenuItems(Filter filter)
+   {
+      try
+      {
+         return database.search(filter);
+      }
+      catch (RemoteException re)
+      {
+         System.out.println(re.getMessage());
+         re.printStackTrace();
+         return null;
+      }
+   }
+
+   public Seat getSeat(int id)
+   {
+      try
       {
          return database.getSeat(id);
       }
@@ -47,22 +56,37 @@ public class Server {
          // TODO Auto-generated catch block
          e.printStackTrace();
       }
-	   return null;
-	}
+      return null;
+   }
 
-	public static void main(String[] args) {
-		System.out.println("Type 'exit' to terminate server");
-		Scanner keyboard = new Scanner(System.in);
-		Server server = new Server();
-		String usrInput;
-		while(true) {
-			usrInput = keyboard.nextLine();
-			if (usrInput.equals("exit")) {
-				break;
-			}
-		}
-		server.rs.stop();
-	}
-	
-	
+   public int updateSeat(Seat seat)
+   {
+      try
+      {
+         return database.update(seat);
+      }
+      catch (RemoteException e)
+      {
+         return 3;
+      }
+
+   }
+
+   public static void main(String[] args)
+   {
+      System.out.println("Type 'exit' to terminate server");
+      Scanner keyboard = new Scanner(System.in);
+      Server server = new Server();
+      String usrInput;
+      while (true)
+      {
+         usrInput = keyboard.nextLine();
+         if (usrInput.equals("exit"))
+         {
+            break;
+         }
+      }
+      server.rs.stop();
+   }
+
 }

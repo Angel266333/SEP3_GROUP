@@ -1,5 +1,6 @@
 package Database;
 
+import java.beans.Statement;
 import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -92,6 +93,33 @@ public class ConcreteDatabase implements IDatabase {
    }
      
      return null;
+   }
+
+   @Override
+   public int update(Seat seat) throws RemoteException
+   {
+      PreparedStatement statement;
+      
+      try
+      {
+         statement = connection.prepareStatement("UPDATE \"Kartofil\".seat set isOccupied =?  WHERE id_table =?");
+         statement.setBoolean(1, seat.isOccupied);
+         statement.setInt(2, seat.id);
+         boolean bol = statement.execute();
+         if(bol)
+         {
+            return 0;
+         }
+         
+         return 1;
+         
+      }
+      catch (SQLException e)
+      {
+       return 2;
+      }
+      
+      
    }
 }
 

@@ -13,4 +13,5 @@ public interface IDatabase extends Remote
    public int remove(MenuItem item) throws RemoteException;
    public MenuItem[] search(Filter menuFilter) throws RemoteException;
    public Seat getSeat(int id) throws RemoteException;
+   public int update(Seat seat) throws RemoteException;
 }
