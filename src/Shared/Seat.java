@@ -13,6 +13,9 @@ public class Seat implements Serializable
    public int id;
    public boolean isOccupied;
    
+   public Seat() {
+	   
+   }
    
    public Seat(int id, boolean isOccupied)
    {

@@ -3,7 +3,11 @@ package Server.REST;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
+import Shared.Seat;
+
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URI;
 
 import static Server.REST.Response.OK;
@@ -43,7 +47,32 @@ public class SeatHandler implements HttpHandler {
 	}
 
 	public void PUT(HttpExchange httpExchange) throws IOException {
-		badRequest(httpExchange);
-		//TODO Handle put
+		URI uri = httpExchange.getRequestURI();
+		byte[] respond = "".getBytes();
+		try {
+		String s = uri.getPath().split("/")[2];
+		int id = Integer.parseInt(s);
+		BufferedReader reader = new BufferedReader(new InputStreamReader(httpExchange.getRequestBody(), "utf-8"));
+		StringBuilder strBuilder = new StringBuilder();
+		int b;
+		// We read one character at a time then, we put it in a StringBuilder.
+		// When the InputStream finishes reading, it returns -1. We read until we reach this value.
+		while ((b = reader.read()) != -1) {
+			strBuilder.append((char) b);
+		}
+		reader.close();
+		Seat seat = Seat.fromString(strBuilder.toString());
+		System.out.println(seat.toString());
+		OK(httpExchange, respond);		
+		}
+		// If there is no ID, we go to the ArrayIndexOutOfBoundsException.
+		catch (ArrayIndexOutOfBoundsException e) {
+		} 
+		// If this exception is triggered, then the system throws a bad request - HTTP 400.
+		catch (NumberFormatException o) {
+			badRequest(httpExchange);
+		}
+		
+		
 	}
 }
