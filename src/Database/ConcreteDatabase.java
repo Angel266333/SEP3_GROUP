@@ -105,18 +105,14 @@ public class ConcreteDatabase implements IDatabase {
          statement = connection.prepareStatement("UPDATE \"Kartofil\".seat set isOccupied =?  WHERE id_table =?");
          statement.setBoolean(1, seat.isOccupied);
          statement.setInt(2, seat.id);
-         boolean bol = statement.execute();
-         if(bol)
-         {
-            return 0;
-         }
+         statement.execute();
          
-         return 1;
+         return 0;//Return 1 if the database rejected the request.
          
       }
       catch (SQLException e)
       {
-       return 2;
+       return 2;//If you have a SQL error.
       }
       
       

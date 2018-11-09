@@ -67,10 +67,12 @@ public class Server
       }
       catch (RemoteException e)
       {
-         return 3;
+         return 3; //If we get a remote exception (check others in ConcreteDatabase.update).
       }
 
    }
+   
+  
 
    public static void main(String[] args)
    {

@@ -1,18 +1,15 @@
 package Server.REST;
 
+import static Server.REST.Response.*;
+
+import java.io.IOException;
+import java.net.URI;
+
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
 import Shared.Seat;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URI;
-
-import static Server.REST.Response.OK;
-import static Server.REST.Response.badRequest;
-import static Server.REST.Response.notFound;
+import Utils.BodyReader;
 
 public class SeatHandler implements HttpHandler
 {
@@ -64,27 +61,25 @@ public class SeatHandler implements HttpHandler
       {
          String s = uri.getPath().split("/")[2];
          int id = Integer.parseInt(s);
-         BufferedReader reader = new BufferedReader(
-               new InputStreamReader(httpExchange.getRequestBody(), "utf-8"));
-         StringBuilder strBuilder = new StringBuilder();
-         int b;
-         // We read one character at a time then, we put it in a StringBuilder.
-         // When the InputStream finishes reading, it returns -1. We read until
-         // we reach this value.
-         while ((b = reader.read()) != -1)
-         {
-
-            strBuilder.append((char) b);
+         String body = BodyReader.readString(httpExchange.getRequestBody());
+         Seat seat1 = Seat.fromString(body);
+         if(seat1.id!=id) {
+        	 badRequest(httpExchange);
+        	 return;//break to not continue executing the method.
          }
-
-         reader.close();
-         System.out.println(strBuilder.toString());
-         OK(httpExchange, respond);
+         int i = RestListener.server.updateSeat(seat1);//Indicates if the update was performed successfully.
+         if(i==0) {//If it succeeds.
+        	 OK(httpExchange, "ok".getBytes());
+         }
+         if(i>0) {//Return 1 if the database rejected the request.
+        	 internalError(httpExchange);
+        	 System.out.println(i);
+         }
       }
       // If there is no ID, we go to the ArrayIndexOutOfBoundsException.
       catch (ArrayIndexOutOfBoundsException e)
-      {
-
+      {		
+    	  	badRequest(httpExchange);
       }
       // If this exception is triggered, then the system throws a bad request -
       // HTTP 400.
