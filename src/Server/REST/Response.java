@@ -40,5 +40,5 @@ public class Response {
 		os.flush();
 		os.close();
 	}
-	
+
 }

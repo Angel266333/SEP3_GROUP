@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import Shared.Filter;
 import Shared.MenuItem;
+import Shared.Order;
 import Shared.Seat;
 
 public class ConcreteDatabase implements IDatabase {
@@ -71,6 +72,23 @@ public class ConcreteDatabase implements IDatabase {
 		for (MenuItem m : arrayTest) {
 			System.out.println(m);
 		}
+	}
+	@Override
+	public Order getOrder(int id) throws RemoteException
+	{
+		PreparedStatement statement;
+		try
+		{
+			statement = connection.prepareStatement("SELECT * FROM \"Kartofil\".order WHERE id_table =?");
+			statement.setInt(1, id);
+			ResultSet rs = statement.executeQuery();
+			rs.next();
+			return new Order(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(4));
+		} catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		return null;
 	}
 
    @Override
