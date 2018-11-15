@@ -9,10 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import Shared.Filter;
-import Shared.MenuItem;
-import Shared.Order;
-import Shared.Seat;
+import Shared.*;
 
 public class ConcreteDatabase implements IDatabase {
 	public Connection connection;
@@ -125,12 +122,12 @@ public class ConcreteDatabase implements IDatabase {
          statement.setInt(2, seat.id);
          statement.execute();
          
-         return 0;//Return 1 if the database rejected the request.
+         return 0;
          
       }
       catch (SQLException e)
       {
-       return 2;//If you have a SQL error.
+       return ERROR.DATABASE_ERROR;//If you have a SQL error.
       }
       
       
