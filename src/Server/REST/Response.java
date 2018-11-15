@@ -31,4 +31,14 @@ public class Response {
 		os.flush();
 		os.close();
 	}
+
+	public static void internalError(HttpExchange httpExchange) throws IOException {
+		byte[] respond = "500 Internal Error".getBytes();
+		httpExchange.sendResponseHeaders(500, respond.length);
+		OutputStream os = httpExchange.getResponseBody();
+		os.write(respond);
+		os.flush();
+		os.close();
+	}
+
 }

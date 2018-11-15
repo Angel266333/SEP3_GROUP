@@ -9,7 +9,7 @@ set search_path = 'Kartofil';
 CREATE DOMAIN nameof VARCHAR(255);
 
 CREATE TABLE seat(
-id_table SERIAL Primary Key,
+table_id SERIAL Primary Key,
 isOccupied boolean
 );
 

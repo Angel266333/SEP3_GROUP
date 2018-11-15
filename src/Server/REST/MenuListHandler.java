@@ -13,7 +13,7 @@ public class MenuListHandler implements HttpHandler {
 	public void handle(HttpExchange httpExchange) throws IOException {
 		MenuItem[] menuItems = RestListener.server.getMenuItems(null);
 		StringBuilder sb = new StringBuilder();
-		for(MenuItem m : menuItems) {
+		for (MenuItem m : menuItems) {
 			sb.append(m.toString());
 			sb.append('\n');
 		}

@@ -22,14 +22,14 @@ public class Main {
 			registryDatabase.bind("Database", database);
 			System.out.println("Looping");
 			String usrInput;
-			while(true) {
+			while (true) {
 				usrInput = keyboard.nextLine();
 				System.out.println("Read a line");
-				if(usrInput.equals("exit")) {
+				if (usrInput.equals("exit")) {
 					break;
 				}
 			}
-		} catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}

@@ -9,9 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import Shared.Filter;
-import Shared.MenuItem;
-import Shared.Seat;
+import Shared.*;
 
 public class ConcreteDatabase implements IDatabase {
 	public Connection connection;
@@ -72,6 +70,23 @@ public class ConcreteDatabase implements IDatabase {
 			System.out.println(m);
 		}
 	}
+	@Override
+	public Order getOrder(int id) throws RemoteException
+	{
+		PreparedStatement statement;
+		try
+		{
+			statement = connection.prepareStatement("SELECT * FROM \"Kartofil\".order WHERE id_table =?");
+			statement.setInt(1, id);
+			ResultSet rs = statement.executeQuery();
+			rs.next();
+			return new Order(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(4));
+		} catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
 
    @Override
    public Seat getSeat(int id) throws RemoteException
@@ -105,18 +120,14 @@ public class ConcreteDatabase implements IDatabase {
          statement = connection.prepareStatement("UPDATE \"Kartofil\".seat set isOccupied =?  WHERE id_table =?");
          statement.setBoolean(1, seat.isOccupied);
          statement.setInt(2, seat.id);
-         boolean bol = statement.execute();
-         if(bol)
-         {
-            return 0;
-         }
+         statement.execute();
          
-         return 1;
+         return 0;
          
       }
       catch (SQLException e)
       {
-       return 2;
+       return ERROR.DATABASE_ERROR;//If you have a SQL error.
       }
       
       
