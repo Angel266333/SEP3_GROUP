@@ -45,6 +45,14 @@ public class Server {
 		return null;
 	}
 
+	public int updateOrderStatus(int id, String status) {
+		if(Order.STATUS.forName(status) == null) {
+			return ERROR.INVALID_DATA_VALUE;
+		}
+		//TODO Set status
+		return 0;
+	}
+
 	public Seat getSeat(int id) {
 		try {
 			return database.getSeat(id);
@@ -59,7 +67,7 @@ public class Server {
 		try {
 			return database.update(seat);
 		} catch (RemoteException e) {
-			return 3; // If we get a remote exception (check others in ConcreteDatabase.update).
+			return ERROR.REMOTE_EXCEPTION; // If we get a remote exception (check others in ConcreteDatabase.update).
 		}
 
 	}
