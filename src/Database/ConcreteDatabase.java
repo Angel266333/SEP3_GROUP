@@ -17,7 +17,7 @@ public class ConcreteDatabase implements IDatabase {
 	public ConcreteDatabase() throws ClassNotFoundException, SQLException {
 		Class.forName("org.postgresql.Driver");
 
-		connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "dana");
+		connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "Universo12");
 	}
 
 	@Override
@@ -127,10 +127,26 @@ public class ConcreteDatabase implements IDatabase {
       }
       catch (SQLException e)
       {
-       return ERROR.DATABASE_ERROR;//If you have a SQL error.
+          return ERROR.DATABASE_ERROR;//If you have a SQL error.
       }
       
       
    }
+
+	@Override
+	public int updateOrderStatus(int id, String status) throws RemoteException {
+		PreparedStatement statement;
+        try {
+			statement = connection.prepareStatement("UPDATE \"Kartofil\".orders set status = ?  WHERE order_id = ?");
+			statement.setString(1, status);
+			statement.setInt(2, id);
+			statement.execute();
+		} catch (SQLException e) {
+			
+		    return ERROR.DATABASE_ERROR;//If you have a SQL error.
+		
+		}
+		return 0; // We return 0 when it is successful. This int will be used in the Server class updateOrderStatus method.
+	}
 }
 

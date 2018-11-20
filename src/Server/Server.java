@@ -49,8 +49,14 @@ public class Server {
 		if(Order.STATUS.forName(status) == null) {
 			return ERROR.INVALID_DATA_VALUE;
 		}
-		//TODO Set status
-		return 0;
+		try {
+			int i = database.updateOrderStatus(id, status);
+			return i;
+			
+		} catch (RemoteException e) {
+			
+			return ERROR.REMOTE_EXCEPTION;
+		}
 	}
 
 	public Seat getSeat(int id) {

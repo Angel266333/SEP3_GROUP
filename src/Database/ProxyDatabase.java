@@ -46,4 +46,9 @@ public class ProxyDatabase implements IDatabase {
 		return 0;
 	}
 
+	@Override
+	public int updateOrderStatus(int id, String status) throws RemoteException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
