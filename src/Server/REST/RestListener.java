@@ -12,10 +12,14 @@ public class RestListener {
 	public static Server server;
 	// TODO - Convert HTTP to HTTPS.
 	HttpServer hServer;
+	//For HTTPS
+	//HttpsServer hServer;
 
 	public RestListener(Server server) throws IOException {
 		this.server = server;
 		hServer = HttpServer.create(new InetSocketAddress(8001), 0);
+		//For HTTPS
+		//hServer = HttpsServerCreator.create(new InetSocketAddress(8001));
 		hServer.setExecutor(null);
 		hServer.createContext("/menu/list/", new MenuListHandler());
 		hServer.createContext("/", new StdHandler());
