@@ -3,8 +3,10 @@ package Server.REST;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import Server.REST.OrderStatusHandler;
+import Utils.HttpsServerCreator;
 
 import com.sun.net.httpserver.HttpServer;
+import com.sun.net.httpserver.HttpsServer;
 
 import Server.Server;
 
@@ -17,7 +19,7 @@ public class RestListener {
 
 	public RestListener(Server server) throws IOException {
 		this.server = server;
-		hServer = HttpServer.create(new InetSocketAddress(8001), 0);
+		hServer = (HttpsServer) HttpServer.create(new InetSocketAddress(8001), 0);
 		//For HTTPS
 		//hServer = HttpsServerCreator.create(new InetSocketAddress(8001));
 		hServer.setExecutor(null);
