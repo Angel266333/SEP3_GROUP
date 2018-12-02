@@ -15,7 +15,7 @@ namespace Client
         private NetworkStream ns;
         private byte[] data = new byte[1024];
         private bool connected = false;
-
+        public StreamReader read;
         public Client()
         {
         }
@@ -36,6 +36,7 @@ namespace Client
                     client = new TcpClient("localhost", 8002);
                     ns = client.GetStream();
                     connected = true;
+                    read = new StreamReader(ns);
                 }
                 catch ( SocketException )
                 {
@@ -51,9 +52,7 @@ namespace Client
                 try
                 {
                     data = new byte[1024];
-                    int recv = ns.Read(data, 0, data.Length);
-                    string Data = Encoding.ASCII.GetString(data, 0, recv);
-                    Console.WriteLine( "Incoming message: {0} ", Data );
+                    Console.WriteLine(read.ReadLine());
                 }
                 catch ( IOException )
                 {

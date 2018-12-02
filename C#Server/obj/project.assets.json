@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\Client\\Client.csproj",
+      "projectUniqueName": "c:\\Users\\User\\Desktop\\UNI 3th Semester\\SEP\\C#Server\\Client.csproj",
       "projectName": "Client",
-      "projectPath": "C:\\Users\\User\\Desktop\\Client\\Client.csproj",
+      "projectPath": "c:\\Users\\User\\Desktop\\UNI 3th Semester\\SEP\\C#Server\\Client.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\Client\\obj\\",
+      "outputPath": "c:\\Users\\User\\Desktop\\UNI 3th Semester\\SEP\\C#Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

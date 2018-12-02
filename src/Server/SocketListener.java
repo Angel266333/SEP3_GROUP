@@ -47,7 +47,7 @@ public class SocketListener implements Runnable {
 		}
 	}
 
-	public void command(String command) {
+	public void command(String command) throws IOException {
 		String[] commands = command.split(" ");
 		System.out.println(command);
 		switch (commands[0]) {
@@ -63,8 +63,8 @@ public class SocketListener implements Runnable {
 			for (MenuItem i : items) {
 				response(i.toString());
 			}
-			response("\n");
-		// The Web Server sends a command â€œSUBMITORDERâ€�  and in turn, the Server returns an OK response.
+			writer.newLine();
+			// The Web Server sends a command â€œSUBMITORDERâ€�  and in turn, the Server returns an OK response.
 		case "SUBMITORDER":
 			//TODO
 		}
