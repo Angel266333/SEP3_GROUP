@@ -24,42 +24,42 @@ public class SocketListener implements Runnable {
 		try {
 			this.server = server;
 			serverSocket = new ServerSocket(8002);
-			socket = serverSocket.accept();
-			reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), Charset.forName("UTF-8")));
-			writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	@Override
 	public void run() {
-		while (true) {
-			try {
+		try {
+			socket = serverSocket.accept();
+			reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), Charset.forName("UTF-8")));
+			writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+			while(!socket.isClosed()) {
 				String s = reader.readLine();
 				command(s);
-			} catch (IOException e) {
-				e.printStackTrace();
 			}
+		} catch(IOException e) {
+			e.printStackTrace();
 		}
 	}
 
 	public void command(String command) {
 		String[] commands = command.split(" ");
 		switch (commands[0]) {
-		// The Web Server sends a string, for example ìGETORDER 4î to the Server 
+		// The Web Server sends a string, for example ‚ÄúGETORDER 4‚Äù to the Server 
 		// that in turn is followed by a response from the Server with the specific order data 
 		// that was requested. If the ID is not specified, all orders are returned in the form of an array.
 		case "GETORDER":
 			int id = Integer.parseInt(commands[1]);
 			Order order = server.getOrder(id);
-		// The Web Server sends ìGETMENUITEMSî and in turn, the Server sends an array of menu items.
+		// The Web Server sends ‚ÄúGETMENUITEMS‚Äù and in turn, the Server sends an array of menu items.
 		case "GETMENUITEMS":
 			MenuItem[] items = server.getMenuItems(null);
 			for (MenuItem i : items) {
 				response(i.toString());
 			}
 			response("\n");
-		// The Web Server sends a command ìSUBMITORDERî  and in turn, the Server returns an OK response.
+		// The Web Server sends a command ‚ÄúSUBMITORDER‚Äù  and in turn, the Server returns an OK response.
 		case "SUBMITORDER":
 			//TODO
 		}
