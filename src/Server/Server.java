@@ -25,6 +25,11 @@ public class Server {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public MenuItem[] addMenuItem(int id) {
+		//TODO
+		return null;
+	}
 
 	public MenuItem[] getMenuItems(Filter filter) {
 		try {
