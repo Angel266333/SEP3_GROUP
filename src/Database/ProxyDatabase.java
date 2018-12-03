@@ -51,4 +51,11 @@ public class ProxyDatabase implements IDatabase {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+   @Override
+   public int placeOrder(Order order) throws RemoteException
+   {
+      // TODO Auto-generated method stub
+      return 0;
+   }
 }

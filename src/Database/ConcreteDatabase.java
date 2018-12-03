@@ -153,11 +153,12 @@ public class ConcreteDatabase implements IDatabase {
 	public int placeOrder(Order order) throws RemoteException {
 		PreparedStatement statement;
 		try {
-			statement = connection.prepareStatement("INSERT INTO \"Kartofil\".orders VALUES (table_id, status, feedback, receipt)");
+			statement = connection.prepareStatement("INSERT INTO \"Kartofil\".orders (table_id, status, feedback, receipt) VALUES (?, ?, ?, ?)");
 			statement.setInt(1, order.idTable);
 			statement.setString(2, order.status);
 			statement.setString(3, order.comment);
 			statement.setString(4, order.receipt);
+			//System.out.println(statement.toString());
 			statement.execute();
 		} catch (SQLException e) {
 		  return ERROR.DATABASE_ERROR;
