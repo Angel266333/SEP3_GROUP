@@ -16,5 +16,6 @@ public interface IDatabase extends Remote
    public Order getOrder(int id) throws RemoteException;
    public Seat getSeat(int id) throws RemoteException;
    public int update(Seat seat) throws RemoteException;
-	public int updateOrderStatus(int id, String status) throws RemoteException;
+   public int updateOrderStatus(int id, String status) throws RemoteException;
+   public int placeOrder(Order order) throws RemoteException;
 }

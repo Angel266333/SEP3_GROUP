@@ -25,10 +25,19 @@ public class Server {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	public MenuItem[] addMenuItem(int id) {
-		//TODO
+		// TODO
 		return null;
+	}
+
+	public int addOrder(Order order) {
+		try {
+			int i = database.placeOrder(order);
+			return i;
+		} catch (RemoteException e) {
+			return ERROR.REMOTE_EXCEPTION;
+		}
 	}
 
 	public MenuItem[] getMenuItems(Filter filter) {
@@ -51,15 +60,15 @@ public class Server {
 	}
 
 	public int updateOrderStatus(int id, String status) {
-		if(Order.STATUS.forName(status) == null) {
+		if (Order.STATUS.forName(status) == null) {
 			return ERROR.INVALID_DATA_VALUE;
 		}
 		try {
 			int i = database.updateOrderStatus(id, status);
 			return i;
-			
+
 		} catch (RemoteException e) {
-			
+
 			return ERROR.REMOTE_EXCEPTION;
 		}
 	}

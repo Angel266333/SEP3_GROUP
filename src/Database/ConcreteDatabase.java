@@ -148,5 +148,20 @@ public class ConcreteDatabase implements IDatabase {
 		}
 		return 0; // We return 0 when it is successful. This int will be used in the Server class updateOrderStatus method.
 	}
-}
 
+	@Override
+	public int placeOrder(Order order) throws RemoteException {
+		PreparedStatement statement;
+		try {
+			statement = connection.prepareStatement("INSERT INTO \"Kartofil\".orders VALUES (table_id, status, feedback, receipt)");
+			statement.setInt(1, order.idTable);
+			statement.setString(2, order.status);
+			statement.setString(3, order.comment);
+			statement.setString(4, order.receipt);
+			statement.execute();
+		} catch (SQLException e) {
+		  return ERROR.DATABASE_ERROR;
+		}
+		return 0;
+	}
+}
