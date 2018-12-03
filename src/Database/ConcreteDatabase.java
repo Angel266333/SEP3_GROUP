@@ -17,7 +17,7 @@ public class ConcreteDatabase implements IDatabase {
 	public ConcreteDatabase() throws ClassNotFoundException, SQLException {
 		Class.forName("org.postgresql.Driver");
 
-		connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "dana");
+		connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "Universo12");
 	}
 
 	@Override
@@ -163,6 +163,38 @@ public class ConcreteDatabase implements IDatabase {
 		} catch (SQLException e) {
 		  return ERROR.DATABASE_ERROR;
 		}
+		return 0;
+	}
+
+	@Override
+	public int addMenuItem(MenuItem menuItem) throws RemoteException {
+		PreparedStatement statement;
+		try {
+			statement = connection.prepareStatement("INSERT INTO \"Kartofil\".menuItem (menu_name, description, isAvailable) VALUES (?, ?, ?)");
+			statement.setString(1, menuItem.name);
+			statement.setString(2, menuItem.description);
+			statement.setBoolean(3, menuItem.isAvailable);
+			statement.execute();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return ERROR.DATABASE_ERROR;
+		}
+		return 0;
+	}
+
+	@Override
+	public int removeMenuItem(int id) throws RemoteException {
+		PreparedStatement statement;
+			try {
+				statement = connection.prepareStatement("DELETE FROM \"Kartofil\".menuItem WHERE item_id=? CASCADE");
+				statement.setInt(1, id);
+				statement.execute();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return ERROR.DATABASE_ERROR;
+			}
+			
 		return 0;
 	}
 }

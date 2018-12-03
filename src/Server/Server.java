@@ -38,6 +38,24 @@ public class Server {
 		} catch (RemoteException e) {
 			return ERROR.REMOTE_EXCEPTION;
 		}
+	
+	public int addMenuItem(MenuItem menuItem) {
+		try {
+			int i = database.addMenuItem(menuItem);
+			return i;
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return ERROR.REMOTE_EXCEPTION;
+		}
+	}
+	public int removeMenuIten(int id) {
+		try {
+			int i = database.removeMenuItem(id);
+			return i;
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return ERROR.REMOTE_EXCEPTION;
+		}
 	}
 
 	public MenuItem[] getMenuItems(Filter filter) {
