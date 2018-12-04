@@ -1,5 +1,7 @@
 package Utils;
 
+import com.sun.net.httpserver.HttpExchange;
+
 import java.io.*;
 import java.util.UUID;
 
@@ -42,5 +44,9 @@ public class Token {
 
 	public static boolean validate(String token) {
 		return getToken().equals(token);
+	}
+
+	public static boolean validate(HttpExchange httpExchange) {
+		return validate(httpExchange.getRequestHeaders().getFirst("token"));
 	}
 }
