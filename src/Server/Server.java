@@ -8,6 +8,7 @@ import java.util.Scanner;
 import Database.IDatabase;
 import Server.REST.RestListener;
 import Shared.*;
+import Utils.Token;
 
 public class Server {
 
@@ -35,10 +36,11 @@ public class Server {
 		try {
 			int i = database.placeOrder(order);
 			return i;
-		} catch (RemoteException e) {
+		} catch(RemoteException e) {
 			return ERROR.REMOTE_EXCEPTION;
 		}
-	
+	}
+
 	public int addMenuItem(MenuItem menuItem) {
 		try {
 			int i = database.addMenuItem(menuItem);
@@ -48,7 +50,7 @@ public class Server {
 			return ERROR.REMOTE_EXCEPTION;
 		}
 	}
-	public int removeMenuIten(int id) {
+	public int removeMenuItem(int id) {
 		try {
 			int i = database.removeMenuItem(id);
 			return i;
@@ -114,11 +116,20 @@ public class Server {
 		System.out.println("Type 'exit' to terminate server");
 		Scanner keyboard = new Scanner(System.in);
 		Server server = new Server();
+		Token.readToken();
 		String usrInput;
 		while (true) {
 			usrInput = keyboard.nextLine();
 			if (usrInput.equals("exit")) {
 				break;
+			}
+			if(usrInput.equals("token print")) {
+				System.out.println(Token.getToken());
+			}
+			else if(usrInput.equals("token generate")) {
+				System.out.println("Generating new token...");
+				Token.generateToken();
+				System.out.println("New token is: " + Token.getToken());
 			}
 		}
 		server.rs.stop();
