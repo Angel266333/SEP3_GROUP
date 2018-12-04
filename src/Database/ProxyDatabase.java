@@ -58,4 +58,14 @@ public class ProxyDatabase implements IDatabase {
       // TODO Auto-generated method stub
       return 0;
    }
+
+	@Override
+	public int addMenuItem(MenuItem menuItem) throws RemoteException {
+		return 0;
+	}
+
+	@Override
+	public int removeMenuItem(int id) throws RemoteException {
+		return 0;
+	}
 }
