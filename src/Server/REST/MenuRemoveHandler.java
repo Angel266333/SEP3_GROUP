@@ -20,7 +20,7 @@ public class MenuRemoveHandler implements HttpHandler {
 		
 			String s = httpExchange.getRequestURI().getPath().split("/")[3];
 			int id = Integer.parseInt(s);
-			int i = RestListener.server.removeMenuIten(id);
+			int i = RestListener.server.removeMenuItem(id);
 			if(i==0) {
 				OK(httpExchange, "Success".getBytes());
 			}
