@@ -41,4 +41,13 @@ public class Response {
 		os.close();
 	}
 
+	public static void unauthorized(HttpExchange httpExchange) throws IOException {
+		byte[] respond = "401 Unauthorized request".getBytes();
+		httpExchange.sendResponseHeaders(401, respond.length);
+		OutputStream os = httpExchange.getResponseBody();
+		os.write(respond);
+		os.flush();
+		os.close();
+	}
+
 }
