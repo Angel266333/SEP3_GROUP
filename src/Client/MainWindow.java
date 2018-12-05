@@ -1,5 +1,6 @@
 package Client;
 
+import Client.UI.ControllerGetMenuUI;
 import Client.UI.ControllerLaunchPrompt;
 import Client.UI.Customer.ControllerMainView;
 import Client.UI.UIContainer;
@@ -13,6 +14,7 @@ public class MainWindow extends Application {
 		UIContainer container = new UIContainer();
 		container.setStage(primaryStage);
 		container.loadController(new ControllerMainView());
+//		container.loadController(new ControllerGetMenuUI());
 		primaryStage.setResizable(false);
 		primaryStage.setScene(new Scene(container));
 		primaryStage.show();
