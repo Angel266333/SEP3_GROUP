@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.29797979797979796" prefHeight="402.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
+               <children>
+                  <Text layoutX="14.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kashikoi" textAlignment="CENTER" wrappingWidth="135.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
+               <children>
+                  <TextField fx:id="searchTextFiled" layoutX="14.0" layoutY="22.0" prefHeight="30.0" prefWidth="304.0" promptText="Search" />
+                  <JFXButton fx:id="searchButton" layoutX="341.0" layoutY="25.0" text="Search" textFill="#ae2a2a" />
+                  <CheckBox layoutX="331.0" layoutY="79.0" mnemonicParsing="false" text="Lunch" />
+                  <CheckBox layoutX="331.0" layoutY="104.0" mnemonicParsing="false" text="Drink" />
+                  <CheckBox layoutX="331.0" layoutY="130.0" mnemonicParsing="false" text="Dessert" />
+                  <CheckBox layoutX="331.0" layoutY="155.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="61.0" text="Salats" />
+                  <Label layoutX="14.0" layoutY="79.0" prefHeight="17.0" prefWidth="233.0" text="Pizza" />
+                  <Label layoutX="14.0" layoutY="207.0" prefHeight="17.0" prefWidth="233.0" text="ANGELO 45" />
+                  <Label layoutX="14.0" layoutY="104.0" prefHeight="17.0" prefWidth="233.0" text="Fish" />
+                  <Label layoutX="14.0" layoutY="130.0" prefHeight="17.0" prefWidth="233.0" text="Kenneth" />
+                  <Label layoutX="14.0" layoutY="155.0" prefHeight="17.0" prefWidth="233.0" text="lol" />
+                  <Label layoutX="14.0" layoutY="182.0" prefHeight="17.0" prefWidth="233.0" text="Reme TARVENA" />
+                  <JFXButton fx:id="ViewCartButton" layoutX="325.0" layoutY="348.0" text="View Cart" />
+               </children>
+            </AnchorPane>
+        </items>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </SplitPane>
+   </children>
+</VBox>
