@@ -49,12 +49,12 @@ public class ControllerGetMenuUI extends UIController {
 	}
 
 	@Override
-	String getTitle() {
+	public String getTitle() {
 		return "getMenuUI";
 	}
 
 	@Override
-	Parent getParent() {
+	public Parent getParent() {
 		return parent;
 	}
 

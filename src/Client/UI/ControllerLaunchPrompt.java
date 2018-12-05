@@ -68,12 +68,12 @@ public class ControllerLaunchPrompt extends UIController {
 	}
 
 	@Override
-	String getTitle() {
+	public String getTitle() {
 		return "Controller Launch Window";
 	}
 
 	@Override
-	Parent getParent() {
+	public Parent getParent() {
 		return parent;
 	}
 }

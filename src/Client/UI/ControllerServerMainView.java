@@ -23,7 +23,7 @@ public class ControllerServerMainView extends UIController
 
 
    @Override
-   String getTitle()
+   public String getTitle()
    {
       
       return "ServerMainView";
@@ -31,7 +31,7 @@ public class ControllerServerMainView extends UIController
 
 
    @Override
-   Parent getParent()
+   public Parent getParent()
    {
      
       return parent;

@@ -1,6 +1,7 @@
 package Client;
 
 import Client.UI.ControllerLaunchPrompt;
+import Client.UI.Customer.ControllerMainView;
 import Client.UI.UIContainer;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -11,7 +12,7 @@ public class MainWindow extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		UIContainer container = new UIContainer();
 		container.setStage(primaryStage);
-		container.loadController(new ControllerLaunchPrompt());
+		container.loadController(new ControllerMainView());
 		primaryStage.setResizable(false);
 		primaryStage.setScene(new Scene(container));
 		primaryStage.show();
