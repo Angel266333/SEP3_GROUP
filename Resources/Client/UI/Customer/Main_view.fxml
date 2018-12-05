@@ -7,39 +7,44 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+
+<Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <SplitPane dividerPositions="0.29797979797979796" prefHeight="402.0" prefWidth="600.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
-               <children>
-                  <Text layoutX="14.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kashikoi" textAlignment="CENTER" wrappingWidth="135.0">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
-               <children>
-                  <CheckBox layoutX="331.0" layoutY="79.0" mnemonicParsing="false" text="Lunch" />
-                  <CheckBox layoutX="331.0" layoutY="104.0" mnemonicParsing="false" text="Drink" />
-                  <CheckBox layoutX="331.0" layoutY="130.0" mnemonicParsing="false" text="Dessert" />
-                  <CheckBox layoutX="331.0" layoutY="155.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="61.0" text="Salats" />
-                  <Button fx:id="SearchButton" layoutX="336.0" layoutY="25.0" mnemonicParsing="false" text="Search" />
-                  <Button fx:id="ViewCartButton" layoutX="336.0" layoutY="344.0" mnemonicParsing="false" text="View Cart" />
-                  <ScrollPane layoutX="14.0" layoutY="64.0" prefHeight="320.0" prefWidth="291.0">
-                     <content>
-                        <VBox fx:id="VBoxId" prefHeight="317.0" prefWidth="285.0" />
-                     </content>
-                  </ScrollPane>
-                  <TextField fx:id="searchTextFiled" layoutX="8.0" layoutY="14.0" prefHeight="30.0" prefWidth="304.0" promptText="Search" />
-               </children>
-            </AnchorPane>
-        </items>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-      </SplitPane>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <SplitPane dividerPositions="0.29797979797979796" prefHeight="402.0" prefWidth="600.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
+                     <children>
+                        <Text layoutX="14.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kashikoi" textAlignment="CENTER" wrappingWidth="135.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
+                     <children>
+                        <CheckBox layoutX="331.0" layoutY="79.0" mnemonicParsing="false" text="Lunch" />
+                        <CheckBox layoutX="331.0" layoutY="104.0" mnemonicParsing="false" text="Drink" />
+                        <CheckBox layoutX="331.0" layoutY="130.0" mnemonicParsing="false" text="Dessert" />
+                        <CheckBox layoutX="331.0" layoutY="155.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="61.0" text="Salats" />
+                        <Button fx:id="SearchButton" layoutX="336.0" layoutY="25.0" mnemonicParsing="false" text="Search" />
+                        <Button fx:id="ViewCartButton" layoutX="336.0" layoutY="344.0" mnemonicParsing="false" text="View Cart" />
+                        <ScrollPane layoutX="14.0" layoutY="64.0" prefHeight="320.0" prefWidth="291.0">
+                           <content>
+                              <VBox fx:id="VBoxId" prefHeight="318.0" prefWidth="287.0" />
+                           </content>
+                        </ScrollPane>
+                        <TextField fx:id="searchTextFiled" layoutX="8.0" layoutY="14.0" prefHeight="30.0" prefWidth="304.0" promptText="Search" />
+                     </children>
+                  </AnchorPane>
+              </items>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </SplitPane>
+         </children>
+      </VBox>
    </children>
-</VBox>
+</Pane>
