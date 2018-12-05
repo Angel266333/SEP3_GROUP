@@ -8,6 +8,12 @@ public class MenuItemLabel extends Label {
 
 	public MenuItemLabel(MenuItem item) {
 		this.item = item;
-		setText(item.name);
+		int w = 50 - item.name.length();
+		w -= ("" + item.price).length();
+		StringBuilder sb = new StringBuilder();
+		for(int i = 0;i < w;i++) {
+			sb.append(' ');
+		}
+		setText(item.name + sb.toString() + item.price);
 	}
 }
