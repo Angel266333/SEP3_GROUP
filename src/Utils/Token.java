@@ -3,10 +3,13 @@ package Utils;
 import com.sun.net.httpserver.HttpExchange;
 
 import java.io.*;
+import java.nio.charset.Charset;
+import java.security.SecureRandom;
 import java.util.UUID;
 
 public class Token {
 	private static String token = "";
+	private static char[] alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".toCharArray();
 
 	public static void readToken() {
 		String home = System.getProperty("user.home");
@@ -27,7 +30,15 @@ public class Token {
 			if(!f.exists()) {
 				f.createNewFile();
 			}
-			String t = UUID.randomUUID().toString();
+			byte[] bt = new byte[64];
+			new SecureRandom().nextBytes(bt);
+			StringBuilder sb = new StringBuilder(64);
+			int i;
+			for(byte b : bt) {
+				i = (int) b & 0b01111111;
+				sb.append(alpha[i % alpha.length]);
+			}
+			String t = sb.toString();
 			FileWriter fw = new FileWriter(f);
 			fw.write(t);
 			fw.flush();
