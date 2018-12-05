@@ -50,7 +50,7 @@ public class ConcreteDatabase implements IDatabase {
 				ArrayList<MenuItem> menuItems = new ArrayList<>();
 				ResultSet rs = statement.executeQuery();
 				while (rs.next()) {
-					MenuItem item = new MenuItem(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4));
+					MenuItem item = new MenuItem(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4), rs.getInt(5));
 					menuItems.add(item);
 				}
 				MenuItem[] menuItemsArray = new MenuItem[menuItems.size()];
@@ -170,10 +170,11 @@ public class ConcreteDatabase implements IDatabase {
 	public int addMenuItem(MenuItem menuItem) throws RemoteException {
 		PreparedStatement statement;
 		try {
-			statement = connection.prepareStatement("INSERT INTO \"Kartofil\".menuItem (menu_name, description, isAvailable) VALUES (?, ?, ?)");
+			statement = connection.prepareStatement("INSERT INTO \"Kartofil\".menuItem (menu_name, description, isAvailable, price) VALUES (?, ?, ?, ?)");
 			statement.setString(1, menuItem.name);
 			statement.setString(2, menuItem.description);
 			statement.setBoolean(3, menuItem.isAvailable);
+			statement.setInt(4, menuItem.price);
 			statement.execute();
 			
 		} catch (SQLException e) {
