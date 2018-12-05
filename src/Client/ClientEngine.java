@@ -1,7 +1,9 @@
 package Client;
 
 import Shared.MenuItem;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 //Singleton class that contains all the functionality of the client
@@ -20,13 +22,14 @@ public class ClientEngine {
 		return me;
 	}
 
-	public MenuItem[] getMenu() {
+	public MenuItem[] getMenu() throws IOException {
 		String[] ss = restHandler.get("/menu/list/").split("\n");
 
 
 		ArrayList<MenuItem> al = new ArrayList<>();
+		ObjectMapper mapper = new ObjectMapper();
 		for (String s : ss) {
-			al.add(MenuItem.fromString(s));
+			al.add(mapper.readValue(s, MenuItem.class));
 		}
 
 		MenuItem[] res = new MenuItem[al.size()];

@@ -28,7 +28,12 @@ public class ControllerGetMenuUI extends UIController {
 
 				@Override
 				public void handle(Event event) {
-					MenuItem[] menuItems = ClientEngine.getInstance().getMenu();
+					MenuItem[] menuItems = new MenuItem[0];
+					try {
+						menuItems = ClientEngine.getInstance().getMenu();
+					} catch(IOException e) {
+						e.printStackTrace();
+					}
 					for (MenuItem m : menuItems) {
 						tars0_getMenu.appendText(m.toString() + '\n');
 					}
