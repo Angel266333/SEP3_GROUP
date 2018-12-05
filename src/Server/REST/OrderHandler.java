@@ -7,6 +7,7 @@ import static Server.REST.Response.notFound;
 import java.io.IOException;
 import java.net.URI;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
@@ -36,7 +37,10 @@ public class OrderHandler implements HttpHandler {
 			String s = uri.getPath().split("/")[2];
 			int id = Integer.parseInt(s);
 			// Load data
-			respond = RestListener.server.getOrder(id).toString().getBytes();
+			Order respondObject = RestListener.server.getOrder(id);
+			ObjectMapper mapper = new ObjectMapper();
+			String respondString = mapper.writeValueAsString(respondObject);
+			respond = respondString.getBytes();
 
 			OK(httpExchange, respond);
 		} catch (ArrayIndexOutOfBoundsException q) {
@@ -54,7 +58,8 @@ public class OrderHandler implements HttpHandler {
 			String s = uri.getPath().split("/")[2];
 			int id = Integer.parseInt(s);
 			String body = BodyReader.readString(httpExchange.getRequestBody());
-			Order order1 = Order.fromString(body);
+			ObjectMapper mapper = new ObjectMapper();
+			Order order1 = mapper.readValue(body, Order.class);
 			if (order1.id != id) {
 				badRequest(httpExchange);
 				return;// break to not continue executing the method.

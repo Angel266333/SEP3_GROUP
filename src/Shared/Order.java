@@ -51,23 +51,4 @@ public class Order implements Serializable {
 		this.receipt = receipt;
 		this.idTable = idTable;
 	}
-
-	public String toString() {
-		return Json.createObjectBuilder().add("id", id).add("status", status).add("comment", comment)
-				.add("receipt", receipt).add("idTable", idTable).build().toString();
-	}
-
-	public static Order fromString(String serial) {
-		Map<String, String> map = JsonMapper.parse(serial);
-
-		int id = Integer.parseInt(map.get("id"));
-
-		String status = map.get("status").toString();
-		String comment = map.get("comment").toString();
-		String receipt = map.get("receipt").toString();
-
-		int idTable = Integer.parseInt(map.get("idTable"));
-
-		return new Order(id, status, comment, receipt, idTable);
-	}
 }

@@ -27,6 +27,7 @@ public class MenuItem implements Serializable {
 		this.isAvailable = isAvailable;
 		this.price = price;
 	}
+<<<<<<< HEAD
 
 	@Override
 	public String toString() {
@@ -40,4 +41,6 @@ public class MenuItem implements Serializable {
 		boolean ia = map.get("isAvailable").equals("true");
 		return new MenuItem(i, map.get("name"), map.get("description"), ia, i);
 	}
+=======
+>>>>>>> Removed use and support of toString() and fromString() in Shared objects
 }
