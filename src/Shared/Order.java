@@ -1,15 +1,6 @@
 package Shared;
 
 import java.io.Serializable;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.Vector;
-
-import javax.json.Json;
-import javax.print.DocFlavor;
-
-import Utils.JsonMapper;
 
 public class Order implements Serializable {
 

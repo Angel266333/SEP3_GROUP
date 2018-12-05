@@ -1,11 +1,6 @@
 package Shared;
 
 import java.io.Serializable;
-import java.util.Map;
-
-import javax.json.Json;
-
-import Utils.JsonMapper;
 
 public class Seat implements Serializable {
 	// fields are public so you don't need getters and setters;

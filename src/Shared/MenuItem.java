@@ -1,11 +1,6 @@
 package Shared;
 
-import Utils.JsonMapper;
-
-import javax.json.Json;
-
 import java.io.Serializable;
-import java.util.Map;
 
 public class MenuItem implements Serializable {
 
@@ -27,20 +22,4 @@ public class MenuItem implements Serializable {
 		this.isAvailable = isAvailable;
 		this.price = price;
 	}
-<<<<<<< HEAD
-
-	@Override
-	public String toString() {
-		return Json.createObjectBuilder().add("id", id).add("name", name).add("description", description)
-				.add("isAvailable", isAvailable).build().toString();
-	}
-
-	public static MenuItem fromString(String serial) {
-		Map<String, String> map = JsonMapper.parse(serial);
-		int i = Integer.parseInt(map.get("id"));
-		boolean ia = map.get("isAvailable").equals("true");
-		return new MenuItem(i, map.get("name"), map.get("description"), ia, i);
-	}
-=======
->>>>>>> Removed use and support of toString() and fromString() in Shared objects
 }
