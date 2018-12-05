@@ -22,7 +22,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
                <children>
-                  <TextField fx:id="searchTextFiled" layoutX="14.0" layoutY="22.0" prefHeight="30.0" prefWidth="304.0" promptText="Search" />
+                  <TextField fx:id="searchTextFiled" layoutX="14.0" layoutY="23.0" prefHeight="30.0" prefWidth="304.0" promptText="Search" />
                   <CheckBox layoutX="331.0" layoutY="79.0" mnemonicParsing="false" text="Lunch" />
                   <CheckBox layoutX="331.0" layoutY="104.0" mnemonicParsing="false" text="Drink" />
                   <CheckBox layoutX="331.0" layoutY="130.0" mnemonicParsing="false" text="Dessert" />
