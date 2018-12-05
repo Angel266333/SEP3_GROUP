@@ -15,15 +15,17 @@ public class MenuItem implements Serializable {
 	public String name;
 	public String description;
 	public boolean isAvailable;
+	public int price;
 
 	public MenuItem() {
 	}
 
-	public MenuItem(int id, String name, String description, boolean isAvailable) {
+	public MenuItem(int id, String name, String description, boolean isAvailable, int price) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.isAvailable = isAvailable;
+		this.price = price;
 	}
 
 	@Override
@@ -36,6 +38,6 @@ public class MenuItem implements Serializable {
 		Map<String, String> map = JsonMapper.parse(serial);
 		int i = Integer.parseInt(map.get("id"));
 		boolean ia = map.get("isAvailable").equals("true");
-		return new MenuItem(i, map.get("name"), map.get("description"), ia);
+		return new MenuItem(i, map.get("name"), map.get("description"), ia, i);
 	}
 }
