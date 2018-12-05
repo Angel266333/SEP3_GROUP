@@ -62,7 +62,7 @@ public class ConcreteDatabase implements IDatabase {
 		}
 		return null;
 	}
-
+//Main method used only for testing:
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		ConcreteDatabase database = new ConcreteDatabase();
 		MenuItem[] arrayTest = database.search(null);

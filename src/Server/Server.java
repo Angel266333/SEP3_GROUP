@@ -27,11 +27,6 @@ public class Server {
 		}
 	}
 
-	public MenuItem[] addMenuItem(int id) {
-		// TODO
-		return null;
-	} 
-
 	public int addOrder(Order order) {
 		try {
 			int i = database.placeOrder(order);
