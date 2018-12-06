@@ -7,20 +7,21 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 
+
 <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="134.0" prefWidth="349.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="58.0" fitWidth="350.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../BG.PNG" />
+            <Image url="@Graphics/bg_blue.png" />
          </image>
       </ImageView>
       <Button fx:id="btn0_Menu" layoutX="14.0" layoutY="85.0" mnemonicParsing="false" text="Menu" />
       <Button fx:id="btn1_Orders" layoutX="150.0" layoutY="85.0" mnemonicParsing="false" text="Orders" />
       <Button fx:id="btn2_Tables" layoutX="276.0" layoutY="85.0" mnemonicParsing="false" text="Tables" />
       <Line endX="249.0" endY="-1.1444091796875E-5" layoutX="101.0" layoutY="54.0" startX="-100.0" />
-      <ImageView fx:id="imgView0_LOGO" fitHeight="51.0" fitWidth="120.0" layoutX="216.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="51.0" fitWidth="120.0" layoutX="216.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../LOGO.png" />
+            <Image url="@Graphics/logo.png" />
          </image>
       </ImageView>
       <Label fx:id="lbl0_KashikoiStaff" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="76.0" text="Kashikoi Staff" />
