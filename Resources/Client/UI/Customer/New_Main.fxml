@@ -9,7 +9,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <SplitPane dividerPositions="0.29797979797979796" prefHeight="400.0" prefWidth="600.0">
@@ -25,18 +24,18 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TextField layoutX="21.0" layoutY="14.0" prefHeight="25.0" prefWidth="296.0" promptText="Search" />
-                  <Button layoutX="340.0" layoutY="14.0" mnemonicParsing="false" text="Search" />
+                  <TextField fx:id="searchField" layoutX="21.0" layoutY="14.0" prefHeight="25.0" prefWidth="296.0" promptText="Search" />
+                  <Button fx:id="searchButton" layoutX="340.0" layoutY="14.0" mnemonicParsing="false" text="Search" />
                   <ScrollPane layoutX="23.0" layoutY="64.0" prefHeight="318.0" prefWidth="304.0">
                      <content>
-                        <VBox prefHeight="307.0" prefWidth="291.0" />
+                        <VBox fx:id="vBoxId" prefHeight="307.0" prefWidth="291.0" />
                      </content>
                   </ScrollPane>
                   <CheckBox layoutX="330.0" layoutY="72.0" mnemonicParsing="false" text="CheckBox" />
                   <CheckBox layoutX="330.0" layoutY="110.0" mnemonicParsing="false" text="CheckBox" />
                   <CheckBox layoutX="330.0" layoutY="149.0" mnemonicParsing="false" text="CheckBox" />
                   <CheckBox layoutX="330.0" layoutY="191.0" mnemonicParsing="false" text="CheckBox" />
-                  <Button layoutX="340.0" layoutY="351.0" mnemonicParsing="false" text="View Cart" />
+                  <Button fx:id="ViewCartButton" layoutX="340.0" layoutY="351.0" mnemonicParsing="false" text="View Cart" />
                </children>
             </AnchorPane>
         </items>
