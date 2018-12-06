@@ -24,6 +24,7 @@ public class MenuItemLabel extends Label {
 		setText(item.name + sb.toString() + item.price);
 
 		addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+			//TODO make window with details open
 			@Override
 			public void handle(MouseEvent event) {
 				Alert a = new Alert(Alert.AlertType.NONE);
