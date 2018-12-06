@@ -9,26 +9,26 @@
 
 <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="341.0" prefWidth="349.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="58.0" fitWidth="350.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgView0_Background" fitHeight="58.0" fitWidth="350.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Graphics/bg_blue.png" />
          </image>
       </ImageView>
       <Line endX="249.0" endY="-1.1444091796875E-5" layoutX="101.0" layoutY="54.0" startX="-100.0" />
-      <ImageView fx:id="imgView0_LOGO" fitHeight="51.0" fitWidth="120.0" layoutX="216.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgView1_LOGO" fitHeight="51.0" fitWidth="120.0" layoutX="216.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Graphics/logo.png" />
          </image>
       </ImageView>
       <Label fx:id="lbl0_KashikoiStaff" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="130.0" text="Kashikoi Staff &gt; Tables" />
       <Button layoutX="15.0" layoutY="302.0" mnemonicParsing="false" text="&lt;&lt; Main Menu" />
-      <Button layoutX="6.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="1" />
-      <Button layoutX="62.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="2" />
-      <Button layoutX="117.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="3" />
-      <Button layoutX="175.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="4" />
-      <Button layoutX="235.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="5" />
-      <Button layoutX="297.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="6" />
-      <Button layoutX="6.0" layoutY="127.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="7" />
+      <Button fx:id="btn1_TableOne" layoutX="6.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="1" />
+      <Button fx:id="btn2_TableTwo" layoutX="62.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="2" />
+      <Button fx:id="btn3_TableThree" layoutX="117.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="3" />
+      <Button fx:id="btn4_TableFour" layoutX="175.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="4" />
+      <Button fx:id="btn5_TableFive" layoutX="235.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="5" />
+      <Button fx:id="btn6_TableSix" layoutX="297.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="6" />
+      <Button fx:id="btn7_" layoutX="6.0" layoutY="127.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="7" />
       <Button layoutX="62.0" layoutY="127.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="8" />
       <Button layoutX="117.0" layoutY="127.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="9" />
       <Button layoutX="175.0" layoutY="127.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="10" />
@@ -40,6 +40,6 @@
       <Button layoutX="175.0" layoutY="162.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="16" />
       <Button layoutX="235.0" layoutY="162.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="17" />
       <Button layoutX="297.0" layoutY="162.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="18" />
-      <Label layoutX="8.0" layoutY="64.0" prefHeight="17.0" prefWidth="336.0" text="Click on a table to change status, double click for details." />
+      <Label fx:id="lbl1_ResourceDescription" layoutX="8.0" layoutY="64.0" prefHeight="17.0" prefWidth="336.0" text="Click on a table to change its status, double click for details." />
    </children>
 </Pane>
