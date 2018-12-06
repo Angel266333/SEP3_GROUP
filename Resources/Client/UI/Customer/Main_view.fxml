@@ -7,7 +7,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
@@ -29,7 +28,7 @@
                         <CheckBox layoutX="331.0" layoutY="104.0" mnemonicParsing="false" text="Drink" />
                         <CheckBox layoutX="331.0" layoutY="130.0" mnemonicParsing="false" text="Dessert" />
                         <CheckBox layoutX="331.0" layoutY="155.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="61.0" text="Salats" />
-                        <Button fx:id="SearchButton" layoutX="336.0" layoutY="25.0" mnemonicParsing="false" text="Search" />
+                        <Button fx:id="SearchButton" layoutX="336.0" layoutY="25.0" mnemonicParsing="false" onAction="#doShit" text="Search" />
                         <Button fx:id="ViewCartButton" layoutX="336.0" layoutY="344.0" mnemonicParsing="false" text="View Cart" />
                         <ScrollPane layoutX="14.0" layoutY="64.0" prefHeight="320.0" prefWidth="291.0">
                            <content>
