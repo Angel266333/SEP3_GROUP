@@ -1,7 +1,14 @@
 package Client.UI.Customer;
 
 import Shared.MenuItem;
+import javafx.event.EventHandler;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 
 public class MenuItemLabel extends Label {
 	MenuItem item;
@@ -15,5 +22,16 @@ public class MenuItemLabel extends Label {
 			sb.append(' ');
 		}
 		setText(item.name + sb.toString() + item.price);
+
+		addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				Alert a = new Alert(Alert.AlertType.NONE);
+				a.getButtonTypes().add(ButtonType.OK);
+				a.setTitle("Item");
+				a.setContentText("ID: " + item.id);
+				a.showAndWait();
+			}
+		});
 	}
 }
