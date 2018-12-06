@@ -30,7 +30,7 @@ public class MainViewController implements Initializable {
 
 	@FXML
 	public void doShit(ActionEvent e) {
-		scp2.setContent(new Label("asdf"));
-		System.out.println("asdf");
+		
+	   SearchButton.setText("LOOK");
 	}
 }

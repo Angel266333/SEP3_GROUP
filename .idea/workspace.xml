@@ -168,6 +168,7 @@
         <option value="$PROJECT_DIR$/src/Server/REST/SeatHandler.java" />
         <option value="$PROJECT_DIR$/src/Server/REST/StdHandler.java" />
         <option value="$PROJECT_DIR$/src/Database/ConcreteDatabase.java" />
+        <option value="$PROJECT_DIR$/Resources/Client/UI/Customer/Main_view.fxml" />
       </list>
     </option>
   </component>
@@ -229,7 +230,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544100819664" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544101745528" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
