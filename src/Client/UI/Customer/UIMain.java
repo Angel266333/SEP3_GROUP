@@ -9,7 +9,9 @@ import javafx.stage.Stage;
 public class UIMain extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Parent p = FXMLLoader.load(getClass().getResource("Main_view.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main_view.fxml"));
+		loader.setController(new MainViewController());
+		Parent p = loader.load();
 		primaryStage.setScene(new Scene(p));
 		primaryStage.setResizable(false);
 		primaryStage.show();
