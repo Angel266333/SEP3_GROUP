@@ -11,11 +11,17 @@ import static Server.REST.Response.*;
 import Shared.ERROR;
 import Shared.MenuItem;
 import Utils.BodyReader;
+import Utils.Token;
 
 public class MenuRemoveHandler implements HttpHandler {
 
 	@Override
 	public void handle(HttpExchange httpExchange) throws IOException {
+
+		if(!Token.validate(httpExchange)) {
+			unauthorized(httpExchange);
+			return;
+			}
 		try {
 		
 			String s = httpExchange.getRequestURI().getPath().split("/")[3];

@@ -3,6 +3,7 @@ package Server.REST;
 import static Server.REST.Response.OK;
 import static Server.REST.Response.badRequest;
 import static Server.REST.Response.notFound;
+import static Server.REST.Response.unauthorized;
 
 import java.io.IOException;
 import java.net.URI;
@@ -13,10 +14,16 @@ import com.sun.net.httpserver.HttpHandler;
 
 import Shared.Order;
 import Utils.BodyReader;
+import Utils.Token;
 
 public class OrderHandler implements HttpHandler {
 	@Override
 	public void handle(HttpExchange httpExchange) throws IOException {
+
+		if(!Token.validate(httpExchange)) {
+			unauthorized(httpExchange);
+			return;
+		}
 		switch (httpExchange.getRequestMethod()) {
 		case "GET":
 			GET(httpExchange);

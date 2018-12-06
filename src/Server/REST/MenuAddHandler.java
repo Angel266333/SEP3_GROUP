@@ -11,12 +11,17 @@ import com.sun.net.httpserver.HttpHandler;
 import Shared.ERROR;
 import Shared.MenuItem;
 import Utils.BodyReader;
+import Utils.Token;
 
 public class MenuAddHandler implements HttpHandler{
 
 	@Override
 	public void handle(HttpExchange httpExchange) throws IOException {
 
+		if(!Token.validate(httpExchange)) {
+			unauthorized(httpExchange);
+			return;
+			}
 		String body = BodyReader.readString(httpExchange.getRequestBody()); //getting json data
 		ObjectMapper mapper = new ObjectMapper(); //used for json conversion
 		try {

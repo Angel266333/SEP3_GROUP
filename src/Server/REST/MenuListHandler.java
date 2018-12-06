@@ -1,6 +1,8 @@
 package Server.REST;
 
 import Shared.MenuItem;
+import Utils.Token;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -8,10 +10,16 @@ import com.sun.net.httpserver.HttpHandler;
 import java.io.IOException;
 
 import static Server.REST.Response.OK;
+import static Server.REST.Response.unauthorized;
 
 public class MenuListHandler implements HttpHandler {
 	@Override
 	public void handle(HttpExchange httpExchange) throws IOException {
+
+		if(!Token.validate(httpExchange)) {
+			unauthorized(httpExchange);
+			return;
+		}
 		MenuItem[] menuItems = RestListener.server.getMenuItems(null);
 		StringBuilder sb = new StringBuilder();
 		ObjectMapper mapper = new ObjectMapper();

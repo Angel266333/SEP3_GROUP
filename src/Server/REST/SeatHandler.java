@@ -11,10 +11,16 @@ import com.sun.net.httpserver.HttpHandler;
 
 import Shared.Seat;
 import Utils.BodyReader;
+import Utils.Token;
 
 public class SeatHandler implements HttpHandler {
 	@Override
 	public void handle(HttpExchange httpExchange) throws IOException {
+
+		if(!Token.validate(httpExchange)) {
+			unauthorized(httpExchange);
+			return;
+		}
 		switch (httpExchange.getRequestMethod()) {
 		case "GET":
 			GET(httpExchange);
