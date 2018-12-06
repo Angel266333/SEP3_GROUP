@@ -37,7 +37,7 @@
                         <Button fx:id="ViewCartButton" layoutX="336.0" layoutY="344.0" mnemonicParsing="false" text="View Cart" />
                         <ScrollPane layoutX="14.0" layoutY="64.0" prefHeight="320.0" prefWidth="291.0">
                            <content>
-                              <Pane prefHeight="316.0" prefWidth="293.0" />
+                              <Pane fx:id="paneID" prefHeight="316.0" prefWidth="293.0" />
                            </content>
                         </ScrollPane>
                         <TextField fx:id="searchTextFiled" layoutX="8.0" layoutY="14.0" prefHeight="30.0" prefWidth="304.0" promptText="Search" />
