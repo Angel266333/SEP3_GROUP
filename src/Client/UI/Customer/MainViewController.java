@@ -30,11 +30,5 @@ public class MainViewController implements Initializable {
 
 	@FXML
 	public void doShit(ActionEvent e) {
-<<<<<<< Updated upstream
-		
-	   SearchButton.setText("LOOK");
-=======
-		((VBox) scp2.getContent()).getChildren().add(new Label("hello"));
->>>>>>> Stashed changes
 	}
 }
