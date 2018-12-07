@@ -27,8 +27,8 @@ public class StaffMainController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {	
 	}
-	
-	public void redirectToMenuSection() throws IOException {
+
+	   public void redirectToMenuSection() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("RestaurantMenu.fxml"));
 		loader.setController(new RestaurantMenuController(stage));
 		stage.getScene().setRoot(loader.load());
