@@ -68,8 +68,11 @@ public class SocketListener implements Runnable {
 			// The Web Server sends a command â€œSUBMITORDERâ€�  and in turn, the Server returns an OK response.
 		case "SUBMITORDER":
 		   System.out.println("sos");
+		   while (true) {
 			writer.write("test");
+			System.out.println("True");
 			writer.write('\n');
+		   }
 		}
 	}
 	
