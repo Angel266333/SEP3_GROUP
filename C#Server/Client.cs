@@ -28,7 +28,7 @@ namespace Client
 
         private void Run()
         {
-            while( connected == false )
+            while(connected == false)
             {
                 Console.WriteLine( "Trying to connect" );
                 try
@@ -36,7 +36,6 @@ namespace Client
                     client = new TcpClient("localhost", 8002);
                     ns = client.GetStream();
                     connected = true;
-                    read = new StreamReader(ns);
                 }
                 catch ( SocketException )
                 {
@@ -51,6 +50,7 @@ namespace Client
             {
                 try
                 {
+                    read = new StreamReader(ns);
                     data = new byte[1024];
                     Console.WriteLine(read.ReadLine());
                 }
