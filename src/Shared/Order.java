@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Order implements Serializable {
 
+   public int [] items;
 	public int id;
 	public String status;
 	public String comment;
@@ -35,11 +36,14 @@ public class Order implements Serializable {
 
 	}
 
-	public Order(int id, String status, String comment, String receipt, int idTable) {
+	public Order(int id, String status, String comment, String receipt, int idTable, int []items) {
 		this.id = id;
 		this.status = status;
 		this.comment = comment;
 		this.receipt = receipt;
 		this.idTable = idTable;
+		this.items = items;
 	}
+	
+	
 }

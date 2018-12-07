@@ -2,6 +2,7 @@ package Database;
 
 import java.beans.Statement;
 import java.rmi.RemoteException;
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -80,7 +81,21 @@ public class ConcreteDatabase implements IDatabase {
 			statement.setInt(1, id);
 			ResultSet rs = statement.executeQuery();
 			rs.next();
-			return new Order(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(4));
+			ResultSet items = rs.getArray(6).getResultSet();
+			ArrayList<Integer> it = new ArrayList<>();  
+			while(items.next())
+			{
+			 it.add(items.getInt(1));  
+			
+			}
+			
+			int[] its = new int[it.size()];
+			int j=0;
+			for(int i : it) {
+			   its[j++] = i;
+			}
+			
+			return new Order(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5),its);
 		} catch (SQLException e) 
 		{
 			e.printStackTrace();
