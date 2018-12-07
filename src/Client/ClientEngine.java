@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class ClientEngine {
 	private static ClientEngine me = null;
 	private RestHandler restHandler;
-	private ArrayList<Integer> cart;
+	private ArrayList<MenuItem> cart;
 
 	private ClientEngine() {
 		restHandler = new RestHandler("https://localhost:8001");
@@ -45,15 +45,15 @@ public class ClientEngine {
 		return res;
 	}
 
-	public void addToCart(int i) {
+	public void addToCart(MenuItem i) {
 		cart.add(i);
 	}
 
-	public int[] getCart() {
-		int[] items = new int[cart.size()];
+	public MenuItem[] getCart() {
+		MenuItem[] items = new MenuItem[cart.size()];
 		int j = 0;
-		for(int it : cart) {
-			items[j++] = it;
+		for(MenuItem mi : cart) {
+			items[j++] = mi;
 		}
 		return items;
 	}
