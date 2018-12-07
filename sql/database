@@ -19,7 +19,7 @@ CREATE TABLE orders(
 	status VARCHAR(255),
 	feedback VARCHAR(255),
 	receipt TEXT,
-	CONSTRAINT fk_orders_seat FOREIGN KEY (table_id) REFERENCES seat(id_table)
+	CONSTRAINT fk_orders_seat FOREIGN KEY (table_id) REFERENCES seat(table_id)
 );
 CREATE TABLE menuItem(
 	item_id SERIAL Primary Key,
