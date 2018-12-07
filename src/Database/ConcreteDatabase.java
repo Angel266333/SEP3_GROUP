@@ -1,8 +1,6 @@
 package Database;
 
-import java.beans.Statement;
 import java.rmi.RemoteException;
-import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -10,7 +8,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import Shared.*;
+import Shared.ERROR;
+import Shared.Filter;
+import Shared.MenuItem;
+import Shared.Order;
+import Shared.Seat;
 
 public class ConcreteDatabase implements IDatabase {
 	public Connection connection;

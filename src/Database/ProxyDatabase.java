@@ -1,11 +1,11 @@
 package Database;
 
+import java.rmi.RemoteException;
+
 import Shared.Filter;
 import Shared.MenuItem;
 import Shared.Order;
 import Shared.Seat;
-
-import java.rmi.RemoteException;
 
 public class ProxyDatabase implements IDatabase {
 	private ConcreteDatabase database;

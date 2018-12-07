@@ -5,14 +5,10 @@ import java.util.Optional;
 import Client.ClientEngine;
 import Shared.MenuItem;
 import javafx.event.EventHandler;
-import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 
 public class MenuItemLabel extends Label
 {
