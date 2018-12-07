@@ -27,10 +27,8 @@ public class MenuItemLabel extends Label {
 			//TODO make window with details open
 			@Override
 			public void handle(MouseEvent event) {
-				Alert a = new Alert(Alert.AlertType.NONE);
-				a.getButtonTypes().add(ButtonType.OK);
-				a.setTitle("Item");
-				a.setContentText("ID: " + item.id);
+				Alert a = new Alert(Alert.AlertType.NONE, "id: " + item.id, ButtonType.OK);
+				a.setTitle("MenuItem");
 				a.showAndWait();
 			}
 		});
