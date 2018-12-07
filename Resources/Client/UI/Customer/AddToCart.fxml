@@ -7,7 +7,7 @@
 
 <Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="454.0" layoutY="354.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Pay" />
+      <Button fx:id="payButton" layoutX="454.0" layoutY="354.0" mnemonicParsing="false" onAction="#payButton" prefHeight="25.0" prefWidth="130.0" text="Pay" />
       <Text layoutX="33.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="YOUR ITEMS:" wrappingWidth="180.13671875">
          <font>
             <Font size="22.0" />
