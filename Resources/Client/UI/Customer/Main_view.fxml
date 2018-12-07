@@ -39,7 +39,7 @@
                         <CheckBox layoutX="331.0" layoutY="130.0" mnemonicParsing="false" text="Dessert" />
                         <CheckBox layoutX="331.0" layoutY="155.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="61.0" text="Salats" />
                         <Button fx:id="SearchButton" layoutX="336.0" layoutY="25.0" mnemonicParsing="false" onAction="#loadMenuItems" text="Search" />
-                        <Button fx:id="ViewCartButton" layoutX="336.0" layoutY="344.0" mnemonicParsing="false" text="View Cart" />
+                        <Button fx:id="ViewCartButton" layoutX="336.0" layoutY="344.0" mnemonicParsing="false" onAction="#ViewCartButton" text="View Cart" />
                         <ScrollPane layoutX="14.0" layoutY="64.0">
                            <content>
                               <GridPane fx:id="paneID" prefHeight="322.0" prefWidth="296.0">

@@ -9,6 +9,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.Charset;
 
+import Server.REST.RestListener;
 import Shared.MenuItem;
 import Shared.Order;
 
@@ -66,7 +67,9 @@ public class SocketListener implements Runnable {
 			writer.newLine();
 			// The Web Server sends a command â€œSUBMITORDERâ€�  and in turn, the Server returns an OK response.
 		case "SUBMITORDER":
-			//TODO
+		   System.out.println("sos");
+			writer.write("test");
+			writer.write('\n');
 		}
 	}
 	
@@ -89,7 +92,7 @@ public class SocketListener implements Runnable {
 	
 	public static void main(String[] args)
    {
-      Thread t1 = new Thread(new SocketListener(new Server()));
+      Thread t1 = new Thread(new SocketListener(RestListener.server));
       t1.start();
    }
    

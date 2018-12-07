@@ -1,12 +1,15 @@
 package Client.UI.Customer;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import Client.ClientEngine;
 import Shared.MenuItem;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -65,14 +68,13 @@ public class MainViewController implements Initializable
       }
    }
 
-   // @FXML
-   // public void ViewCartButton(ActionEvent e) throws IOException
-   // {
-   //
-   // FXMLLoader loader = new
-   // FXMLLoader(getClass().getResource("AddToCart.fxml"));
-   // loader.setController(new AddToCartController(stage));
-   // stage.setScene(new Scene(loader.load()));
-   //
-   // }
+    @FXML
+    public void ViewCartButton() throws IOException 
+    {
+   
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("AddToCart.fxml"));
+    loader.setController(new AddToCartController(stage));
+    stage.setScene(new Scene(loader.load()));
+   
+    }
 }
