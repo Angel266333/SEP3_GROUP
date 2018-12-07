@@ -74,9 +74,11 @@ public class MainViewController implements Initializable
     {
    
     FXMLLoader loader = new FXMLLoader(getClass().getResource("AddToCart.fxml"));
-    loader.setController(new AddToCartController(stage));
+    AddToCartController atc = new AddToCartController(stage);
+    loader.setController(atc);
     Parent p = loader.load();
     stage.getScene().setRoot(p);
+    atc.loadCart();
    
     }
 }
