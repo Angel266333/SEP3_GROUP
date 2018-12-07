@@ -11,10 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -65,7 +62,7 @@ public class MainViewController implements Initializable
       int r = 0;
       for (MenuItem m : menuItems)
       {
-         paneID.addRow(r++, new MenuItemLabel(m));
+         paneID.addRow(r++, new MenuItemLabel(m), new Label("" + m.price));
          System.out.println(m.price);
       }
    }

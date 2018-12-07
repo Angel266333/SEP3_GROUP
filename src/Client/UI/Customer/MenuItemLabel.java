@@ -15,13 +15,7 @@ public class MenuItemLabel extends Label {
 
 	public MenuItemLabel(MenuItem item) {
 		this.item = item;
-		int w = 50 - item.name.length();
-		w -= ("" + item.price).length();
-		StringBuilder sb = new StringBuilder();
-		for(int i = 0;i < w;i++) {
-			sb.append(' ');
-		}
-		setText(item.name + sb.toString() + item.price);
+		setText(item.name);
 
 		addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 			//TODO make window with details open
