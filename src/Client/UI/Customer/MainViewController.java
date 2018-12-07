@@ -74,10 +74,10 @@ public class MainViewController implements Initializable
     public void ViewCartButton() throws IOException 
     {
    
-//    FXMLLoader loader = new FXMLLoader(getClass().getResource("AddToCart.fxml"));
-//    loader.setController(new AddToCartController(stage));
-//    Parent p = loader.load();
-      stage.setScene(new Scene(new Pane()));
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("AddToCart.fxml"));
+    loader.setController(new AddToCartController(stage));
+    Parent p = loader.load();
+    stage.getScene().setRoot(p);
    
     }
 }
