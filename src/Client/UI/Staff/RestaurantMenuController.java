@@ -21,23 +21,23 @@ public class RestaurantMenuController implements Initializable {
 		
 	}
 	
-	private void addMenuItem() {
+	public void addMenuItem() {
 		
 	}
 	
-	private void removeMenuItem() {
+	public void removeMenuItem() {
 		
 	}
 	
-	private void viewMenuItemDetails() {
+	public void viewMenuItemDetails() {
 		
 	}
 	
-	private void setMenuItemToAvailable() {
+	public void setMenuItemToAvailable() {
 		
 	}
 	
-	private void setMenuItemToNOTAvailable() {
+	public void setMenuItemToNOTAvailable() {
 		
 	}
 	
