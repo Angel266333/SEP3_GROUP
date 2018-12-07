@@ -37,7 +37,7 @@ public class MenuItemLabel extends Label
             Optional<ButtonType> ret = a.showAndWait();
             if(ret.get().equals(yes))
             {
-               ClientEngine.getInstance().addToCart(item.id);
+               ClientEngine.getInstance().addToCart(item);
             }
             
             
