@@ -9,12 +9,14 @@ import Shared.MenuItem;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -72,9 +74,10 @@ public class MainViewController implements Initializable
     public void ViewCartButton() throws IOException 
     {
    
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("AddToCart.fxml"));
-    loader.setController(new AddToCartController(stage));
-    stage.setScene(new Scene(loader.load()));
+//    FXMLLoader loader = new FXMLLoader(getClass().getResource("AddToCart.fxml"));
+//    loader.setController(new AddToCartController(stage));
+//    Parent p = loader.load();
+      stage.setScene(new Scene(new Pane()));
    
     }
 }
