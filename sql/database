@@ -25,7 +25,8 @@ CREATE TABLE menuItem(
 	item_id SERIAL Primary Key,
 	menu_name VARCHAR(255),
 	description VARCHAR(255),
-	isAvailable BOOLEAN
+	isAvailable BOOLEAN,
+	price INT
 );
 CREATE TABLE menuItem_order(
 item_id INTEGER,
