@@ -10,7 +10,7 @@ public class UIMain extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main_view.fxml"));
-		loader.setController(new MainViewController());
+		loader.setController(new MainViewController(primaryStage));
 		Parent p = loader.load();
 		primaryStage.setScene(new Scene(p));
 		primaryStage.setResizable(false);
