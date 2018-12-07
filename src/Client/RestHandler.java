@@ -5,33 +5,47 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPut;
+import org.apache.http.conn.ssl.NoopHostnameVerifier;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.conn.ssl.TrustAllStrategy;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
 
 public class RestHandler implements IRestHandler {
 	private CloseableHttpClient client;
 	private String server;
-	private String session = "";
+	private String token = "";
 
 	public RestHandler(String server) {
-		client = HttpClients.createDefault();
+		try {
+			SSLContextBuilder scb = new SSLContextBuilder();
+			scb.loadTrustMaterial(null, new TrustAllStrategy());
+			SSLConnectionSocketFactory sf = new SSLConnectionSocketFactory(scb.build(), new NoopHostnameVerifier());
+			client = HttpClients.custom().setSSLSocketFactory(sf).build();
+
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 		this.server = server;
 	}
 
-	public void setSession(String session) {
-		this.session = session;
+	public void setToken(String token) {
+		this.token = token;
 	}
 
 	@Override
 	public String get(String uri) {
 		try {
 			HttpGet req = new HttpGet(server + uri);
-			req.setHeader("session", session);
+			req.setHeader("token", token);
 			System.out.println(req.toString());
 			CloseableHttpResponse response = client.execute(req);
 
@@ -52,7 +66,7 @@ public class RestHandler implements IRestHandler {
 	@Override
 	public boolean set(String uri, byte[] value) {
 		HttpPut req = new HttpPut(server + uri);
-		req.setHeader("session", session);
+		req.setHeader("token", token);
 		req.setEntity(new ByteArrayEntity(value));
 		try {
 			CloseableHttpResponse response = client.execute(req);
