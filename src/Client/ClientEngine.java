@@ -4,6 +4,7 @@ import Shared.MenuItem;
 import Utils.Token;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -25,6 +26,21 @@ public class ClientEngine {
 			me = new ClientEngine();
 		}
 		return me;
+	}
+
+	public MenuItem[] searchMenuItems(MenuItem[] items, String searchString) {
+		ArrayList<MenuItem> ma = new ArrayList<>();
+		for(MenuItem m : items) {
+			if(m.name.contains(searchString)) {
+				ma.add(m);
+			}
+			else if(m.description.contains(searchString)) {
+				ma.add(m);
+			}
+		}
+		MenuItem[] result = new MenuItem[ma.size()];
+		ma.toArray(result);
+		return result;
 	}
 
 	public MenuItem[] getMenu() {
