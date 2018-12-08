@@ -47,16 +47,18 @@ public class SocketListener implements Runnable {
 	}
 
 	public void command(String command) throws IOException {
-		String[] commands = command.split(" ");
-		System.out.println(command);
+		String[] commands = command.split("\\|");//Splitting by space disturbs the JSON
 		if(commands[0].equals("GETMENUITEMS")) {
-			System.out.println("hello");
 			MenuItem[] items = server.getMenuItems(null);
 			System.out.println(items.length);
 			ObjectMapper mapper = new ObjectMapper();
 			for(MenuItem m : items) {
 				response(mapper.writeValueAsString(m));
 			}
+		}
+		if(commands[0].equals("SUBMITORDER")) {
+			Order o = new ObjectMapper().readValue(commands[1], Order.class);
+			//TODO handle the order
 		}
 		else {
 			response("Invalid command");
