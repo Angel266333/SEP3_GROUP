@@ -22,6 +22,8 @@ public class Server {
 			database = (IDatabase) registry.lookup("Database");
 			rs = new RestListener(this);
 			rs.start();
+			Thread t = new Thread(new SocketListener(this));
+			t.start();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -56,12 +58,14 @@ public class Server {
 	}
 
 	public MenuItem[] getMenuItems(Filter filter) {
-		try {
-			return database.search(filter);
-		} catch (RemoteException re) {
-			System.out.println(re.getMessage());
-			re.printStackTrace();
-			return null;
+		synchronized(this) {
+			try {
+				return database.search(filter);
+			} catch(RemoteException re) {
+				System.out.println(re.getMessage());
+				re.printStackTrace();
+				return null;
+			}
 		}
 	}
 
