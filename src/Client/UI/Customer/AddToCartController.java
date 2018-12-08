@@ -8,8 +8,6 @@ import java.util.ResourceBundle;
 import Client.ClientEngine;
 import Shared.MenuItem;
 import Shared.Order;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,7 +16,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 public class AddToCartController implements Initializable
 {

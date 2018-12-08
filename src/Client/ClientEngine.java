@@ -1,12 +1,12 @@
 package Client;
 
-import Shared.MenuItem;
-import Utils.Token;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import Shared.MenuItem;
+import Utils.Token;
 
 //Singleton class that contains all the functionality of the client
 public class ClientEngine {
