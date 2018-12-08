@@ -45,5 +45,6 @@ public class RestaurantMenuController implements Initializable {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Staff_Main.fxml"));
 		loader.setController(new RestaurantMenuController(stage));
 		stage.getScene().setRoot(loader.load());
+		
 	}
 }
