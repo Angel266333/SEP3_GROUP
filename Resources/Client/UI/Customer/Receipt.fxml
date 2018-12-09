@@ -1,29 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="403.0" prefWidth="436.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text layoutX="29.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receipt" wrappingWidth="144.13671875">
+      <ImageView fitHeight="399.0" fitWidth="377.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Graphics/yellow.jpg" />
+         </image>
+      </ImageView>
+      <Text fill="#ab0000" layoutX="25.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receipt:" wrappingWidth="260.13671875">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <Text fill="#ab0000" layoutX="11.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmation of succesfull payment" wrappingWidth="377.0458984375">
          <font>
             <Font size="22.0" />
          </font>
       </Text>
-      <Text layoutX="14.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your  Payment is successfully done" wrappingWidth="273.13671875">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <ImageView fitHeight="89.0" fitWidth="133.0" layoutX="265.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="mainViewButton" layoutX="294.0" layoutY="353.0" mnemonicParsing="false" onAction="#mainViewButton" text="mainView" textFill="#ab0000" />
+      <ImageView fitHeight="52.0" fitWidth="148.0" layoutX="361.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@done.jpg" />
+            <Image url="@Graphics/logo.png" />
          </image>
       </ImageView>
-      <Button fx:id="mainViewButton" layoutX="334.0" layoutY="339.0" mnemonicParsing="false" onAction="#mainViewButton" text="MainView" />
+      <ImageView fitHeight="114.0" fitWidth="173.0" layoutX="123.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Graphics/done.jpg" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

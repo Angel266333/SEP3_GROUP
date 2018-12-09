@@ -36,5 +36,6 @@ public class ReceiptController implements Initializable
       loader.setController(new MainViewController(stage));
       Parent p1 = loader.load();
       stage.getScene().setRoot(p1);
+      stage.sizeToScene();
    }
 }

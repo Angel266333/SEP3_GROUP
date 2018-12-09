@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -25,21 +26,41 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
                      <children>
-                        <Text layoutX="14.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kashikoi" textAlignment="CENTER" wrappingWidth="135.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Text>
+                        <ImageView fitHeight="150.0" fitWidth="175.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Graphics/yellow.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="69.0" fitWidth="152.0" layoutX="13.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Graphics/logo.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="175.0" layoutX="2.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Graphics/yellow.jpg" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="175.0" layoutX="1.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Graphics/yellow.jpg" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
                      <children>
-                        <CheckBox layoutX="331.0" layoutY="79.0" mnemonicParsing="false" text="Lunch" />
-                        <CheckBox layoutX="331.0" layoutY="104.0" mnemonicParsing="false" text="Drink" />
-                        <CheckBox layoutX="331.0" layoutY="130.0" mnemonicParsing="false" text="Dessert" />
-                        <CheckBox layoutX="331.0" layoutY="155.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="61.0" text="Salats" />
-                        <Button fx:id="SearchButton" layoutX="336.0" layoutY="25.0" mnemonicParsing="false" onAction="#loadMenuItems" text="Search" />
-                        <Button fx:id="ViewCartButton" layoutX="336.0" layoutY="344.0" mnemonicParsing="false" onAction="#ViewCartButton" text="View Cart" />
+                        <ImageView fitHeight="400.0" fitWidth="417.0" layoutX="-8.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Graphics/yellow.jpg" />
+                           </image>
+                        </ImageView>
+                        <CheckBox layoutX="331.0" layoutY="79.0" mnemonicParsing="false" text="Lunch" textFill="#ab0000" />
+                        <CheckBox layoutX="331.0" layoutY="104.0" mnemonicParsing="false" text="Drink" textFill="#ab0000" />
+                        <CheckBox layoutX="331.0" layoutY="130.0" mnemonicParsing="false" text="Dessert" textFill="#ab0000" />
+                        <CheckBox layoutX="331.0" layoutY="155.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="61.0" text="Salats" textFill="#ab0000" />
+                        <Button fx:id="SearchButton" layoutX="336.0" layoutY="17.0" mnemonicParsing="false" onAction="#loadMenuItems" text="Search" textFill="#ab0000" />
+                        <Button fx:id="ViewCartButton" layoutX="323.0" layoutY="347.0" mnemonicParsing="false" onAction="#ViewCartButton" text="View Cart" textFill="#ab0000" />
                         <ScrollPane layoutX="14.0" layoutY="64.0">
                            <content>
                               <GridPane fx:id="paneID" prefHeight="322.0" prefWidth="283.0">
@@ -48,9 +69,10 @@
                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="0.0" prefWidth="0.0" />
                                 </columnConstraints>
                                 <rowConstraints>
+                                  <RowConstraints />
                                   <RowConstraints maxHeight="102.0" minHeight="4.0" prefHeight="32.0" vgrow="SOMETIMES" />
                                   <RowConstraints maxHeight="211.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="262.0" minHeight="10.0" prefHeight="236.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="262.0" minHeight="10.0" prefHeight="236.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <padding>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

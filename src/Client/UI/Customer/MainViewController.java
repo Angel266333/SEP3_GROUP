@@ -78,6 +78,7 @@ public class MainViewController implements Initializable
         loader.setController(atc);
         Parent p = loader.load();
         stage.getScene().setRoot(p);
+        stage.sizeToScene();
         atc.loadCart();
 
     }

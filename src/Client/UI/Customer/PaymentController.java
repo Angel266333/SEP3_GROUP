@@ -48,6 +48,7 @@ public class PaymentController implements Initializable
       loader.setController(new ReceiptController(stage));
       Parent p1 = loader.load();
       stage.getScene().setRoot(p1);
+      stage.sizeToScene();
    }
 
 }

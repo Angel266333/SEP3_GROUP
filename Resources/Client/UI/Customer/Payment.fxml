@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -7,21 +8,31 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text layoutX="73.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Method:" textAlignment="CENTER" wrappingWidth="410.13671875">
+      <ImageView fitHeight="400.0" fitWidth="600.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Graphics/yellow.jpg" />
+         </image>
+      </ImageView>
+      <Text fill="#ab0000" layoutX="10.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Method:" textAlignment="CENTER" wrappingWidth="381.13671875">
          <font>
             <Font size="33.0" />
          </font>
       </Text>
-      <CheckBox layoutX="28.0" layoutY="120.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="117.0" text="Credit-Card" />
-      <CheckBox layoutX="233.0" layoutY="120.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="117.0" text="Debit-Card" />
-      <CheckBox layoutX="452.0" layoutY="120.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="108.0" text="Cash" />
-      <Text layoutX="14.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Sum:" wrappingWidth="174.0">
+      <CheckBox layoutX="20.0" layoutY="79.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="117.0" text="Credit-Card" textFill="#ab0000" />
+      <CheckBox layoutX="20.0" layoutY="117.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="117.0" text="Debit-Card" textFill="#ab0000" />
+      <CheckBox layoutX="20.0" layoutY="157.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="108.0" text="Cash" textFill="#ab0000" />
+      <Text fill="#ab0000" layoutX="14.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Sum:" wrappingWidth="174.0">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="totalSum" layoutX="14.0" layoutY="234.0" prefHeight="35.0" prefWidth="174.0" />
-      <Button fx:id="payButton" layoutX="188.0" layoutY="340.0" mnemonicParsing="false" onAction="#payButton" prefHeight="25.0" prefWidth="232.0" text="Pay" />
-      <Button fx:id="backButton" layoutX="21.0" layoutY="340.0" mnemonicParsing="false" onAction="#backButton" text="&lt;&lt;Back" />
+      <TextField fx:id="totalSum" layoutX="14.0" layoutY="273.0" prefHeight="35.0" prefWidth="174.0" />
+      <Button fx:id="payButton" layoutX="334.0" layoutY="365.0" mnemonicParsing="false" onAction="#payButton" prefHeight="25.0" prefWidth="57.0" text="Pay&gt;&gt;" textFill="#ab0000" />
+      <Button fx:id="backButton" layoutX="10.0" layoutY="365.0" mnemonicParsing="false" onAction="#backButton" text="&lt;&lt;Back" textFill="#ab0000" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="401.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Graphics/logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
