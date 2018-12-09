@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class PaymentController implements Initializable
@@ -17,7 +18,7 @@ public class PaymentController implements Initializable
    private Button backButton; 
    @FXML
    private Button payButton;
-   
+    
    
    public Stage stage;
    

@@ -24,7 +24,6 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="totalSum" layoutX="14.0" layoutY="273.0" onAction="#totalSum" prefHeight="35.0" prefWidth="174.0" />
       <Button fx:id="payButton" layoutX="334.0" layoutY="365.0" mnemonicParsing="false" onAction="#payButton" prefHeight="25.0" prefWidth="57.0" text="Pay&gt;&gt;" textFill="#ab0000" />
       <Button fx:id="backButton" layoutX="10.0" layoutY="365.0" mnemonicParsing="false" onAction="#backButton" text="&lt;&lt;Back" textFill="#ab0000" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="401.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
@@ -33,22 +32,20 @@
          </image>
       </ImageView>
       <RadioButton layoutX="19.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Credit-Card" textFill="#ab0000">
-         <toggleGroup>
-            <ToggleGroup fx:id="payment" />
-         </toggleGroup>
          <font>
             <Font size="16.0" />
          </font>
       </RadioButton>
-      <RadioButton layoutX="17.0" layoutY="125.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Debit-Card" textFill="#ab0000" toggleGroup="$payment">
+      <RadioButton layoutX="17.0" layoutY="125.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Debit-Card" textFill="#ab0000">
          <font>
             <Font size="16.0" />
          </font>
       </RadioButton>
-      <RadioButton layoutX="18.0" layoutY="161.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Cash" textFill="#ab0000" toggleGroup="$payment">
+      <RadioButton layoutX="18.0" layoutY="161.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Cash" textFill="#ab0000">
          <font>
             <Font size="16.0" />
          </font>
       </RadioButton>
+      <TextField fx:id="totalSum" layoutX="14.0" layoutY="273.0" />
    </children>
 </AnchorPane>

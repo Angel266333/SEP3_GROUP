@@ -55,12 +55,10 @@ public class AddToCartController implements Initializable
 
    public void payButton() throws IOException
    {
-      FXMLLoader loader = new FXMLLoader(
-            getClass().getResource("Payment.fxml"));
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("Payment.fxml"));
       loader.setController(new PaymentController(stage));
-      Parent p = loader.load();
-      stage.getScene().setRoot(p);
-      stage.sizeToScene();
+      Parent p1 = loader.load();
+      stage.getScene().setRoot(p1);
    }
    
    public void goBack() throws IOException 
