@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="403.0" prefWidth="436.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="29.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receipt" wrappingWidth="144.13671875">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your  Payment is successfully done" wrappingWidth="273.13671875">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="89.0" fitWidth="133.0" layoutX="265.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@done.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="mainViewButton" layoutX="334.0" layoutY="339.0" mnemonicParsing="false" onAction="#mainViewButton" text="MainView" />
+   </children>
+</Pane>

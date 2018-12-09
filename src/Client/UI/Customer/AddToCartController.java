@@ -25,6 +25,9 @@ public class AddToCartController implements Initializable
    @FXML
    private GridPane gridPane;
    
+   @FXML
+   private Button goBack;
+   
    public Stage stage;
    
    public static Order order;
@@ -54,10 +57,18 @@ public class AddToCartController implements Initializable
    {
       FXMLLoader loader = new FXMLLoader(
             getClass().getResource("Payment.fxml"));
-      loader.setController(new AddToCartController(stage));
+      loader.setController(new PaymentController(stage));
       Parent p = loader.load();
       stage.getScene().setRoot(p);
+      stage.sizeToScene();
    }
    
+   public void goBack() throws IOException 
+   {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("Main_view.fxml"));
+      loader.setController(new MainViewController(stage));
+      Parent p1 = loader.load();
+      stage.getScene().setRoot(p1);
+   }
   
 }
