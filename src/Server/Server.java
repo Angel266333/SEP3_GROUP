@@ -15,6 +15,8 @@ public class Server {
 	Registry registry;
 	RestListener rs;
 	IDatabase database;
+	Thread socketListenerThread;
+	SocketListener socketListener;
 
 	public Server() {
 		try {
@@ -22,8 +24,9 @@ public class Server {
 			database = (IDatabase) registry.lookup("Database");
 			rs = new RestListener(this);
 			rs.start();
-			Thread t = new Thread(new SocketListener(this));
-			t.start();
+			socketListener = new SocketListener(this);
+			socketListenerThread = new Thread(socketListener);
+			socketListenerThread.start();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -58,14 +61,12 @@ public class Server {
 	}
 
 	public MenuItem[] getMenuItems(Filter filter) {
-		synchronized(this) {
-			try {
-				return database.search(filter);
-			} catch(RemoteException re) {
-				System.out.println(re.getMessage());
-				re.printStackTrace();
-				return null;
-			}
+		try {
+			return database.search(filter);
+		} catch(RemoteException re) {
+			System.out.println(re.getMessage());
+			re.printStackTrace();
+			return null;
 		}
 	}
 
@@ -132,6 +133,8 @@ public class Server {
 			}
 		}
 		server.rs.stop();
+		server.socketListenerThread.interrupt();
+		server.socketListener.stopOperation();
 	}
 
 }
