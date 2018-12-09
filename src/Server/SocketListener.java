@@ -32,17 +32,23 @@ public class SocketListener implements Runnable {
 	}
 	@Override
 	public void run() {
-		try {
-			socket = serverSocket.accept();
-			reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), Charset.forName("UTF-8")));
-			writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-			while(!socket.isClosed()) {
-				String s = reader.readLine();
-				System.out.println(s);
-				command(s);
+		while(!Thread.currentThread().isInterrupted()) {
+			try {
+				socket = serverSocket.accept();
+				if(socket == null) {
+					break;
+				}
+				System.out.println("Socket connection established");
+				reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), Charset.forName("UTF-8")));
+				writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+				while(!socket.isClosed()) {
+					String s = reader.readLine();
+					System.out.println(s);
+					command(s);
+				}
+			} catch(IOException e) {
+				System.out.println("Socket connection lost.");
 			}
-		} catch(IOException e) {
-			e.printStackTrace();
 		}
 	}
 
@@ -78,6 +84,7 @@ public class SocketListener implements Runnable {
 
 	public void stopOperation() {
 		try {
+			serverSocket.close();
 			socket.close();
 		} catch (IOException e) {
 			e.printStackTrace();
