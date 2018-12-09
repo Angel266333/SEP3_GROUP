@@ -60,9 +60,20 @@ public class RestaurantMenuController implements Initializable {
                     .showAndWait();
         }
     }
+
+
+    public void loadMenuItems()
+    {
+    	menuItemsPane.getChildren().clear();
+        for (MenuItem m : ClientEngine.getInstance())
+        {
+            System.out.println(m);
+        }
+    
 	
 	public void addMenuItem() {
 
+		
 	      FXMLLoader loader = new FXMLLoader(
 	            getClass().getResource("AddMenuItem.fxml"));
 	      loader.setController(new RestaurantMenuController(stage));
@@ -78,7 +89,6 @@ public class RestaurantMenuController implements Initializable {
 	
 	public void removeMenuItem() {
 
-	      FXMLLoader loader = new FXMLLoader(remove
 	}
 	
 	public void viewMenuItemDetails() {
@@ -95,7 +105,7 @@ public class RestaurantMenuController implements Initializable {
 	
 	public void mainMenuButton() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Staff_Main.fxml"));
-		loader.setController(new RestaurantMenuController(stage));
+		loader.setController(new StaffMainController(stage));
 		stage.getScene().setRoot(loader.load());
 		
 		
