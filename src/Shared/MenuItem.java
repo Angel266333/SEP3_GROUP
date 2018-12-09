@@ -22,4 +22,14 @@ public class MenuItem implements Serializable {
 		this.isAvailable = isAvailable;
 		this.price = price;
 	}
+	
+	public int getPrice()
+	{
+	   return price;
+	}
+	
+	public void getPrice(int price)
+	{
+	   this.price = price;
+	}
 }
