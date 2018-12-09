@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import Server.Server;
 import Shared.MenuItem;
 import Utils.Token;
 
@@ -76,6 +77,13 @@ public class ClientEngine {
 
 	public void emptyCart() {
 		cart.clear();
+	}
+	
+	public void addMenuItem(MenuItem addItem) {
+		String[] aMenuItem = restHandler.get("/menu/add/").split("\n");
+		ArrayList<MenuItem> i = new ArrayList<>();
+		for()
+		
 	}
 
 //	Make a method for each type of action that the client should support.
