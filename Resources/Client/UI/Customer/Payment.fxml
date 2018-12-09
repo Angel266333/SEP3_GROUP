@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -18,15 +19,12 @@
             <Font size="33.0" />
          </font>
       </Text>
-      <CheckBox layoutX="20.0" layoutY="79.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="117.0" text="Credit-Card" textFill="#ab0000" />
-      <CheckBox layoutX="20.0" layoutY="117.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="117.0" text="Debit-Card" textFill="#ab0000" />
-      <CheckBox layoutX="20.0" layoutY="157.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="108.0" text="Cash" textFill="#ab0000" />
       <Text fill="#ab0000" layoutX="14.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Sum:" wrappingWidth="174.0">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="totalSum" layoutX="14.0" layoutY="273.0" prefHeight="35.0" prefWidth="174.0" />
+      <TextField fx:id="totalSum" layoutX="14.0" layoutY="273.0" onAction="#totalSum" prefHeight="35.0" prefWidth="174.0" />
       <Button fx:id="payButton" layoutX="334.0" layoutY="365.0" mnemonicParsing="false" onAction="#payButton" prefHeight="25.0" prefWidth="57.0" text="Pay&gt;&gt;" textFill="#ab0000" />
       <Button fx:id="backButton" layoutX="10.0" layoutY="365.0" mnemonicParsing="false" onAction="#backButton" text="&lt;&lt;Back" textFill="#ab0000" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="401.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
@@ -34,5 +32,23 @@
             <Image url="@Graphics/logo.png" />
          </image>
       </ImageView>
+      <RadioButton layoutX="19.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Credit-Card" textFill="#ab0000">
+         <toggleGroup>
+            <ToggleGroup fx:id="payment" />
+         </toggleGroup>
+         <font>
+            <Font size="16.0" />
+         </font>
+      </RadioButton>
+      <RadioButton layoutX="17.0" layoutY="125.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Debit-Card" textFill="#ab0000" toggleGroup="$payment">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </RadioButton>
+      <RadioButton layoutX="18.0" layoutY="161.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Cash" textFill="#ab0000" toggleGroup="$payment">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </RadioButton>
    </children>
 </AnchorPane>

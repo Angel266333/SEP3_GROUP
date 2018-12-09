@@ -77,6 +77,8 @@ public class ClientEngine {
 	public void emptyCart() {
 		cart.clear();
 	}
+	
+	
 
 //	Make a method for each type of action that the client should support.
 //	Each method performs the REST request on the server, interprets the
