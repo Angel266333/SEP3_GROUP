@@ -23,13 +23,5 @@ public class MenuItem implements Serializable {
 		this.price = price;
 	}
 	
-	public int getPrice()
-	{
-	   return price;
-	}
 	
-	public void getPrice(int price)
-	{
-	   this.price = price;
-	}
 }

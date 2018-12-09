@@ -79,6 +79,16 @@ public class ClientEngine {
 		cart.clear();
 	}
 	
+	public int  getPrice()
+	{
+	   
+	   int p = 0;
+	   for(MenuItem m : cart)
+	   {
+	     p+= m.price;
+	   }
+	   return p;
+	}
 	public void addMenuItem(MenuItem addItem) {
 		String[] aMenuItem = restHandler.get("/menu/add/").split("\n");
 		ArrayList<MenuItem> i = new ArrayList<>();
