@@ -35,13 +35,16 @@
          <font>
             <Font size="16.0" />
          </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="payment" />
+         </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="17.0" layoutY="125.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Debit-Card" textFill="#ab0000">
+      <RadioButton layoutX="19.0" layoutY="130.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Debit-Card" textFill="#ab0000" toggleGroup="$payment">
          <font>
             <Font size="16.0" />
          </font>
       </RadioButton>
-      <RadioButton layoutX="18.0" layoutY="161.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Cash" textFill="#ab0000">
+      <RadioButton layoutX="19.0" layoutY="166.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Cash" textFill="#ab0000" toggleGroup="$payment">
          <font>
             <Font size="16.0" />
          </font>
