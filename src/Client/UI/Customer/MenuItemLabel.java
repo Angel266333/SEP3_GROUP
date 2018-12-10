@@ -19,6 +19,7 @@ public class MenuItemLabel extends Label
       
       this.item = item;
       setText(item.name);
+      setStyle("-fx-font-size: 18;-fx-font-weight: bold");
 
       addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>()
       {
@@ -29,10 +30,11 @@ public class MenuItemLabel extends Label
             
             Alert a = new Alert(Alert.AlertType.NONE, "Add to cart?");
             ButtonType yes = new ButtonType("Yes",ButtonType.OK.getButtonData());
-            ButtonType no = new ButtonType("NO",ButtonType.CANCEL.getButtonData());
-            a.getButtonTypes().add(yes);
+            ButtonType no = new ButtonType("No",ButtonType.CANCEL.getButtonData());
+            a.setTitle("Adding item to cart");
             a.getButtonTypes().add(no);
-            
+            a.getButtonTypes().add(yes);
+
                
             Optional<ButtonType> ret = a.showAndWait();
             if(ret.get().equals(yes))
