@@ -18,11 +18,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
          <children>
-            <SplitPane dividerPositions="0.29797979797979796" prefHeight="402.0" prefWidth="600.0">
+            <SplitPane dividerPositions="0.29797979797979796" prefHeight="600.0" prefWidth="800.0">
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
                      <children>
@@ -35,18 +35,18 @@
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
                      <children>
-                        <CheckBox layoutX="331.0" layoutY="79.0" mnemonicParsing="false" text="Lunch" textFill="#ab0000" />
-                        <CheckBox layoutX="331.0" layoutY="104.0" mnemonicParsing="false" text="Drink" textFill="#ab0000" />
-                        <CheckBox layoutX="331.0" layoutY="130.0" mnemonicParsing="false" text="Dessert" textFill="#ab0000" />
-                        <CheckBox layoutX="331.0" layoutY="155.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="61.0" text="Salats" textFill="#ab0000" />
-                        <Button fx:id="SearchButton" layoutX="336.0" layoutY="17.0" mnemonicParsing="false" onAction="#loadMenuItems" text="Search" textFill="#ab0000" />
-                        <Button fx:id="ViewCartButton" layoutX="323.0" layoutY="347.0" mnemonicParsing="false" onAction="#ViewCartButton" text="View Cart" textFill="#ab0000" />
+                        <CheckBox layoutX="400.0" layoutY="70.0" mnemonicParsing="false" text="Lunch" textFill="#ab0000" />
+                        <CheckBox layoutX="400.0" layoutY="100.0" mnemonicParsing="false" text="Drink" textFill="#ab0000" />
+                        <CheckBox layoutX="400.0" layoutY="130.0" mnemonicParsing="false" text="Dessert" textFill="#ab0000" />
+                        <CheckBox layoutX="400.0" layoutY="160.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="61.0" text="Salats" textFill="#ab0000" />
+                        <Button fx:id="SearchButton" layoutX="400.0" layoutY="11.0" mnemonicParsing="false" onAction="#loadMenuItems" text="Search" textFill="#ab0000" />
+                        <Button fx:id="ViewCartButton" layoutX="400.0" layoutY="349.0" mnemonicParsing="false" onAction="#ViewCartButton" text="View Cart" textFill="#ab0000" />
                         <ScrollPane layoutX="14.0" layoutY="64.0">
                            <content>
-                              <GridPane fx:id="paneID" prefHeight="322.0" prefWidth="283.0">
+                              <GridPane fx:id="paneID" prefHeight="322.0" prefWidth="350.0">
                                 <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="296.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="0.0" prefWidth="0.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="259.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="0.0" prefWidth="71.0" />
                                 </columnConstraints>
                                 <rowConstraints>
                                   <RowConstraints />
@@ -60,7 +60,7 @@
                               </GridPane>
                            </content>
                         </ScrollPane>
-                        <TextField fx:id="searchTextField" layoutX="8.0" layoutY="14.0" prefHeight="30.0" prefWidth="304.0" promptText="Search" />
+                        <TextField fx:id="searchTextField" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="304.0" promptText="Search" />
                      </children>
                   </AnchorPane>
               </items>
