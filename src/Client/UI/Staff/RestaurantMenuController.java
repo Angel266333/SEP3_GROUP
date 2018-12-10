@@ -5,8 +5,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Client.ClientEngine;
-import Client.UI.Customer.MainViewController;
-import Client.UI.Customer.MenuItemLabel;
 import Shared.MenuItem;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,18 +18,22 @@ import javafx.scene.Parent;
 
 public class RestaurantMenuController implements Initializable {
 	
+
+	   @FXML
+	   private Button showItemsButton;
 	   
 	   @FXML
 	   private Button addButton;
 	   
-	   @FXML
-	   private Button removeButton;
 
 	   @FXML
-	   private Pane menuItemsPane;
+	   private GridPane menuItemsPane;
+	   
+	   @FXML
+	   private Label elementRemoveLabel;
 
 	   @FXML
-	   private RadioButton availableRadioButton;
+	   private RadioButton availableButton;
 	   
 	   @FXML
 	   private RadioButton notAvailableButton;
@@ -68,14 +70,23 @@ public class RestaurantMenuController implements Initializable {
 			System.out.println(m);
 		}
 	}
+    public void showItemsButton()
+    {
+        int r = 0;
+        for (MenuItem m : ClientEngine.getInstance().getMenu())
+        {
+        	menuItemsPane.addRow(r++, new MenuItemLabelStaff(m), new Label("" + m.price));
+            System.out.println(m.price);
+        }
+    }
     
 	
-	public void addMenuItem() {
+	public void addButton() {
 
 		
 	      FXMLLoader loader = new FXMLLoader(
 	            getClass().getResource("AddMenuItem.fxml"));
-	      loader.setController(new RestaurantMenuController(stage));
+	      loader.setController(new AddMenuItem(stage));
 	      try {
 			stage.getScene().setRoot(loader.load());
 		} catch (IOException e) {
@@ -86,19 +97,15 @@ public class RestaurantMenuController implements Initializable {
 		
 	}
 	
-	public void removeMenuItem() {
-
-	}
-	
 	public void viewMenuItemDetails() {
 		
 	}
 	
-	public void setMenuItemToAvailable() {
+	public void availableButton() {
 		
 	}
 	
-	public void setMenuItemToNOTAvailable() {
+	public void notAvailableButton() {
 		
 	}
 	

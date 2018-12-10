@@ -54,29 +54,38 @@ public class SocketListener implements Runnable {
 
 	public void command(String command) throws IOException {
 		String[] commands = command.split("\\|");//Splitting by space disturbs the JSON
-		if(commands[0].equals("GETMENUITEMS")) {
+		System.out.println(commands.length);
+		if(commands.length < 2) {
+			response("<" + commands[0] + ">");
+			response("Invalid request");
+			response("</" + commands[0] + ">");
+			writer.flush();
+		}
+		else if(commands[1].equals("GETMENUITEMS")) {
+			response("<" + commands[0] + ">");
 			MenuItem[] items = server.getMenuItems(null);
 			System.out.println(items.length);
 			ObjectMapper mapper = new ObjectMapper();
 			for(MenuItem m : items) {
 				response(mapper.writeValueAsString(m));
 			}
+			response("</" + commands[0] + ">");
+			writer.flush();
 		}
-		if(commands[0].equals("SUBMITORDER")) {
-			Order o = new ObjectMapper().readValue(commands[1], Order.class);
+		else if(commands[1].equals("SUBMITORDER")) {
+			Order o = new ObjectMapper().readValue(commands[2], Order.class);
 			//TODO handle the order
 		}
 		else {
 			response("Invalid command");
+			writer.flush();
 		}
 	}
 	
 	public void response(String response) {
 		try {
 			writer.write(response);
-			writer.flush();
-			writer.newLine();
-			writer.flush();
+			writer.write('\n');
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
