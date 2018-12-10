@@ -26,35 +26,15 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="175.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@Graphics/yellow.jpg" />
-                           </image>
-                        </ImageView>
                         <ImageView fitHeight="69.0" fitWidth="152.0" layoutX="13.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Graphics/logo.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="175.0" layoutX="2.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@Graphics/yellow.jpg" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="175.0" layoutX="1.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@Graphics/yellow.jpg" />
                            </image>
                         </ImageView>
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
                      <children>
-                        <ImageView fitHeight="400.0" fitWidth="417.0" layoutX="-8.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@Graphics/yellow.jpg" />
-                           </image>
-                        </ImageView>
                         <CheckBox layoutX="331.0" layoutY="79.0" mnemonicParsing="false" text="Lunch" textFill="#ab0000" />
                         <CheckBox layoutX="331.0" layoutY="104.0" mnemonicParsing="false" text="Drink" textFill="#ab0000" />
                         <CheckBox layoutX="331.0" layoutY="130.0" mnemonicParsing="false" text="Dessert" textFill="#ab0000" />
