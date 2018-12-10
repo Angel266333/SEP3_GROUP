@@ -9,16 +9,18 @@ public class MenuItem implements Serializable {
 	public int id;
 	public String name;
 	public String description;
+	public String[] ingredients;
 	public boolean isAvailable;
 	public int price;
 
 	public MenuItem() {
 	}
 
-	public MenuItem(int id, String name, String description, boolean isAvailable, int price) {
+	public MenuItem(int id, String name, String description, String[] ingredients, boolean isAvailable, int price) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
+		this.ingredients = ingredients;
 		this.isAvailable = isAvailable;
 		this.price = price;
 	}
