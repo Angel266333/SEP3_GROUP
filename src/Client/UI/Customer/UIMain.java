@@ -14,7 +14,7 @@ public class UIMain extends Application {
 		loader.setController(new MainViewController(primaryStage));
 		Parent p = loader.load();
 		Scene s = new Scene(p);
-		s.getStylesheets().add(getClass().getResource("material-fx-v0_3.css").toExternalForm());
+//		s.getStylesheets().add(getClass().getResource("material-fx-v0_3.css").toExternalForm());
 		primaryStage.setScene(s);
 		primaryStage.setResizable(false);
 		primaryStage.show();
