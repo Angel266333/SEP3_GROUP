@@ -79,9 +79,8 @@ public class ClientEngine {
 		cart.clear();
 	}
 	
-	public int  getPrice()
+	public int getPrice()
 	{
-	   
 	   int p = 0;
 	   for(MenuItem m : cart)
 	   {

@@ -26,6 +26,8 @@ public class PaymentController implements Initializable
    private Button payButton;
    @FXML
    private GridPane gridPane;
+   
+   
    public static int menuItems;
    
    public Stage stage;
@@ -52,7 +54,11 @@ public class PaymentController implements Initializable
    }
    public void totalSum()
    {
-            
+      int count= 0 ; 
+      int sum = ClientEngine.getInstance().getPrice();
+      
+      gridPane.addRow(0,new Label("" + sum));
+      
    }
    public void backButton() throws IOException 
    {
