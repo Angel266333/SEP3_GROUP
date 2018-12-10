@@ -9,6 +9,7 @@ import Shared.MenuItem;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
@@ -65,7 +66,12 @@ public class MainViewController implements Initializable
         for (MenuItem m : ClientEngine.getInstance().searchMenuItems(menuItems, searchTextField.getText()))
         {
             paneID.addRow(r++, new MenuItemLabel(m), new Label("" + m.price + "DKK"));
-            System.out.println(m.price);
+            Label l = new Label(m.description);
+            l.setStyle("-fx-font-style: italic");
+            Insets ins = l.getInsets();
+            ins = new Insets(ins.getTop(), ins.getRight(), ins.getBottom() + 10, ins.getLeft());
+            l.setPadding(ins);
+            paneID.addRow(r++, l);
         }
     }
 
