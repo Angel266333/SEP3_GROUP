@@ -26,6 +26,8 @@ public class RestListener {
 		hServer.createContext("/menu/list/", new MenuListHandler());
 		hServer.createContext("/", new StdHandler());
 		hServer.createContext("/seat/", new SeatHandler());
+		hServer.createContext("/order/", new OrderHandler());
+		hServer.createContext("/order/list/", new OrderListHandler());
 		hServer.createContext("/order/status/", new OrderStatusHandler());
 		hServer.createContext("/order/submit/", new OrderSubmitHandler());
 		hServer.createContext("/menu/add/", new MenuAddHandler());

@@ -69,7 +69,18 @@ public class Server {
 			return null;
 		}
 	}
-
+	public Order [] getAllOrders()
+	{
+	   try
+      {
+         return database.getAllOrders();
+      }
+      catch (RemoteException e)
+      {
+         e.printStackTrace();
+         return null;
+      }
+	}
 	public Order getOrder(int id) {
 		try {
 			return database.getOrder(id);
@@ -139,4 +150,3 @@ public class Server {
 
 }
 
-///////////////////926144194+4844665+6

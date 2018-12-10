@@ -36,7 +36,7 @@ public class Order implements Serializable {
 
 	}
 
-	public Order(int id, String status, String comment, String receipt, int idTable, int []items) {
+	public Order(int id, int idTable, String status, String comment, String receipt, int []items) {
 		this.id = id;
 		this.status = status;
 		this.comment = comment;

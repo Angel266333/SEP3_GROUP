@@ -44,10 +44,11 @@ public class StaffMainController implements Initializable
    public void redirectToOrdersSection() throws IOException
    {
       FXMLLoader loader = new FXMLLoader(getClass().getResource("Order.fxml"));
-      loader.setController(new OrderController(stage));
+      OrderController o = new OrderController(stage);
+      loader.setController(o);
       stage.getScene().setRoot(loader.load());
       stage.sizeToScene();
-
+      o.loadOrders();
    }
 
    public void redirectToTablesSection() throws IOException
