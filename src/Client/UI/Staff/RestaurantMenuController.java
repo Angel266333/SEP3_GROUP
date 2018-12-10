@@ -62,13 +62,12 @@ public class RestaurantMenuController implements Initializable {
     }
 
 
-    public void loadMenuItems()
-    {
-    	menuItemsPane.getChildren().clear();
-        for (MenuItem m : ClientEngine.getInstance())
-        {
-            System.out.println(m);
-        }
+    public void loadMenuItems() {
+		menuItemsPane.getChildren().clear();
+		for(MenuItem m : ClientEngine.getInstance().getMenu()) {
+			System.out.println(m);
+		}
+	}
     
 	
 	public void addMenuItem() {
