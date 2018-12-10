@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class UIMain extends Application {
 	@Override
@@ -12,7 +13,9 @@ public class UIMain extends Application {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main_view.fxml"));
 		loader.setController(new MainViewController(primaryStage));
 		Parent p = loader.load();
-		primaryStage.setScene(new Scene(p));
+		Scene s = new Scene(p);
+		s.getStylesheets().add(getClass().getResource("material-fx-v0_3.css").toExternalForm());
+		primaryStage.setScene(s);
 		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
