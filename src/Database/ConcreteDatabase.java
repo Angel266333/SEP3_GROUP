@@ -53,7 +53,8 @@ public class ConcreteDatabase implements IDatabase {
 				ArrayList<MenuItem> menuItems = new ArrayList<>();
 				ResultSet rs = statement.executeQuery();
 				while (rs.next()) {
-					MenuItem item = new MenuItem(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBoolean(4), rs.getInt(5));
+					MenuItem item = new MenuItem(rs.getInt(1), rs.getString(2), rs.getString(3),new String[]{}, rs.getBoolean(4), rs.getInt(5));
+					//TODO Get the actual ingredients
 					menuItems.add(item);
 				}
 				MenuItem[] menuItemsArray = new MenuItem[menuItems.size()];
