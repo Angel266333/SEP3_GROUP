@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import Server.Server;
 import Shared.MenuItem;
+import Shared.Order;
 import Utils.Token;
 
 //Singleton class that contains all the functionality of the client
@@ -63,7 +64,32 @@ public class ClientEngine {
 		al.toArray(res);
 		return res;
 	}
+	public Order[] getAllOrders()
+   {
+      String[] order = restHandler.get("/order/list/").split("\n");
 
+      ArrayList<Order> p = new ArrayList<>();
+      ObjectMapper mapper = new ObjectMapper();
+
+      try
+      {
+         for (String o : order)
+         {
+            p.add(mapper.readValue(o, Order.class));
+         }
+      }
+
+      catch (IOException e)
+      {
+
+         e.printStackTrace();
+         return null;
+      }
+      
+      Order [] res = new Order[p.size()];
+      p.toArray(res);
+      return res;
+   }
 	public void addToCart(MenuItem i) {
 		cart.add(i);
 	}
