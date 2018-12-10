@@ -56,8 +56,9 @@ public class PaymentController implements Initializable
    {
       int count= 0 ; 
       int sum = ClientEngine.getInstance().getPrice();
+      System.out.println(sum);
       
-      gridPane.addRow(0,new Label("" + sum));
+      gridPane.addRow(0,new Label("" + sum + "DKK"));
       
    }
    public void backButton() throws IOException 
@@ -65,7 +66,7 @@ public class PaymentController implements Initializable
       FXMLLoader loader = new FXMLLoader(getClass().getResource("AddToCart.fxml"));
       loader.setController(new AddToCartController(stage));
       Parent p1 = loader.load();
-      stage.getScene().setRoot(p1);
+      stage.getScene().setRoot(AddToCartController.current);
    }
    
    public void payButton() throws IOException

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Client.ClientEngine;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -37,5 +38,6 @@ public class ReceiptController implements Initializable
       Parent p1 = loader.load();
       stage.getScene().setRoot(p1);
       stage.sizeToScene();
+      ClientEngine.getInstance().emptyCart();
    }
 }

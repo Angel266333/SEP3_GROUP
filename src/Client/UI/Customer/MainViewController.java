@@ -64,7 +64,7 @@ public class MainViewController implements Initializable
         int r = 0;
         for (MenuItem m : ClientEngine.getInstance().searchMenuItems(menuItems, searchTextField.getText()))
         {
-            paneID.addRow(r++, new MenuItemLabel(m), new Label("" + m.price));
+            paneID.addRow(r++, new MenuItemLabel(m), new Label("" + m.price + "DKK"));
             System.out.println(m.price);
         }
     }
@@ -72,12 +72,12 @@ public class MainViewController implements Initializable
     @FXML
     public void ViewCartButton() throws IOException
     {
-
+        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AddToCart.fxml"));
         AddToCartController atc = new AddToCartController(stage);
         loader.setController(atc);
-        Parent p = loader.load();
-        stage.getScene().setRoot(p);
+        AddToCartController.current = loader.load();
+        stage.getScene().setRoot(AddToCartController.current);
         stage.sizeToScene();
         atc.loadCart();
 

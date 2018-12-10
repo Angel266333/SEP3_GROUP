@@ -30,6 +30,8 @@ public class AddToCartController implements Initializable
    
    public Stage stage;
    
+   public static Parent current;
+   
    public static Order order;
    
    public AddToCartController(Stage stage)
@@ -48,7 +50,7 @@ public class AddToCartController implements Initializable
       int count = 0;
       MenuItem[] items = ClientEngine.getInstance().getCart();
       for (MenuItem item : items) {
-         gridPane.addRow(count++, new Label(item.name), new Label(item.description), new Label("" + item.price));
+         gridPane.addRow(count++, new Label(item.name), new Label(item.description), new Label("" + item.price + "DKK"));
       }
 
    }
@@ -56,9 +58,12 @@ public class AddToCartController implements Initializable
    public void payButton() throws IOException
    {
       FXMLLoader loader = new FXMLLoader(getClass().getResource("Payment.fxml"));
-      loader.setController(new PaymentController(stage));
+      PaymentController c = new PaymentController(stage);
+      loader.setController(c);
       Parent p1 = loader.load();
       stage.getScene().setRoot(p1);
+      c.totalSum();
+     
    }
    
    public void goBack() throws IOException 
