@@ -1,8 +1,10 @@
 package Client;
-
+import Server.Server;
 import java.io.IOException;
+
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import Server.Server;
@@ -88,10 +90,32 @@ public class ClientEngine {
 	   }
 	   return p;
 	}
+	
+	public boolean addMenuItem(MenuItem e) {
+		String json;
+		try {
+			json = new ObjectMapper().writeValueAsString(e);
+		} catch (JsonProcessingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			return false;
+		}
+		boolean z = restHandler.set("/menu/add/", json.getBytes());
+
+		return z;
+	}
+	public void removeMenuItem(int id) {
+
+		String r = restHandler.get("/menu/remove/"+id);
+	}
+			
+	
+
 
 //	Make a method for each type of action that the client should support.
 //	Each method performs the REST request on the server, interprets the
 //	response and returns appropriate data objects.
 //
 //	Client and server are tied using a REST protocol
+
 }
