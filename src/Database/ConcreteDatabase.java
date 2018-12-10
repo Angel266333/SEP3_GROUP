@@ -74,31 +74,66 @@ public class ConcreteDatabase implements IDatabase {
 			System.out.println(m);
 		}
 	}
+   @Override
+	public Order [] getAllOrders()
+	{
+	   PreparedStatement statement;
+	   try
+      {
+         statement = connection.prepareStatement("SELECT * FROM \"Kartofil\".orders");
+         ArrayList<Order> orders = new ArrayList<>();
+         ResultSet rs = statement.executeQuery();
+         while (rs.next()) {
+            Order order = new Order();
+            order.id = rs.getInt(1);
+            order.idTable = rs.getInt(2);
+            order.status = rs.getString(3);
+            order.comment = rs.getString(4);
+            order.receipt= rs.getString(5);
+            String [] s = rs.getString(6).split(",");
+            int [] list = new int[s.length];
+            int j= 0;
+            for(String l: s)
+            {
+               list[j++] = Integer.parseInt(l);
+            }
+            order.items = list;
+            
+            orders.add(order);
+         }
+         Order [] o = new Order[orders.size()];
+         orders.toArray(o);
+         return o;
+       }
+      catch (SQLException e)
+      {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+         return null;
+
+      }
+	}
 	@Override
 	public Order getOrder(int id) throws RemoteException
 	{
 		PreparedStatement statement;
 		try
 		{
-			statement = connection.prepareStatement("SELECT * FROM \"Kartofil\".order WHERE id_table =?");
+			statement = connection.prepareStatement("SELECT * FROM \"Kartofil\".orders WHERE table_id =?");
 			statement.setInt(1, id);
 			ResultSet rs = statement.executeQuery();
 			rs.next();
-			ResultSet items = rs.getArray(6).getResultSet();
-			ArrayList<Integer> it = new ArrayList<>();  
-			while(items.next())
-			{
-			 it.add(items.getInt(1));  
 			
+			String[] it = rs.getString(6).split(",");
+			int[] its = new int[it.length];
+			int j = 0;
+			System.out.println(it[0]);
+			for(String sit : it) {
+			   its[j++] = Integer.parseInt(sit);
 			}
-			
-			int[] its = new int[it.size()];
-			int j=0;
-			for(int i : it) {
-			   its[j++] = i;
-			}
-			
-			return new Order(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5),its);
+			Order ord = new Order(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), its);
+			System.out.println(ord.status);
+			return ord;
 		} catch (SQLException e) 
 		{
 			e.printStackTrace();
@@ -171,11 +206,16 @@ public class ConcreteDatabase implements IDatabase {
 	public int placeOrder(Order order) throws RemoteException {
 		PreparedStatement statement;
 		try {
-			statement = connection.prepareStatement("INSERT INTO \"Kartofil\".orders (table_id, status, feedback, receipt) VALUES (?, ?, ?, ?)");
+			statement = connection.prepareStatement("INSERT INTO \"Kartofil\".orders (table_id, status, feedback, receipt, items) VALUES (?, ?, ?, ?, ?)");
 			statement.setInt(1, order.idTable);
 			statement.setString(2, order.status);
 			statement.setString(3, order.comment);
 			statement.setString(4, order.receipt);
+			String items = "";
+			for(int it : order.items) {
+			   items += it;
+			}
+			statement.setString(5, items);
 			//System.out.println(statement.toString());
 			statement.execute();
 		} catch (SQLException e) {

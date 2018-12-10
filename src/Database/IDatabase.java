@@ -20,4 +20,5 @@ public interface IDatabase extends Remote
    public int placeOrder(Order order) throws RemoteException;
    public int addMenuItem(MenuItem menuItem) throws RemoteException;
    public int removeMenuItem(int id) throws RemoteException;
+   public Order [] getAllOrders() throws RemoteException;
 }
