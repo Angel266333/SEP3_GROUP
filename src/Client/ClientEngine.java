@@ -88,12 +88,6 @@ public class ClientEngine {
 	   }
 	   return p;
 	}
-	public void addMenuItem(MenuItem addItem) {
-		String[] aMenuItem = restHandler.get("/menu/add/").split("\n");
-		ArrayList<MenuItem> i = new ArrayList<>();
-		for()
-		
-	}
 
 //	Make a method for each type of action that the client should support.
 //	Each method performs the REST request on the server, interprets the
