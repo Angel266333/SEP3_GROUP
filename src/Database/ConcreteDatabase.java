@@ -21,7 +21,7 @@ public class ConcreteDatabase implements IDatabase {
 	public ConcreteDatabase() throws ClassNotFoundException, SQLException {
 		Class.forName("org.postgresql.Driver");
 
-		connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "dana");
+		connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "Universo12");
 	}
 	
 
@@ -281,8 +281,9 @@ public class ConcreteDatabase implements IDatabase {
 	}
 
 
-	@Override
+	
 	public int setAvailability(int id, boolean availability) throws RemoteException {
+
 		PreparedStatement statement;
   
 		try {
@@ -296,6 +297,7 @@ public class ConcreteDatabase implements IDatabase {
 			return ERROR.DATABASE_ERROR;
 		}
 		return 0;
-		
 	}
+
+
 }

@@ -76,7 +76,6 @@ public class ProxyDatabase implements IDatabase {
       return null;
    }
 
-@Override
 public int setAvailability(int id, boolean availability) throws RemoteException {
 	return 0;
 	// TODO Auto-generated method stub
