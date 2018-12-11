@@ -78,3 +78,4 @@ public class ProxyDatabase implements IDatabase {
 		return 0;
 	}
 }
+}

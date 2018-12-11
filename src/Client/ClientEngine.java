@@ -91,6 +91,11 @@ public class ClientEngine {
       p.toArray(res);
       return res;
    }
+	public boolean changeOrderStatus(int orderId, String status)
+   {
+      return restHandler.set("/order/status/" + orderId, status.getBytes());
+      
+   }
 	public void addToCart(MenuItem i) {
 		cart.add(i);
 	}

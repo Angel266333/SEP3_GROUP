@@ -120,6 +120,19 @@ public class Server {
 			return ERROR.REMOTE_EXCEPTION;
 		}
 	}
+	public int setAvailability(int id, boolean available) {
+		int a;
+		try {
+			a = database.setAvailability(id, available);
+
+			return a;
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return ERROR.REMOTE_EXCEPTION;
+		}
+		
+	}
 
 	public static void main(String[] args) {
 		System.out.println("Type 'exit' to terminate server");
@@ -145,6 +158,7 @@ public class Server {
 		server.socketListenerThread.interrupt();
 		server.socketListener.stopOperation();
 	}
+	
 
 }
 

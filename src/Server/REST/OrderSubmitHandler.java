@@ -45,6 +45,7 @@ public class OrderSubmitHandler implements HttpHandler
         
          ObjectMapper mapper = new ObjectMapper();
          order1 = mapper.readValue(body, Order.class);
+         //System.out.println(order1.status);
        
          
          int i = RestListener.server.addOrder(order1);// Indicates if the update was performed successfully.

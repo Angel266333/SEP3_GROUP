@@ -73,10 +73,11 @@ public class RestaurantMenuController implements Initializable {
     public void showItemsButton()
     {
         int r = 0;
+        menuItemsPane.getChildren().clear();
         for (MenuItem m : ClientEngine.getInstance().getMenu())
         {
-        	menuItemsPane.addRow(r++, new MenuItemLabelStaff(m), new Label("" + m.price));
-            System.out.println(m.price);
+        	menuItemsPane.addRow(r++, new MenuItemLabelStaff(m), new AvailabilityLabel(m));
+            System.out.println(m.isAvailable);
         }
     }
     
@@ -97,17 +98,6 @@ public class RestaurantMenuController implements Initializable {
 		
 	}
 	
-	public void viewMenuItemDetails() {
-		
-	}
-	
-	public void availableButton() {
-		
-	}
-	
-	public void notAvailableButton() {
-		
-	}
 	
 	public void mainMenuButton() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Staff_Main.fxml"));
