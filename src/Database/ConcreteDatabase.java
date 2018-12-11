@@ -221,21 +221,25 @@ public class ConcreteDatabase implements IDatabase {
 	public int placeOrder(Order order) throws RemoteException {
 		PreparedStatement statement;
 		try {
-			statement = connection.prepareStatement("INSERT INTO \"Kartofil\".orders (table_id, status, feedback, receipt) VALUES (?, ?, ?, ?)");
+			statement = connection.prepareStatement("INSERT INTO \"Kartofil\".orders (table_id, status, feedback, receipt) VALUES (?, ?, ?, ?) returning order_id");
 			
 			statement.setInt(1, order.idTable);
 			statement.setString(2, order.status);
 			statement.setString(3, order.comment);
 			statement.setString(4, order.receipt);
-			statement.execute();
 			ResultSet rs = statement.executeQuery();
-			
-			StringBuilder sb = new StringBuilder();
-			for(int i : order.items) {
-			   sb.append("insert into \"Kartofil\".menuitem_order values (" + order.id + "," + i + ");");
-			}
-			statement = connection.prepareStatement(sb.toString());
-			statement.execute();
+			rs.next();
+			int oid = rs.getInt(1);
+			System.out.println(oid);
+			for(int i : order.items)
+			{
+			   statement = connection.prepareStatement("INSERT INTO \"Kartofil\".menuitem_order VALUES (?,?) ");
+	         statement.setInt(1, i);
+	         statement.setInt(2, oid);
+	         System.out.println(statement.toString());
+
+	         statement.execute();
+			}	
         } catch (SQLException e) {
 		  return ERROR.DATABASE_ERROR;
 		}

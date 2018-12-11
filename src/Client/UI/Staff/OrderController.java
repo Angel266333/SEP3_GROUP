@@ -40,6 +40,7 @@ public class OrderController implements Initializable {
 	{
 	   int count = 0;
       Order [] order = ClientEngine.getInstance().getAllOrders();
+      System.out.println(order.length);
       for (Order o : order) {
          gridPane.addRow(count++, new Label(""+ o.idTable), new Label(o.status), new Label(o.comment));
       }    
