@@ -32,6 +32,7 @@ public class RestListener {
 		hServer.createContext("/order/submit/", new OrderSubmitHandler());
 		hServer.createContext("/menu/add/", new MenuAddHandler());
 		hServer.createContext("/menu/remove/", new MenuRemoveHandler());
+		hServer.createContext("/menu/availability/", new AvailableItemHandler());
 	}
 	//
 

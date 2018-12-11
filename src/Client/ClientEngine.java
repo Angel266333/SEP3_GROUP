@@ -134,6 +134,17 @@ public class ClientEngine {
 
 		String r = restHandler.get("/menu/remove/"+id);
 	}
+	
+	public void setAvailability(int id, boolean available) {
+		String x;
+		if (available) {
+			x = "true";
+		}
+		else {
+			x="false";
+		}
+		boolean z = restHandler.set("/menu/availability/", x.getBytes());
+	}
 			
 	
 

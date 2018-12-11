@@ -247,14 +247,34 @@ public class ConcreteDatabase implements IDatabase {
 	public int removeMenuItem(int id) throws RemoteException {
 		PreparedStatement statement;
 			try {
-				statement = connection.prepareStatement("DELETE FROM \"Kartofil\".menuItem WHERE item_id=? CASCADE");
+				statement = connection.prepareStatement("DELETE FROM \"Kartofil\".menuItem WHERE item_id = ? CASCADE");
 				statement.setInt(1, id);
 				statement.execute();
+				statement.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 				return ERROR.DATABASE_ERROR;
 			}
 			
 		return 0;
+	}
+
+
+	@Override
+	public int setAvailability(int id, boolean availability) throws RemoteException {
+		PreparedStatement statement;
+  
+		try {
+			statement = connection.prepareStatement("UPDATE \"Kartofil\".menuItem set isAvailable = ?  WHERE order_id = ?");
+			statement.setBoolean(1, availability);
+			statement.setInt(2, id);
+			statement.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return ERROR.DATABASE_ERROR;
+		}
+		return 0;
+		
 	}
 }

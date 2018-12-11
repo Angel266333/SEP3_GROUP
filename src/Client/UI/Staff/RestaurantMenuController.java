@@ -75,7 +75,7 @@ public class RestaurantMenuController implements Initializable {
         int r = 0;
         for (MenuItem m : ClientEngine.getInstance().getMenu())
         {
-        	menuItemsPane.addRow(r++, new MenuItemLabelStaff(m), new Label("" + m.price));
+        	menuItemsPane.addRow(r++, new MenuItemLabelStaff(m), new Label("" + m.isAvailable));
             System.out.println(m.price);
         }
     }

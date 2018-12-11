@@ -4,9 +4,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="409.0" prefWidth="506.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
@@ -22,17 +26,30 @@
             <Image url="@Graphics/logo.png" />
          </image>
       </ImageView>
-      <Button id="addButton" layoutX="27.0" layoutY="120.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Add" />
-      <Button id="removeButton" layoutX="27.0" layoutY="163.0" mnemonicParsing="false" text="Remove" />
-      <RadioButton id="availableRadioButton" layoutX="14.0" layoutY="309.0" mnemonicParsing="false" text="Available" />
-      <RadioButton id="notAvailableRadioButton" layoutX="14.0" layoutY="336.0" mnemonicParsing="false" text="Not Available" />
-      <Button id="mainMenuButton" layoutX="14.0" layoutY="370.0" mnemonicParsing="false" text="&lt;&lt;Main Menu" />
+      <Button id="addButton" fx:id="addButton" layoutX="27.0" layoutY="172.0" mnemonicParsing="false" onAction="#addButton" prefHeight="25.0" prefWidth="80.0" text="Add" />
+      <RadioButton id="availableButton" fx:id="availableButton" layoutX="14.0" layoutY="309.0" mnemonicParsing="false" onAction="#availableButton" text="Available">
+         <toggleGroup>
+            <ToggleGroup fx:id="onceButton" />
+         </toggleGroup></RadioButton>
+      <RadioButton id="notAvailableRadioButton" fx:id="notAvailableButton" layoutX="14.0" layoutY="336.0" mnemonicParsing="false" onAction="#notAvailableButton" text="Not Available" toggleGroup="$onceButton" />
+      <Button id="mainMenuButton" fx:id="mainMenuButton" layoutX="14.0" layoutY="370.0" mnemonicParsing="false" onAction="#mainMenuButton" text="&lt;&lt;Main Menu" />
       <Text layoutX="17.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Availability:" />
       <Text layoutX="27.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Items:" wrappingWidth="51.625" />
       <ScrollPane layoutX="189.0" layoutY="99.0" prefHeight="300.0" prefWidth="305.0">
          <content>
-            <Pane id="menuItemsPane" prefHeight="300.0" prefWidth="305.0" />
+            <GridPane id="menuItemsPane" fx:id="menuItemsPane" prefHeight="296.0" prefWidth="309.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
          </content>
       </ScrollPane>
+      <Button id="showItemsButton" fx:id="showItemsButton" layoutX="27.0" layoutY="129.0" mnemonicParsing="false" onAction="#showItemsButton" text="Show Items" />
    </children>
 </Pane>

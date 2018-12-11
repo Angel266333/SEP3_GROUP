@@ -2,9 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -27,13 +25,7 @@
          </image>
       </ImageView>
       <Button id="addButton" fx:id="addButton" layoutX="27.0" layoutY="172.0" mnemonicParsing="false" onAction="#addButton" prefHeight="25.0" prefWidth="80.0" text="Add" />
-      <RadioButton id="availableButton" fx:id="availableButton" layoutX="14.0" layoutY="309.0" mnemonicParsing="false" onAction="#availableButton" text="Available">
-         <toggleGroup>
-            <ToggleGroup fx:id="onceButton" />
-         </toggleGroup></RadioButton>
-      <RadioButton id="notAvailableRadioButton" fx:id="notAvailableButton" layoutX="14.0" layoutY="336.0" mnemonicParsing="false" onAction="#notAvailableButton" text="Not Available" toggleGroup="$onceButton" />
       <Button id="mainMenuButton" fx:id="mainMenuButton" layoutX="14.0" layoutY="370.0" mnemonicParsing="false" onAction="#mainMenuButton" text="&lt;&lt;Main Menu" />
-      <Text layoutX="17.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Availability:" />
       <Text layoutX="27.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Items:" wrappingWidth="51.625" />
       <ScrollPane layoutX="189.0" layoutY="99.0" prefHeight="300.0" prefWidth="305.0">
          <content>
@@ -51,5 +43,7 @@
          </content>
       </ScrollPane>
       <Button id="showItemsButton" fx:id="showItemsButton" layoutX="27.0" layoutY="129.0" mnemonicParsing="false" onAction="#showItemsButton" text="Show Items" />
+      <Text layoutX="189.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item:" />
+      <Text layoutX="342.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Availability:" />
    </children>
 </Pane>
