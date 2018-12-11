@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import Shared.ERROR;
 import Shared.Filter;
@@ -20,7 +21,7 @@ public class ConcreteDatabase implements IDatabase {
 	public ConcreteDatabase() throws ClassNotFoundException, SQLException {
 		Class.forName("org.postgresql.Driver");
 
-		connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "Universo12");
+		connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "dana");
 	}
 	
 
@@ -84,6 +85,14 @@ public class ConcreteDatabase implements IDatabase {
          statement = connection.prepareStatement("SELECT * FROM \"Kartofil\".orders");
          ArrayList<Order> orders = new ArrayList<>();
          ResultSet rs = statement.executeQuery();
+         statement = connection.prepareStatement("select * from \"Kartofil\".menuitem_order");
+         ResultSet rel = statement.executeQuery();
+         ArrayList<int[]> relation = new ArrayList<>();
+         while(rel.next()) {
+            int m = rel.getInt(1);
+            int o = rel.getInt(2);
+            relation.add(new int[] {m, o});
+         }
          while (rs.next()) {
             Order order = new Order();
             order.id = rs.getInt(1);
@@ -91,22 +100,23 @@ public class ConcreteDatabase implements IDatabase {
             order.status = rs.getString(3);
             order.comment = rs.getString(4);
             order.receipt= rs.getString(5);
-            String [] s = rs.getString(6).split(",");
-            int [] list = new int[s.length];
-            int j= 0;
-            for(String l: s)
-            {
-               list[j++] = Integer.parseInt(l);
+            ArrayList<Integer> items = new ArrayList<>();
+            for(int[] i : relation) {
+               if(i[0] == order.id) {
+                  items.add(i[1]);
+               }
             }
-            order.items = list;
-            
+            order.items = new int[items.size()];
+            int j = 0;
+            for(int it : items) {
+               order.items[j++] = it;
+            }
             orders.add(order);
          }
-         Order [] o = new Order[orders.size()];
-         orders.toArray(o);
-         return o;
-       }
-      catch (SQLException e)
+         Order[] result = new Order[orders.size()];
+         orders.toArray(result);
+         return result;
+      }catch (SQLException e)
       {
          // TODO Auto-generated catch block
          e.printStackTrace();
@@ -123,17 +133,21 @@ public class ConcreteDatabase implements IDatabase {
 			statement = connection.prepareStatement("SELECT * FROM \"Kartofil\".orders WHERE table_id =?");
 			statement.setInt(1, id);
 			ResultSet rs = statement.executeQuery();
-			rs.next();
+			statement =connection.prepareStatement("select (item_id) from \"Kartofil\".menuitem_order where order_id=?");
+			statement.setInt(1,  id);
+			ResultSet relation = statement.executeQuery();
+			ArrayList<Integer> items = new ArrayList<>();
+			while(relation.next()) {
+			   items.add(relation.getInt(1));
+			}
 			
-			String[] it = rs.getString(6).split(",");
-			int[] its = new int[it.length];
+			rs.next();
+			int[] its = new int[items.size()];
 			int j = 0;
-			System.out.println(it[0]);
-			for(String sit : it) {
-			   its[j++] = Integer.parseInt(sit);
+			for(int i : items) {
+			   its[j++] = i;
 			}
 			Order ord = new Order(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), its);
-			System.out.println(ord.status);
 			return ord;
 		} catch (SQLException e) 
 		{
@@ -207,19 +221,26 @@ public class ConcreteDatabase implements IDatabase {
 	public int placeOrder(Order order) throws RemoteException {
 		PreparedStatement statement;
 		try {
-			statement = connection.prepareStatement("INSERT INTO \"Kartofil\".orders (table_id, status, feedback, receipt, items) VALUES (?, ?, ?, ?, ?)");
+			statement = connection.prepareStatement("INSERT INTO \"Kartofil\".orders (table_id, status, feedback, receipt) VALUES (?, ?, ?, ?) returning order_id");
+			
 			statement.setInt(1, order.idTable);
 			statement.setString(2, order.status);
 			statement.setString(3, order.comment);
 			statement.setString(4, order.receipt);
-			String items = "";
-			for(int it : order.items) {
-			   items += it;
-			}
-			statement.setString(5, items);
-			//System.out.println(statement.toString());
-			statement.execute();
-		} catch (SQLException e) {
+			ResultSet rs = statement.executeQuery();
+			rs.next();
+			int oid = rs.getInt(1);
+			System.out.println(oid);
+			for(int i : order.items)
+			{
+			   statement = connection.prepareStatement("INSERT INTO \"Kartofil\".menuitem_order VALUES (?,?) ");
+	         statement.setInt(1, i);
+	         statement.setInt(2, oid);
+	         System.out.println(statement.toString());
+
+	         statement.execute();
+			}	
+        } catch (SQLException e) {
 		  return ERROR.DATABASE_ERROR;
 		}
 		return 0;
