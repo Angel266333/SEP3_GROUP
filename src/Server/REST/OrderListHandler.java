@@ -30,12 +30,14 @@ public class OrderListHandler implements HttpHandler
          return;
       }
       Order[] orders = RestListener.server.getAllOrders();
+
       StringBuilder sb = new StringBuilder();
       ObjectMapper mapper = new ObjectMapper();
       for (Order m : orders) {
          sb.append(mapper.writeValueAsString(m));
          sb.append('\n');
       }
+      System.out.println("DFD" + sb.toString());
       OK(httpExchange, sb.toString().getBytes());
    }
 
