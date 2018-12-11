@@ -148,7 +148,7 @@ public class ClientEngine {
 		else {
 			x="false";
 		}
-		boolean z = restHandler.set("/menu/availability/", x.getBytes());
+		boolean z = restHandler.set("/menu/availability/" + id, x.getBytes());
 	}
 			
 	

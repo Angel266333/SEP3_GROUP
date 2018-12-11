@@ -287,7 +287,7 @@ public class ConcreteDatabase implements IDatabase {
 		PreparedStatement statement;
   
 		try {
-			statement = connection.prepareStatement("UPDATE \"Kartofil\".menuItem set isAvailable = ?  WHERE order_id = ?");
+			statement = connection.prepareStatement("UPDATE \"Kartofil\".menuItem set isAvailable = ?  WHERE item_id = ?");
 			statement.setBoolean(1, availability);
 			statement.setInt(2, id);
 			statement.execute();

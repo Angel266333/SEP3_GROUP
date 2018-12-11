@@ -24,6 +24,7 @@ public class AvailableItemHandler implements HttpHandler{
 		if(!httpExchange.getRequestMethod().equals("PUT")) {
 			badRequest(httpExchange);
 		}
+		try {
 		String s = httpExchange.getRequestURI().getPath().split("/")[3];
 		int id = Integer.parseInt(s);
 		String body = BodyReader.readString(httpExchange.getRequestBody());
@@ -34,11 +35,22 @@ public class AvailableItemHandler implements HttpHandler{
 		else {
 			b = false;
 		}
-			
 		
-	
-	
-
+		int p = RestListener.server.setAvailability(id, b);
+		
+		if(p==0) {
+			OK(httpExchange, "OK".getBytes());
+		}
+		else {
+			System.out.println(p);
+			internalError(httpExchange);
+		}
+		}catch(Exception e)
+		{
+			badRequest(httpExchange);
+		
+			
+		}
 	}
 }
 
