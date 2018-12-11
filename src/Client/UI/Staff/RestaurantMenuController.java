@@ -97,17 +97,6 @@ public class RestaurantMenuController implements Initializable {
 		
 	}
 	
-	public void viewMenuItemDetails() {
-		
-	}
-	
-	public void availableButton() {
-		
-	}
-	
-	public void notAvailableButton() {
-		
-	}
 	
 	public void mainMenuButton() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Staff_Main.fxml"));
