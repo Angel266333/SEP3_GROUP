@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import Server.Server;
 import Shared.MenuItem;
 import Shared.Order;
+import Shared.Seat;
 import Utils.Token;
 
 //Singleton class that contains all the functionality of the client
@@ -134,10 +135,32 @@ public class ClientEngine {
 
 		String r = restHandler.get("/menu/remove/"+id);
 	}
-			
 	
-
-
+	public String getTableStatus(int id) {
+		try {
+		String g = restHandler.get("/table/status/"+id);
+		if (g.equals("True")) {
+		return "Occupied";
+		}
+		else if (g.equals("False")) {
+			return "Available";
+		}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "No information";
+	}
+	
+	public void changeTableStatus(int id, boolean isOccupied) {
+		String b;
+		if (isOccupied) {
+			b = "true";
+		} else {
+			b = "false";
+		}
+		restHandler.set("/table/status/" + id, b.getBytes());
+	}
+	
 //	Make a method for each type of action that the client should support.
 //	Each method performs the REST request on the server, interprets the
 //	response and returns appropriate data objects.

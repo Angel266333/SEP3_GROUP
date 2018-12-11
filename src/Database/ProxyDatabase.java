@@ -52,12 +52,11 @@ public class ProxyDatabase implements IDatabase {
 		return 0;
 	}
 
-   @Override
-   public int placeOrder(Order order) throws RemoteException
-   {
-      // TODO Auto-generated method stub
-      return 0;
-   }
+	@Override
+	public int placeOrder(Order order) throws RemoteException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 	@Override
 	public int addMenuItem(MenuItem menuItem) throws RemoteException {
@@ -69,10 +68,13 @@ public class ProxyDatabase implements IDatabase {
 		return 0;
 	}
 
-   @Override
-   public Order[] getAllOrders() throws RemoteException
-   {
-      // TODO Auto-generated method stub
-      return null;
-   }
+	@Override
+	public Order[] getAllOrders() throws RemoteException {
+		return null;
+	}
+
+	@Override
+	public int updateTable(int id, boolean isOccupied) {
+		return 0;
+	}
 }

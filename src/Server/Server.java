@@ -108,19 +108,17 @@ public class Server {
 		try {
 			return database.getSeat(id);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
 	}
 
-	public int updateSeat(Seat seat) {
+	public int updateTable(int id, boolean isOccupied) {
 		try {
-			return database.update(seat);
+			return database.updateTable(id, isOccupied);
 		} catch (RemoteException e) {
-			return ERROR.REMOTE_EXCEPTION; // If we get a remote exception (check others in ConcreteDatabase.update).
+			return ERROR.REMOTE_EXCEPTION;
 		}
-
 	}
 
 	public static void main(String[] args) {

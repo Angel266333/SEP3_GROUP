@@ -2,6 +2,7 @@ package Database;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.sql.SQLException;
 
 import Shared.Filter;
 import Shared.MenuItem;
@@ -21,4 +22,5 @@ public interface IDatabase extends Remote
    public int addMenuItem(MenuItem menuItem) throws RemoteException;
    public int removeMenuItem(int id) throws RemoteException;
    public Order [] getAllOrders() throws RemoteException;
+   public int updateTable(int id, boolean isOccupied) throws RemoteException;
 }

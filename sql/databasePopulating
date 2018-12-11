@@ -1,0 +1,28 @@
+--Populating Database 
+
+INSERT INTO seat(isOccupied)
+VALUES(true),
+      (false);
+
+INSERT INTO orders(table_id,status,feedback,receipt,items)
+VALUES(1,'in process', 'i like it','the price is 200DKK', null),
+      (2,'done','i love it','the price is 100DKK',null);
+
+INSERT INTO menuItem(menu_name,description,isAvailable,price)
+VALUES ('pizza','salami and chees', TRUE, 783),
+       ('spagetti','Very delicious food', TRUE, 393);
+       
+INSERT INTO menuItem_order(item_id,order_id)
+VALUES (1,1),
+       (2,1);
+
+INSERT INTO ingredient(nameof)
+VALUES ('Tomato'),
+       ('Salami'),
+       ('Apple'),
+       ('Orange');
+       
+INSERT INTO menuItem_ingredient (item_id, nameof)
+VALUES (1,'Tomato'),
+       (2,'Salami'),
+       (1,'Apple');
