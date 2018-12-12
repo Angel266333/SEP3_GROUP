@@ -177,6 +177,15 @@ public class ClientEngine {
 		boolean z = restHandler.set("/menu/availability/" + id, x.getBytes());
 	}
 	
+	public void placeOrder(Order order) {
+		try {
+			restHandler.set("/order/submit/", new ObjectMapper().writeValueAsString(order).getBytes());
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 //	Make a method for each type of action that the client should support.
 //	Each method performs the REST request on the server, interprets the
 //	response and returns appropriate data objects.

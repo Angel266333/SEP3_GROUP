@@ -52,7 +52,8 @@ public class OrderSubmitHandler implements HttpHandler
          System.out.println(i);
          if (i == 0)
          {// If it succeeds.
-            OK(httpExchange, "ok".getBytes());
+        	 String response = "" + i;
+        	 OK(httpExchange, response.getBytes());
          }
          if (i > 0)
          {// Return 1 if the database rejected the request.
