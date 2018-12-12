@@ -2,6 +2,7 @@ package Client;
 
 import java.io.IOException;
 
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPut;
@@ -75,5 +76,26 @@ public class RestHandler implements IRestHandler {
 			System.out.println("Connection error!");
 			return false;
 		}
+	}
+
+	public int setAndReturnKey(String uri, byte[] value) {
+		HttpPut req = new HttpPut(server + uri);
+		req.setHeader("token", token);
+		req.setEntity(new ByteArrayEntity(value));
+		try {
+			CloseableHttpResponse response = client.execute(req);
+			if(response.getStatusLine().getStatusCode() != 200) {
+				response.close();
+				return -1;
+			}
+			String s = EntityUtils.toString(response.getEntity());
+			int key;
+			key = Integer.parseInt(s);
+			return key;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return -1;
+		}
+
 	}
 }
