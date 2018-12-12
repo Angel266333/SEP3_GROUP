@@ -67,23 +67,24 @@ public class MainViewController implements Initializable
         {
             paneID.addRow(r++, new MenuItemLabel(m), new Label("" + m.price + "DKK"));
             Label l = new Label(m.description);
-            l.setStyle("-fx-font-style: italic");
+//            l.setStyle("-fx-font-style: italic");
             paneID.addRow(r++, l);
             StringBuilder sb = new StringBuilder();
             for(String str : m.ingredients) {
                 sb.append(str);
-                sb.append(',');
+                sb.append(", ");
             }
             String s = sb.toString();
             Label ing = new Label(" ");
             if(s.length() != 0) {
-				ing = new Label(s.substring(0, s.length() - 1));
+				ing = new Label(s.substring(0, s.length() - 2));
 			}
 			System.out.println(ing.getText());
             ing.setStyle("-fx-font-style: italic");
             Insets ins = ing.getInsets();
 			ins = new Insets(ins.getTop(), ins.getRight(), ins.getBottom() + 10, ins.getLeft());
             ing.setPadding(ins);
+            paneID.addRow(r++, ing);
         }
     }
 

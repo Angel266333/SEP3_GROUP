@@ -51,12 +51,28 @@ public class ConcreteDatabase implements IDatabase {
 		if (menuFilter == null) {
 			PreparedStatement statement;
 			try {
+				statement = connection.prepareStatement("select * from \"Kartofil\".menuitem_ingredient");
+				ResultSet ingredients = statement.executeQuery();
+				ArrayList<String[]> ing = new ArrayList<>();
+
+				while(ingredients.next()) {
+					ing.add(new String[]{"" + ingredients.getInt(1), ingredients.getString(2)});
+				}
+
+
 				statement = connection.prepareStatement("SELECT * FROM \"Kartofil\".menuitem");
+				ResultSet items = statement.executeQuery();
 				ArrayList<MenuItem> menuItems = new ArrayList<>();
-				ResultSet rs = statement.executeQuery();
-				while (rs.next()) {
-					MenuItem item = new MenuItem(rs.getInt(1), rs.getString(2), rs.getString(3),new String[]{}, rs.getBoolean(4), rs.getInt(5));
-					//TODO Get the actual ingredients
+				while (items.next()) {
+					MenuItem item = new MenuItem(items.getInt(1), items.getString(2), items.getString(3),new String[]{}, items.getBoolean(4), items.getInt(5));
+					ArrayList<String> itemIng = new ArrayList<>();
+					for(String[] str : ing) {
+						if(str[0].equals("" + item.id)) {
+							itemIng.add(str[1]);
+						}
+					}
+					item.ingredients = new String[itemIng.size()];
+					itemIng.toArray(item.ingredients);
 					menuItems.add(item);
 				}
 				MenuItem[] menuItemsArray = new MenuItem[menuItems.size()];
