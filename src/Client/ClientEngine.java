@@ -177,12 +177,14 @@ public class ClientEngine {
 		boolean z = restHandler.set("/menu/availability/" + id, x.getBytes());
 	}
 	
-	public void placeOrder(Order order) {
+	public int placeOrder(Order order) {
 		try {
-			restHandler.set("/order/submit/", new ObjectMapper().writeValueAsString(order).getBytes());
+			int i = restHandler.setAndReturnKey("/order/submit/", new ObjectMapper().writeValueAsString(order).getBytes());
+			return i;
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
+		return -1;
 	}
 	
 	

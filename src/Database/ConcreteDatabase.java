@@ -227,6 +227,7 @@ public class ConcreteDatabase implements IDatabase {
 			statement.setString(2, order.status);
 			statement.setString(3, order.comment);
 			statement.setString(4, order.receipt);
+			System.out.println(statement.toString());
 			ResultSet rs = statement.executeQuery();
 			rs.next();
 			int oid = rs.getInt(1);
