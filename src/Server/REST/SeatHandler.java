@@ -38,15 +38,12 @@ public class SeatHandler implements HttpHandler {
 		URI uri = httpExchange.getRequestURI();
 		byte[] respond;
 		try {
-			String s = uri.getPath().split("/")[3];
+			String s = uri.getPath().split("/")[2];
 			int id = Integer.parseInt(s);
 			// load data
-			Seat seat = RestListener.server.getSeat(id);
-			if (seat.isOccupied) {
-				respond = "True".getBytes();
-			} else {
-				respond = "False".getBytes();
-			}
+			ObjectMapper mapper = new ObjectMapper();
+			String respondString = mapper.writeValueAsString(RestListener.server.getSeat(id));
+			respond = respondString.getBytes();
 			OK(httpExchange, respond);
 		} catch (ArrayIndexOutOfBoundsException e) {
 			notFound(httpExchange);
@@ -56,24 +53,38 @@ public class SeatHandler implements HttpHandler {
 	}
 
 	public void PUT(HttpExchange httpExchange) throws IOException {
+		System.out.println("vbnm");
 		URI uri = httpExchange.getRequestURI();
 		byte[] respond = "".getBytes();
 		try {
-			String s = uri.getPath().split("/")[3];
+			String s = uri.getPath().split("/")[2];
 			int id = Integer.parseInt(s);
 			String body = BodyReader.readString(httpExchange.getRequestBody());
-			System.out.println(body);
-			boolean bodyConvert;
-			if (body.equals("True")) {
-				bodyConvert = true;
-			} else {
-				bodyConvert = false;
+			ObjectMapper mapper = new ObjectMapper();
+			Seat seat1 = mapper.readValue(body, Seat.class);
+			if (seat1.id != id) {
+				badRequest(httpExchange);
+				return;// break to not continue executing the method.
 			}
-			RestListener.server.updateTable(id, bodyConvert);
-			OK(httpExchange, "OK".getBytes());
-		} catch (Exception e) {
-			badRequest(httpExchange);
-			e.printStackTrace();
+			int i = RestListener.server.updateSeat(seat1);// Indicates if the update was performed successfully.
+			if (i == 0) {// If it succeeds.
+				OK(httpExchange, "ok".getBytes());
+			}
+			if (i > 0) {// Return 1 if the database rejected the request.
+				internalError(httpExchange);
+				System.out.println(i);
+			}
 		}
+		// If there is no ID, we go to the ArrayIndexOutOfBoundsException.
+		catch (ArrayIndexOutOfBoundsException e) {
+			badRequest(httpExchange);
+		}
+		// If this exception is triggered, then the system throws a bad request -
+		// HTTP 400.
+		catch (NumberFormatException o) {
+
+			badRequest(httpExchange);
+		}
+
 	}
 }

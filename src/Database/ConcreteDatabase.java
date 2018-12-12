@@ -162,7 +162,7 @@ public class ConcreteDatabase implements IDatabase {
      PreparedStatement statement;
      try
    {
-      statement = connection.prepareStatement("SELECT * FROM \"Kartofil\".seat WHERE table_id =?");
+      statement = connection.prepareStatement("SELECT * FROM \"Kartofil\".seat WHERE id_table =?");
       statement.setInt(1, id);
       ResultSet rs = statement.executeQuery();
       rs.next();
@@ -281,18 +281,23 @@ public class ConcreteDatabase implements IDatabase {
 	}
 
 
-	@Override
-	public int updateTable(int id, boolean isOccupied) throws RemoteException {
+	
+	public int setAvailability(int id, boolean availability) throws RemoteException {
+
 		PreparedStatement statement;
+  
 		try {
-			statement = connection.prepareStatement("INSERT INTO \"Kartofil\".seat (table_id, isOccupied) VALUES (?,?)");
-			statement.setInt(1, id);
-			statement.setBoolean(2, isOccupied);
+			statement = connection.prepareStatement("UPDATE \"Kartofil\".menuItem set isAvailable = ?  WHERE item_id = ?");
+			statement.setBoolean(1, availability);
+			statement.setInt(2, id);
+			statement.execute();
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return ERROR.DATABASE_ERROR;
 		}
-		
 		return 0;
 	}
+
+
 }

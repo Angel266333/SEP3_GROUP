@@ -25,13 +25,16 @@ public class RestListener {
 		hServer.setExecutor(null);
 		hServer.createContext("/menu/list/", new MenuListHandler());
 		hServer.createContext("/", new StdHandler());
+		hServer.createContext("/seat/", new SeatHandler());
 		hServer.createContext("/order/", new OrderHandler());
 		hServer.createContext("/order/list/", new OrderListHandler());
 		hServer.createContext("/order/status/", new OrderStatusHandler());
 		hServer.createContext("/order/submit/", new OrderSubmitHandler());
 		hServer.createContext("/menu/add/", new MenuAddHandler());
 		hServer.createContext("/menu/remove/", new MenuRemoveHandler());
+		hServer.createContext("/menu/availability/", new AvailableItemHandler());
 		hServer.createContext("/table/status/", new SeatHandler());
+>>>>>>> parent of a79ac84... Merge remote-tracking branch 'origin/master'
 	}
 	//
 
