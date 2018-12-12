@@ -159,16 +159,22 @@ public class ClientEngine {
 	public void changeTableStatus(int id, boolean isOccupied) {
 		String b;
 		if (isOccupied) {
-			b = "true";
+			b = "True";
 		} else {
-			b = "false";
+			b = "False";
 		}
 		restHandler.set("/table/status/" + id, b.getBytes());
 	}
 
-	public void setAvailability(int id, boolean b) {
-		// TODO Auto-generated method stub
-		
+	public void setAvailability(int id, boolean available) {
+		String x;
+		if (available) {
+			x = "true";
+		}
+		else {
+			x="false";
+		}
+		boolean z = restHandler.set("/menu/availability/" + id, x.getBytes());
 	}
 	
 //	Make a method for each type of action that the client should support.

@@ -60,8 +60,7 @@ public class OrderHandler implements HttpHandler {
 		}
 	}
 
-	public void PUT(HttpExchange httpExchange) {
-		System.out.println("Test");
+	public void PUT(HttpExchange httpExchange) throws IOException {
 		URI uri = httpExchange.getRequestURI();
 		byte[] respond = "".getBytes();
 		try {
@@ -75,8 +74,8 @@ public class OrderHandler implements HttpHandler {
 				return;// break to not continue executing the method.
 			}
 			// TODO
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			badRequest(httpExchange);
 		}
 	}
 }

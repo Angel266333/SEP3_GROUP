@@ -39,6 +39,7 @@ public class SeatHandler implements HttpHandler {
 		byte[] respond;
 		try {
 			String s = uri.getPath().split("/")[3];
+			System.out.println(s);
 			int id = Integer.parseInt(s);
 			// load data
 			Seat seat = RestListener.server.getSeat(id);
@@ -62,15 +63,18 @@ public class SeatHandler implements HttpHandler {
 			String s = uri.getPath().split("/")[3];
 			int id = Integer.parseInt(s);
 			String body = BodyReader.readString(httpExchange.getRequestBody());
-			System.out.println(body);
 			boolean bodyConvert;
 			if (body.equals("True")) {
 				bodyConvert = true;
 			} else {
 				bodyConvert = false;
 			}
-			RestListener.server.updateTable(id, bodyConvert);
+			int a = RestListener.server.updateTable(id, bodyConvert);
+			if (a == 0) {
 			OK(httpExchange, "OK".getBytes());
+			} else {
+				internalError(httpExchange);
+			}
 		} catch (Exception e) {
 			badRequest(httpExchange);
 			e.printStackTrace();

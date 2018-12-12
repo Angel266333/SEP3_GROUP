@@ -133,7 +133,7 @@ public class ConcreteDatabase implements IDatabase {
 			statement = connection.prepareStatement("SELECT * FROM \"Kartofil\".orders WHERE table_id =?");
 			statement.setInt(1, id);
 			ResultSet rs = statement.executeQuery();
-			statement =connection.prepareStatement("select (item_id) from \"Kartofil\".menuitem_order where order_id=?");
+			statement = connection.prepareStatement("select (item_id) from \"Kartofil\".menuitem_order where order_id=?");
 			statement.setInt(1,  id);
 			ResultSet relation = statement.executeQuery();
 			ArrayList<Integer> items = new ArrayList<>();
@@ -268,7 +268,15 @@ public class ConcreteDatabase implements IDatabase {
 	public int removeMenuItem(int id) throws RemoteException {
 		PreparedStatement statement;
 			try {
-				statement = connection.prepareStatement("DELETE FROM \"Kartofil\".menuItem WHERE item_id = ? CASCADE");
+				statement = connection.prepareStatement("DELETE FROM \"Kartofil\".menuitem_order WHERE item_id = ?");
+				statement.setInt(1, id);
+				statement.execute();
+				
+				statement = connection.prepareStatement("DELETE FROM \"Kartofil\".menuitem_ingredient WHERE item_id = ?");
+				statement.setInt(1, id);
+				statement.execute();
+				
+				statement = connection.prepareStatement("DELETE FROM \"Kartofil\".menuItem WHERE item_id = ?");
 				statement.setInt(1, id);
 				statement.execute();
 				statement.close();
@@ -303,9 +311,10 @@ public class ConcreteDatabase implements IDatabase {
 	public int updateTable(int id, boolean isOccupied) throws RemoteException {
 		PreparedStatement statement;
 		try {
-			statement = connection.prepareStatement("INSERT INTO \"Kartofil\".seat (table_id, isOccupied) VALUES (?,?)");
-			statement.setInt(1, id);
-			statement.setBoolean(2, isOccupied);
+			statement = connection.prepareStatement("UPDATE \"Kartofil\".seat SET isOccupied = ? WHERE table_id = ?");
+			statement.setBoolean(1, isOccupied);
+			statement.setInt(2, id);
+			statement.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return ERROR.DATABASE_ERROR;

@@ -39,10 +39,12 @@ public class AvailabilityLabel extends Label{
 	            if(ret.get().equals(yes))
 	            {
 	               ClientEngine.getInstance().setAvailability(item.id, true);
+	               setText("True");
 	            }
 	            else {
 
 		               ClientEngine.getInstance().setAvailability(item.id, false);
+		               setText("False");
 	            }
 	            
 	            

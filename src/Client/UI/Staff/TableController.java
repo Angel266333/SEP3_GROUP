@@ -7,12 +7,16 @@ import java.util.ResourceBundle;
 import Client.ClientEngine;
 import Shared.Order;
 import Shared.Seat;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseDragEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class TableController implements Initializable {
@@ -45,116 +49,53 @@ public class TableController implements Initializable {
 		this.stage = primaryStage;
 	}
 
-	String a;
-	String b;
-	String c;
-	String d;
-	String e;
-	String f;
-	String g;
-	String h;
-	String i;
-	String j;
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		a = ClientEngine.getInstance().getTableStatus(1);
-		b = ClientEngine.getInstance().getTableStatus(2);
-		c = ClientEngine.getInstance().getTableStatus(3);
-		d = ClientEngine.getInstance().getTableStatus(4);
-		e = ClientEngine.getInstance().getTableStatus(5);
-		f = ClientEngine.getInstance().getTableStatus(6);
-		g = ClientEngine.getInstance().getTableStatus(7);
-		h = ClientEngine.getInstance().getTableStatus(8);
-		i = ClientEngine.getInstance().getTableStatus(9);
-		j = ClientEngine.getInstance().getTableStatus(10);
-		btn_Table1.setText(a);
-		btn_Table2.setText(b);
-		btn_Table3.setText(c);
-		btn_Table4.setText(d);
-		btn_Table5.setText(e);
-		btn_Table6.setText(f);
-		btn_Table7.setText(g);
-		btn_Table8.setText(h);
-		btn_Table9.setText(i);
-		btn_Table10.setText(j);
+		btn_Table1.addEventHandler(MouseEvent.MOUSE_CLICKED, new StatusChanger(1, btn_Table1));
+		btn_Table2.addEventHandler(MouseEvent.MOUSE_CLICKED, new StatusChanger(2, btn_Table2));
+		btn_Table3.addEventHandler(MouseEvent.MOUSE_CLICKED, new StatusChanger(3, btn_Table3));
+		btn_Table4.addEventHandler(MouseEvent.MOUSE_CLICKED, new StatusChanger(4, btn_Table4));
+		btn_Table5.addEventHandler(MouseEvent.MOUSE_CLICKED, new StatusChanger(5, btn_Table5));
+		btn_Table6.addEventHandler(MouseEvent.MOUSE_CLICKED, new StatusChanger(6, btn_Table6));
+		btn_Table7.addEventHandler(MouseEvent.MOUSE_CLICKED, new StatusChanger(7, btn_Table7));
+		btn_Table8.addEventHandler(MouseEvent.MOUSE_CLICKED, new StatusChanger(8, btn_Table8));
+		btn_Table9.addEventHandler(MouseEvent.MOUSE_CLICKED, new StatusChanger(9, btn_Table9));
+		btn_Table10.addEventHandler(MouseEvent.MOUSE_CLICKED, new StatusChanger(10, btn_Table10));
+		btn_Table1.setText(ClientEngine.getInstance().getTableStatus(1));
+		btn_Table2.setText(ClientEngine.getInstance().getTableStatus(2));
+		btn_Table3.setText(ClientEngine.getInstance().getTableStatus(3));
+		btn_Table4.setText(ClientEngine.getInstance().getTableStatus(4));
+		btn_Table5.setText(ClientEngine.getInstance().getTableStatus(5));
+		btn_Table6.setText(ClientEngine.getInstance().getTableStatus(6));
+		btn_Table7.setText(ClientEngine.getInstance().getTableStatus(7));
+		btn_Table8.setText(ClientEngine.getInstance().getTableStatus(8));
+		btn_Table9.setText(ClientEngine.getInstance().getTableStatus(9));
+		btn_Table10.setText(ClientEngine.getInstance().getTableStatus(10));
 	}
 
-// TODO: This method does not work when invoked by specific button instead of repeating of code.
-//	public void buttonAction(String buttonReference, String buttonName) {
-//		if (a.equals("Occupied") && btn_Table1.getText() == "Occupied") {
-//			ClientEngine.getInstance().changeTableStatus(1, false);
-//			btn_Table1.setText("Available");
-//			a = "Available";
-//		} else if (a.equals("Available") && btn_Table1.getText() == "Available") {
-//			ClientEngine.getInstance().changeTableStatus(1, true);
-//			btn_Table1.setText("Occupied");
-//			a = "Occupied";
-//		}
-//	}
-	public void onClick1() {
-		// Works properly. --> TRUE in database.
-		if (btn_Table1.getText() == "Occupied") {
-			ClientEngine.getInstance().changeTableStatus(1, false);
-			btn_Table1.setText("Available");
-			a = "Available";
-		} else if (btn_Table1.getText() == "Available") {
-			ClientEngine.getInstance().changeTableStatus(1, true);
-			btn_Table1.setText("Occupied");
-			a = "Occupied";
-		}
+class StatusChanger implements EventHandler<MouseEvent> {
+
+	private int id;
+	private Button buttonInput;
+	
+	public StatusChanger(int id, Button buttonInput) {
+	
+		this.id = id;
+		this.buttonInput = buttonInput;
+		
+	}
+		@Override
+		public void handle(MouseEvent event) {
+
+			if (buttonInput.getText().equals("Available")) {
+				ClientEngine.getInstance().changeTableStatus(id, true);
+				buttonInput.setText("Occupied");
+			} else {
+				ClientEngine.getInstance().changeTableStatus(id, false);
+				buttonInput.setText("Available");
+			}
 		}
 
-	public void onClick2() {
-		// Does not work if the Table is set to FALSE in the database.
-		System.out.println(b);
-		System.out.println(btn_Table2.getText());
-		if (btn_Table2.getText() == "Occupied") {
-			ClientEngine.getInstance().changeTableStatus(2, false);
-			btn_Table2.setText("Available");
-			System.out.println("1");
-			b = "Available";
-		} else if (btn_Table2.getText() == "Available") {
-			ClientEngine.getInstance().changeTableStatus(2, true);
-			btn_Table2.setText("Occupied");
-			System.out.println("2");
-			b = "Occupied";
-		}
-	}
-	public void onClick3() {
-		// Works properly. --> TRUE in database.
-		if (c.equals("Occupied") && btn_Table3.getText() == "Occupied") {
-			ClientEngine.getInstance().changeTableStatus(3, false);
-			btn_Table3.setText("Available");
-			System.out.println("1");
-			c = "Available";
-		} else if (c.equals("Available") && btn_Table3.getText() == "Available") {
-			ClientEngine.getInstance().changeTableStatus(3, true);
-			btn_Table3.setText("Occupied");
-			System.out.println("2");
-			c = "Occupied";
-		}
-	}
-
-	public void onClick4() {
-	}
-
-	public void onClick5() {
-	}
-
-	public void onClick6() {
-	}
-
-	public void onClick7() {
-	}
-
-	public void onClick8() {
-	}
-
-	public void onClick9() {
-	}
-
-	public void onClick10() {
 	}
 
 	public void mainMenu() throws IOException {
