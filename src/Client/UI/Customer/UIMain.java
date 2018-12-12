@@ -10,11 +10,10 @@ import javafx.stage.StageStyle;
 public class UIMain extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main_view.fxml"));
-		loader.setController(new MainViewController(primaryStage));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Table_prompt.fxml"));
+		loader.setController(new EnterTableNumberController(primaryStage));
 		Parent p = loader.load();
 		Scene s = new Scene(p);
-//		s.getStylesheets().add(getClass().getResource("material-fx-v0_3.css").toExternalForm());
 		primaryStage.setScene(s);
 		primaryStage.setResizable(false);
 		primaryStage.show();
