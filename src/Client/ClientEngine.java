@@ -165,6 +165,11 @@ public class ClientEngine {
 		}
 		restHandler.set("/table/status/" + id, b.getBytes());
 	}
+
+	public void setAvailability(int id, boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 //	Make a method for each type of action that the client should support.
 //	Each method performs the REST request on the server, interprets the

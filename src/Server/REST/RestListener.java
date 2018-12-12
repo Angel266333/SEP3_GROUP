@@ -34,10 +34,8 @@ public class RestListener {
 		hServer.createContext("/menu/remove/", new MenuRemoveHandler());
 		hServer.createContext("/menu/availability/", new AvailableItemHandler());
 		hServer.createContext("/table/status/", new SeatHandler());
->>>>>>> parent of a79ac84... Merge remote-tracking branch 'origin/master'
-	}
-	//
 
+	}
 	public void start() {
 		hServer.start();
 	}

@@ -21,7 +21,7 @@ public class ConcreteDatabase implements IDatabase {
 	public ConcreteDatabase() throws ClassNotFoundException, SQLException {
 		Class.forName("org.postgresql.Driver");
 
-		connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "Universo12");
+		connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "postgres");
 	}
 	
 
@@ -162,7 +162,7 @@ public class ConcreteDatabase implements IDatabase {
      PreparedStatement statement;
      try
    {
-      statement = connection.prepareStatement("SELECT * FROM \"Kartofil\".seat WHERE id_table =?");
+      statement = connection.prepareStatement("SELECT * FROM \"Kartofil\".seat WHERE table_id =?");
       statement.setInt(1, id);
       ResultSet rs = statement.executeQuery();
       rs.next();
@@ -299,5 +299,20 @@ public class ConcreteDatabase implements IDatabase {
 		return 0;
 	}
 
+	@Override
+	public int updateTable(int id, boolean isOccupied) throws RemoteException {
+		PreparedStatement statement;
+		try {
+			statement = connection.prepareStatement("INSERT INTO \"Kartofil\".seat (table_id, isOccupied) VALUES (?,?)");
+			statement.setInt(1, id);
+			statement.setBoolean(2, isOccupied);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return ERROR.DATABASE_ERROR;
+		}
+		
+		return 0;
+	}
+	
 
 }

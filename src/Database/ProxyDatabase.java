@@ -81,4 +81,10 @@ public int setAvailability(int id, boolean availability) throws RemoteException 
 	// TODO Auto-generated method stub
 	
 }
+
+@Override
+public int updateTable(int id, boolean isOccupied) throws RemoteException {
+	// TODO Auto-generated method stub
+	return 0;
+}
 }
