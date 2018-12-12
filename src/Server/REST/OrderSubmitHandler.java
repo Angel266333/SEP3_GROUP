@@ -50,15 +50,14 @@ public class OrderSubmitHandler implements HttpHandler
          
          int i = RestListener.server.addOrder(order1);// Indicates if the update was performed successfully.
          System.out.println(i);
-         if (i == 0)
+         if (i >= 0)
          {// If it succeeds.
         	 String response = "" + i;
         	 OK(httpExchange, response.getBytes());
          }
-         if (i > 0)
+         else
          {// Return 1 if the database rejected the request.
             internalError(httpExchange);
-            System.out.println(i);
          }
       }
       // If there is no ID, we go to the ArrayIndexOutOfBoundsException.

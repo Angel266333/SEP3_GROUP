@@ -222,7 +222,7 @@ public class ConcreteDatabase implements IDatabase {
 		PreparedStatement statement;
 		try {
 			statement = connection.prepareStatement("INSERT INTO \"Kartofil\".orders (table_id, status, feedback, receipt) VALUES (?, ?, ?, ?) returning order_id");
-			
+
 			statement.setInt(1, order.idTable);
 			statement.setString(2, order.status);
 			statement.setString(3, order.comment);
@@ -234,17 +234,17 @@ public class ConcreteDatabase implements IDatabase {
 			System.out.println(oid);
 			for(int i : order.items)
 			{
-			   statement = connection.prepareStatement("INSERT INTO \"Kartofil\".menuitem_order VALUES (?,?) ");
-	         statement.setInt(1, i);
-	         statement.setInt(2, oid);
-	         System.out.println(statement.toString());
+				statement = connection.prepareStatement("INSERT INTO \"Kartofil\".menuitem_order VALUES (?,?) ");
+				statement.setInt(1, i);
+				statement.setInt(2, oid);
+				System.out.println(statement.toString());
 
-	         statement.execute();
-			}	
-        } catch (SQLException e) {
-		  return ERROR.DATABASE_ERROR;
+				statement.execute();
+			}
+			return oid;
+		} catch (SQLException e) {
+			return -1;
 		}
-		return 0;
 	}
 
 	@Override

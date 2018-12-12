@@ -89,6 +89,7 @@ public class RestHandler implements IRestHandler {
 				return -1;
 			}
 			String s = EntityUtils.toString(response.getEntity());
+			System.out.println("http response:" + s);
 			int key;
 			key = Integer.parseInt(s);
 			return key;
