@@ -1,5 +1,6 @@
 package Client.UI.Customer;
 
+import Client.ClientEngine;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,7 +16,6 @@ import java.util.ResourceBundle;
 public class EnterTableNumberController implements Initializable {
 	@FXML
 	private TextField numberField;
-	public static int tableNumber;
 
 	private Stage stage;
 
@@ -33,7 +33,7 @@ public class EnterTableNumberController implements Initializable {
 		int i;
 		try {
 			i = Integer.parseInt(s);
-			tableNumber = i;
+			ClientEngine.tableNumber = i;
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("Main_view.fxml"));
 			loader.setController(new MainViewController(stage));
 			stage.getScene().setRoot(loader.load());

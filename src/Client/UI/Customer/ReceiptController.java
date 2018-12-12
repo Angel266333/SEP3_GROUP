@@ -36,7 +36,7 @@ public class ReceiptController implements Initializable
    {
 	order = new Order();
 	order.id = -1;
-	order.idTable = 0;
+	order.idTable = ClientEngine.tableNumber;
 	MenuItem[] items = ClientEngine.getInstance().getCart();
 	int[] store = new int[items.length];
 	int j = 0;
