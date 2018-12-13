@@ -1,4 +1,4 @@
-package Utils;
+mapackage Utils;
 
 import Shared.MenuItem;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -16,7 +16,7 @@ public class Order implements Serializable {
 		public static final String DELIVERED = "DELIVERED";
 		public static final String PAID = "PAID";
 
-		public static String forName(String name) {
+	public static String forName(String name) {
 			switch(name) {
 				case STATUS.DELIVERED:
 					return name;
