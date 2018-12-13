@@ -4,19 +4,37 @@ import Utils.Token;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.Charset;
 
 import static Server.REST.Response.OK;
-import static Server.REST.Response.badRequest;
-import static Server.REST.Response.unauthorized;
 
 public class StdHandler implements HttpHandler {
+	byte[] hello;
+
+	public StdHandler() {
+		try {
+			FileReader fr = new FileReader(new File(getClass().getResource("hello.html").toURI()));
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			int c;
+			while(true) {
+				c = fr.read();
+				if(c == -1) {
+					break;
+				}
+				baos.write(c);
+			}
+			hello = baos.toByteArray();
+		} catch(Exception e) {
+			hello = "Unauthorized.".getBytes();
+		}
+	}
+
 	@Override
 	public void handle(HttpExchange httpExchange) throws IOException {
 		if(!Token.validate(httpExchange)) {
-			unauthorized(httpExchange);
-			return;
+			OK(httpExchange, hello);
 		}
-		OK(httpExchange, "Hello World".getBytes());
+		OK(httpExchange, "Hello Client. You are authorized to use this server.".getBytes());
 	}
 }
