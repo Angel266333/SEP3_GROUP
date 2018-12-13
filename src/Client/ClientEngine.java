@@ -79,37 +79,34 @@ public class ClientEngine {
 		al.toArray(res);
 		return res;
 	}
-	public Order[] getAllOrders()
-   {
-      String[] order = restHandler.get("/order/list/").split("\n");
+	public Order[] getAllOrders() {
+		String[] order = restHandler.get("/order/list/").split("\n");
 
-      ArrayList<Order> p = new ArrayList<>();
-      ObjectMapper mapper = new ObjectMapper();
+		ArrayList<Order> p = new ArrayList<>();
+		ObjectMapper mapper = new ObjectMapper();
 
-      try
-      {
-         for (String o : order)
-         {
-            p.add(mapper.readValue(o, Order.class));
-         }
-      }
+		try {
+			for (String o : order) {
+				p.add(mapper.readValue(o, Order.class));
+			}
+		}
 
-      catch (IOException e)
-      {
+		catch (IOException e) {
 
-         e.printStackTrace();
-         return null;
-      }
-      
-      Order [] res = new Order[p.size()];
-      p.toArray(res);
-      return res;
-   }
+			e.printStackTrace();
+			return null;
+		}
+
+		Order [] res = new Order[p.size()];
+		p.toArray(res);
+		return res;
+	}
+
 	public boolean changeOrderStatus(int orderId, String status)
-   {
-      return restHandler.set("/order/status/" + orderId, status.getBytes());
-      
-   }
+	{
+		return restHandler.set("/order/status/" + orderId, status.getBytes());
+
+	}
 	public void addToCart(MenuItem i) {
 		cart.add(i);
 	}
@@ -126,17 +123,17 @@ public class ClientEngine {
 	public void emptyCart() {
 		cart.clear();
 	}
-	
+
 	public int getPrice()
 	{
-	   int p = 0;
-	   for(MenuItem m : cart)
-	   {
-	     p+= m.price;
-	   }
-	   return p;
+		int p = 0;
+		for(MenuItem m : cart)
+		{
+			p+= m.price;
+		}
+		return p;
 	}
-	
+
 	public boolean addMenuItem(MenuItem e) {
 		String json;
 		try {
@@ -154,22 +151,22 @@ public class ClientEngine {
 
 		String r = restHandler.get("/menu/remove/"+id);
 	}
-	
+
 	public String getTableStatus(int id) {
 		try {
-		String g = restHandler.get("/table/status/"+id);
-		if (g.equals("True")) {
-		return "Occupied";
-		}
-		else if (g.equals("False")) {
-			return "Available";
-		}
+			String g = restHandler.get("/table/status/"+id);
+			if (g.equals("True")) {
+				return "Occupied";
+			}
+			else if (g.equals("False")) {
+				return "Available";
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return "No information";
 	}
-	
+
 	public void changeTableStatus(int id, boolean isOccupied) {
 		String b;
 		if (isOccupied) {
@@ -190,7 +187,7 @@ public class ClientEngine {
 		}
 		boolean z = restHandler.set("/menu/availability/" + id, x.getBytes());
 	}
-	
+
 	public int placeOrder(Order order) {
 		try {
 			int i = restHandler.setAndReturnKey("/order/submit/", new ObjectMapper().writeValueAsString(order).getBytes());
@@ -200,8 +197,8 @@ public class ClientEngine {
 		}
 		return -1;
 	}
-	
-	
+
+
 //	Make a method for each type of action that the client should support.
 //	Each method performs the REST request on the server, interprets the
 //	response and returns appropriate data objects.
