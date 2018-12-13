@@ -1,5 +1,7 @@
 package Client;
 import Server.Server;
+
+import java.awt.*;
 import java.io.IOException;
 
 import java.util.ArrayList;
@@ -36,12 +38,23 @@ public class ClientEngine {
 
 	public MenuItem[] searchMenuItems(MenuItem[] items, String searchString) {
 		ArrayList<MenuItem> ma = new ArrayList<>();
+		searchString = searchString.toLowerCase();
 		for(MenuItem m : items) {
+			String name = m.name.toLowerCase();
+			String description = m.description.toLowerCase();
 			if(m.name.contains(searchString)) {
 				ma.add(m);
 			}
 			else if(m.description.contains(searchString)) {
 				ma.add(m);
+			}
+			else {
+				for(String str : m.ingredients) {
+					if(str.toLowerCase().contains(searchString)) {
+						ma.add(m);
+						break;
+					}
+				}
 			}
 		}
 		MenuItem[] result = new MenuItem[ma.size()];
