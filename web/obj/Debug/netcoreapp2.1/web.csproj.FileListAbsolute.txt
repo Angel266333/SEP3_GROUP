@@ -30,3 +30,4 @@
 /home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.dll
 /home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.pdb
 /home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.csproj.CopyComplete
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/Razor/Pages/Index_old.g.cshtml.cs

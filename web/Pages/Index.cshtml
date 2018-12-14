@@ -1,27 +1,62 @@
-﻿@page
+@page
 @model IndexModel
-@{
-    MenuItem[] mItems = @Model.menuItems;
-}
-<head>
-    <title>Our first page</title>
-</head>
-<body>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Available</th>
-            <th>Price</th>
-        </tr>
-        @foreach (var item in mItems)
-        {
-            <tr>
-                <td>@item.name</td>
-                <td>@item.description</td>
-                <td>@item.isAvailable</td>
-                <td>@item.price</td>
-            </tr>
-        }
-    </table>
+<!DOCTYPE html>
+<!--Speical thanks to all internet sources used throughout the development of this site.-->
+<!-- All credits go to their respective owners. Bootstrap is awesome, period.-->
+<html lang="en">
+  <head>
+        <link href="~/lib/css/bootstrap.css" rel="stylesheet">
+  </head>
+  <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a href = "index.html">
+	<img src="~/lib/img/logo.png" class="img-fluid" alt="LOGO"></img>
+	</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Menu<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+	<a href = "cart.html">
+	<img src="~/lib/img/cart.png" class="img-fluid" alt="CART"></img>
+</a>	
+	</a>
+		</li>	
+		</nav>
+  </div>
+</nav>
+
+<!-- Blue header line-->
+<div class="bg-primary text-white text-center">
+  <h2><em>Kashikoi Menu</em></h2>
+</div>
+
+<form method="POST">
+<input type="submit" value="Add to cart" />
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Availability</th>
+    <th>Price</th>
+  </tr>
+  @foreach (var item in @Model.menuItems)
+  {
+      <tr>
+        <td><input type="checkbox" name="@item.name"></td>
+        <td>@item.name</td>
+        <td>@item.description</td>
+        <td>@item.isAvailable</td>
+        <td>@item.price</td>
+      </tr>
+  }
+</table>
+</form>
+
 </body>
+</html>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Primitives;
 
 namespace web.Pages
 {
@@ -31,6 +32,16 @@ namespace web.Pages
             m3.price = 999;
 
             menuItems = new MenuItem[]{m1, m2, m3};
+        }
+
+        public IActionResult OnPost()
+        {
+            KeyValuePair<string, StringValues>[] values = Request.Form.ToArray();
+            foreach(KeyValuePair<string, StringValues> kvp in values)
+            {
+                Console.WriteLine(kvp.Key);
+            }
+            return RedirectToPage("Index");
         }
     }
 }
