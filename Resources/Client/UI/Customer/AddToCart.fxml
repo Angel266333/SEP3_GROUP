@@ -42,5 +42,7 @@
          </image>
       </ImageView>
       <Line endX="100.0" layoutX="123.0" layoutY="44.0" startX="-100.0" stroke="#ab0000" />
+      <TextArea fx:id="commentArea" layoutX="398.0" layoutY="157.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
+      <Label layoutX="398.0" layoutY="142.0" text="A comment for the order?" />
    </children>
 </Pane>
