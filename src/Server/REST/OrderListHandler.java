@@ -17,10 +17,8 @@ public class OrderListHandler implements HttpHandler
 {
 
    @Override
+   public void handle(HttpExchange httpExchange) throws IOException {
 
-   public void handle(HttpExchange httpExchange) throws IOException
-   {
-      
       if(!httpExchange.getRequestMethod().equals("GET")) {
          badRequest(httpExchange);
          return;

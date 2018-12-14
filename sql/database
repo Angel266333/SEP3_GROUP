@@ -50,7 +50,8 @@ CONSTRAINT fk_menuItem_ingredient_ingredient FOREIGN KEY (nameof) REFERENCES ing
 
 INSERT INTO seat(isOccupied)
 VALUES(true),
-      (false);
+      (false),
+	  (true);
 
 INSERT INTO orders(table_id,status,feedback,receipt)
 VALUES(1,'in process', 'i like it','the price is 200DKK'),

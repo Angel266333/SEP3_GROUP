@@ -1,0 +1,51 @@
+create schema "Kartofil";
+
+set search_path = 'Kartofil';
+
+CREATE DOMAIN nameof VARCHAR(255);
+
+CREATE TABLE seat(
+table_id SERIAL Primary Key,
+isOccupied boolean
+);
+
+CREATE TABLE orders(
+	order_id SERIAL Primary Key,
+	table_id INTEGER,
+	status VARCHAR(255),
+	feedback VARCHAR(255),
+	receipt TEXT,
+	CONSTRAINT fk_orders_seat FOREIGN KEY (table_id) REFERENCES seat(table_id)
+);
+CREATE TABLE menuItem(
+	item_id SERIAL Primary Key,
+	menu_name VARCHAR(255),
+	description VARCHAR(255),
+	isAvailable BOOLEAN,
+	price INT
+);
+CREATE TABLE menuItem_order(
+item_id INTEGER,
+order_id INTEGER
+);
+
+CREATE TABLE ingredient(
+	nameof nameof Primary Key
+);
+
+CREATE TABLE menuItem_ingredient(
+item_id INTEGER,
+nameof TEXT,
+CONSTRAINT pk_menuItem_ingredient PRIMARY KEY (item_id, nameof),
+CONSTRAINT fk_menuItem_ingredient_menuItem FOREIGN KEY (item_id) REFERENCES menuItem(item_id),
+CONSTRAINT fk_menuItem_ingredient_ingredient FOREIGN KEY (nameof) REFERENCES ingredient(nameof)
+);
+
+
+
+       
+       
+       
+
+
+
