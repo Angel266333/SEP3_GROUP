@@ -21,6 +21,7 @@ public class ClientEngine {
 	private RestHandler restHandler;
 	private ArrayList<MenuItem> cart;
 	public static int tableNumber;
+	public static String comment;
 
 	private ClientEngine() {
 		restHandler = new RestHandler("https://localhost:8001");
