@@ -27,10 +27,6 @@ CREATE TABLE menuItem(
 CREATE TABLE menuItem_order(
 item_id INTEGER,
 order_id INTEGER,
-	
-CONSTRAINT pk_menuItem_order PRIMARY KEY (item_id, order_id),
-CONSTRAINT fk_menuItem_order_menuItem FOREIGN KEY (item_id) REFERENCES menuItem(item_id),
-CONSTRAINT fk_menuItem_order_orders FOREIGN KEY (order_id) REFERENCES orders(order_id)
 );
 
 CREATE TABLE ingredient(
