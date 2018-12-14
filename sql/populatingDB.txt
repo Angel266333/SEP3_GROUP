@@ -3,7 +3,14 @@
 INSERT INTO seat(isOccupied)
 VALUES(true),
       (false),
-	  (true);
+	  (true),
+	  (true),
+	  (false),
+	  (true),
+      	(false),
+	  (true),
+	  (true),
+	  (false);
 
 INSERT INTO orders(table_id,status,feedback,receipt)
 VALUES(1,'in process', 'i like it','the price is 200DKK'),
