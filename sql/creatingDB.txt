@@ -26,7 +26,7 @@ CREATE TABLE menuItem(
 );
 CREATE TABLE menuItem_order(
 item_id INTEGER,
-order_id INTEGER,
+order_id INTEGER
 );
 
 CREATE TABLE ingredient(
