@@ -40,10 +40,29 @@ public class OrderController implements Initializable {
 	{
 	   int count = 0;
       Order [] order = ClientEngine.getInstance().getAllOrders();
+      MenuItem[] menuItems = ClientEngine.getInstance().getMenu();
       System.out.println(order.length);
       for (Order o : order) {
          gridPane.addRow(count++, new Label(""+ o.idTable), new OrderStatusLabel(o), new Label(o.comment));
-      }    
+         for(int i : o.items) {
+         	MenuItem m = getByItemById(menuItems, i);
+         	String itemText = "Invalid MenuItem listed in order";
+         	if(m != null) {
+         		itemText = m.name;
+			}
+         	gridPane.add(new Label(itemText), 1, count++);
+		 }
+      }
+	}
+
+	private MenuItem getByItemById(MenuItem[] items, int id) {
+		for(MenuItem item : items) {
+			if(item.id == id) {
+				return item;
+			}
+		}
+		System.out.println("Returning null");
+		return null;
 	}
 	
 	public void mainMenu() throws IOException
