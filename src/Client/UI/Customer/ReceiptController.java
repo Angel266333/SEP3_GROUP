@@ -45,7 +45,7 @@ public class ReceiptController implements Initializable
 	}
 	order.items = store;
 	order.status = "PENDING";
-	order.comment = "";
+	order.comment = ClientEngine.comment;
 	order.receipt = "";
 	tar0_orderID.setText("" + ClientEngine.getInstance().placeOrder(order));
    }
