@@ -1,0 +1,27 @@
+﻿@page
+@model IndexModel
+@{
+    MenuItem[] mItems = @Model.menuItems;
+}
+<head>
+    <title>Our first page</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Available</th>
+            <th>Price</th>
+        </tr>
+        @foreach (var item in mItems)
+        {
+            <tr>
+                <td>@item.name</td>
+                <td>@item.description</td>
+                <td>@item.isAvailable</td>
+                <td>@item.price</td>
+            </tr>
+        }
+    </table>
+</body>
