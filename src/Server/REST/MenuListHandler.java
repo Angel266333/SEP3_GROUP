@@ -20,7 +20,7 @@ public class MenuListHandler implements HttpHandler {
 			unauthorized(httpExchange);
 			return;
 		}
-		MenuItem[] menuItems = RestListener.server.getMenuItems(null);
+		MenuItem[] menuItems = RestListener.server.getMenuItems();
 		StringBuilder sb = new StringBuilder();
 		ObjectMapper mapper = new ObjectMapper();
 		for (MenuItem m : menuItems) {

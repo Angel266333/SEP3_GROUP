@@ -23,7 +23,7 @@ public class ProxyDatabase implements IDatabase {
 	}
 
 	@Override
-	public MenuItem[] search(Filter menuFilter) {
+	public MenuItem[] search() {
 		// TODO Auto-generated method stub
 		return null;
 	}

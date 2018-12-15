@@ -60,9 +60,9 @@ public class Server {
 		}
 	}
 
-	public MenuItem[] getMenuItems(Filter filter) {
+	public MenuItem[] getMenuItems() {
 		try {
-			return database.search(filter);
+			return database.search();
 		} catch(RemoteException re) {
 			System.out.println(re.getMessage());
 			re.printStackTrace();
