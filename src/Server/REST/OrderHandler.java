@@ -43,13 +43,10 @@ public class OrderHandler implements HttpHandler {
 		try {
 			String s = uri.getPath().split("/")[2];
 			int id = Integer.parseInt(s);
-			System.out.println(id);
 			// Load data
 			Order respondObject = RestListener.server.getOrder(id);
-			System.out.println(respondObject.status);
 			ObjectMapper mapper = new ObjectMapper();
 			String respondString = mapper.writeValueAsString(respondObject);
-			System.out.println(respondString);
 			respond = respondString.getBytes();
 
 			OK(httpExchange, respond);
