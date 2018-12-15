@@ -37,12 +37,11 @@ public class SocketSession implements Runnable {
 			int c;
 			while(true) {
 				c = reader.read();
-				if(c == -1) {
+				if(c < 1) {
 					break;
 				}
 				baos.write(c);
 			}
-			reader.close();
 			handle(new String(baos.toByteArray(), Charset.forName("UTF-8")));
 		} catch(IOException e) {
 			e.printStackTrace();
@@ -67,7 +66,7 @@ public class SocketSession implements Runnable {
 			String r = sb.toString();
 			reply(r.substring(0, r.length() - 1));
 		}
-		else if(s.substring(0, 12).equals("SUBMITORDER|")) {
+		else if(s.length() > 11 && s.substring(0, 12).equals("SUBMITORDER|")) {
 			try {
 				Order o = new ObjectMapper().readValue(s.split("\\|")[1], Order.class);
 				int oid = SocketListener.server.addOrder(o);
@@ -77,11 +76,16 @@ public class SocketSession implements Runnable {
 				reply("-1");
 			}
 		}
+		else {
+			System.out.println(s);
+			reply("Hello world");
+		}
 	}
 
 	private void reply(String s) {
 		try {
 			writer.write(s);
+			writer.write(0x00);
 			writer.flush();
 			writer.close();
 			socket.close();
