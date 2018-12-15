@@ -24,7 +24,7 @@ public class Server {
 			database = (IDatabase) registry.lookup("Database");
 			rs = new RestListener(this);
 			rs.start();
-			socketListener = new SocketListener(this);
+			socketListener = new SocketListener(8002, this);
 			socketListenerThread = new Thread(socketListener);
 			socketListenerThread.start();
 		} catch (Exception e) {
@@ -157,7 +157,7 @@ public class Server {
 		}
 		server.rs.stop();
 		server.socketListenerThread.interrupt();
-		server.socketListener.stopOperation();
+		server.socketListener.stop();
 	}
 	
 
