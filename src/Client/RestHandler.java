@@ -2,7 +2,6 @@ package Client;
 
 import java.io.IOException;
 
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPut;
@@ -15,7 +14,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.http.util.EntityUtils;
 
-public class RestHandler implements IRestHandler {
+public class RestHandler  {
 	private CloseableHttpClient client;
 	private String server;
 	private String token = "";
@@ -37,7 +36,7 @@ public class RestHandler implements IRestHandler {
 		this.token = token;
 	}
 
-	@Override
+	
 	public String get(String uri) {
 		try {
 			HttpGet req = new HttpGet(server + uri);
@@ -59,7 +58,7 @@ public class RestHandler implements IRestHandler {
 		}
 	}
 
-	@Override
+	
 	public boolean set(String uri, byte[] value) {
 		HttpPut req = new HttpPut(server + uri);
 		req.setHeader("token", token);
