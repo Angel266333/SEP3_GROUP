@@ -52,7 +52,7 @@ public class SocketSession implements Runnable {
 
 	private void handle(String s) {
 		if(s.equals("GETMENUITEMS")) {
-			MenuItem[] items = SocketListener.server.getMenuItems(null);
+			MenuItem[] items = SocketListener.server.getMenuItems();
 			StringBuilder sb = new StringBuilder();
 			ObjectMapper mapper = new ObjectMapper();
 			for(MenuItem i : items) {

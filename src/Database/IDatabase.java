@@ -12,7 +12,7 @@ public interface IDatabase extends Remote
 {
    public int update(MenuItem item) throws RemoteException;
    public int remove(MenuItem item) throws RemoteException;
-   public MenuItem[] search(Filter menuFilter) throws RemoteException;
+   public MenuItem[] search() throws RemoteException;
    public Order getOrder(int id) throws RemoteException;
    public Seat getSeat(int id) throws RemoteException;
    public int update(Seat seat) throws RemoteException;
