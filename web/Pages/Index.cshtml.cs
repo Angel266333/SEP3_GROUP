@@ -23,10 +23,6 @@ namespace web.Pages
             ss.Send("GETMENUITEMS");
             string r = ss.Receive();
             string[] rs = r.Split(new char[]{'|'});
-            foreach(string str in rs)
-            {
-                Console.WriteLine(str);
-            }
             menuItems = new MenuItem[rs.Length];
             int j = 0;
             DataContractJsonSerializer ds = new DataContractJsonSerializer(typeof(MenuItem));
