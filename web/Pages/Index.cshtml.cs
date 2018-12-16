@@ -29,9 +29,9 @@ namespace web.Pages
             }
             menuItems = new MenuItem[rs.Length];
             int j = 0;
+            DataContractJsonSerializer ds = new DataContractJsonSerializer(typeof(MenuItem));
             foreach(string ms in rs)
             {
-                DataContractJsonSerializer ds = new DataContractJsonSerializer(typeof(MenuItem));
                 MenuItem m = (MenuItem) ds.ReadObject(new MemoryStream(Encoding.UTF8.GetBytes(ms)));
                 menuItems[j++] = m;
             }
