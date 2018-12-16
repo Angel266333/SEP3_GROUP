@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace web.Pages
 {
@@ -32,6 +34,29 @@ namespace web.Pages
             m3.price = 999;
 
             menuItems = new MenuItem[]{m1, m2, m3};
+
+            SocketSession ss = new SocketSession();
+            ss.Send("GETMENUITEMS");
+            string r = ss.Receive();
+            string[] rs = r.Split(new char[]{'|'});
+            foreach(string str in rs)
+            {
+                Console.WriteLine(str);
+            }
+            menuItems = new MenuItem[rs.Length];
+            int j = 0;
+            foreach(string ms in rs)
+            {
+                dynamic d = JsonConvert.DeserializeObject(ms);
+                MenuItem m = new MenuItem();
+                m.id = d["id"];
+                m.description = d["description"];
+                m.isAvailable = d["isAvailable"];
+                m.name = d["name"];
+                m.price = d["price"];
+                m.ingredients = new string[]{""};
+                menuItems[j++] = m;
+            }
         }
 
         public IActionResult OnPost()
