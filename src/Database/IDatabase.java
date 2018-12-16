@@ -3,7 +3,6 @@ package Database;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import Shared.Filter;
 import Shared.MenuItem;
 import Shared.Order;
 import Shared.Seat;
