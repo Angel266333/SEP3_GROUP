@@ -14,11 +14,7 @@
 /home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.TagHelpers.input.cache
 /home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.TagHelpers.output.cache
 /home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.RazorCoreGenerate.cache
-/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/Razor/Pages/About.g.cshtml.cs
-/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/Razor/Pages/Contact.g.cshtml.cs
-/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/Razor/Pages/Error.g.cshtml.cs
 /home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/Razor/Pages/Index.g.cshtml.cs
-/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/Razor/Pages/Privacy.g.cshtml.cs
 /home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/Razor/Pages/Shared/_CookieConsentPartial.g.cshtml.cs
 /home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/Razor/Pages/Shared/_Layout.g.cshtml.cs
 /home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/Razor/Pages/Shared/_ValidationScriptsPartial.g.cshtml.cs
@@ -30,4 +26,3 @@
 /home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.dll
 /home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.pdb
 /home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.csproj.CopyComplete
-/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/Razor/Pages/Index_old.g.cshtml.cs
