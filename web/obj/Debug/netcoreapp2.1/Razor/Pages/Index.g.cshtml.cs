@@ -60,12 +60,12 @@ using web;
             WriteLiteral("<!DOCTYPE html>\r\n<!--Speical thanks to all internet sources used throughout the development of this site.-->\r\n<!-- All credits go to their respective owners. Bootstrap is awesome, period.-->\r\n<html lang=\"en\">\r\n  ");
             EndContext();
             BeginContext(238, 81, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "202f7bbbf566469ca8bddbd4ee98b662", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fca87b121c7e4ccaadd03da2fae15089", async() => {
                 BeginContext(244, 10, true);
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(254, 54, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d7cd8304d02943caa0b8fb242d8d52f1", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e3d3394978114603b5a13ffd94a76a94", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -99,12 +99,12 @@ using web;
             WriteLiteral("\r\n  ");
             EndContext();
             BeginContext(323, 1330, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "834164de81624e8cb7a584b9d4e3c633", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "86a5b94c70c1485d8116c2f4dad5b0a7", async() => {
                 BeginContext(329, 98, true);
                 WriteLiteral("\r\n        <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\r\n\t<a href = \"index.html\">\r\n\t");
                 EndContext();
                 BeginContext(427, 59, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ba6fdbdde65c422da327b3235a7c8eef", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d9ae2b9abb424fc8863d07cf427a27f7", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -137,7 +137,7 @@ using web;
 	");
                 EndContext();
                 BeginContext(930, 59, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "5657b1e252954b22bfc45f564a639375", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ca8c08faff53400dbf60143592c146a9", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -157,7 +157,7 @@ using web;
                 WriteLiteral("</img>\r\n</a>\t\r\n\t</a>\r\n\t\t</li>\t\r\n\t\t</nav>\r\n  </div>\r\n</nav>\r\n\r\n<!-- Blue header line-->\r\n<div class=\"bg-primary text-white text-center\">\r\n  <h2><em>Kashikoi Menu</em></h2>\r\n</div>\r\n\r\n");
                 EndContext();
                 BeginContext(1171, 471, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b201d4a0ca124776a13e99f5102afbcc", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "affcfd6d271241f0ab055550ea24d9d3", async() => {
                     BeginContext(1191, 165, true);
                     WriteLiteral("\r\n<input type=\"submit\" value=\"Add to cart\" />\r\n<table>\r\n  <tr>\r\n    <th>Name</th>\r\n    <th>Description</th>\r\n    <th>Availability</th>\r\n    <th>Price</th>\r\n  </tr>\r\n");
                     EndContext();

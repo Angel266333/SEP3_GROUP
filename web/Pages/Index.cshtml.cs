@@ -17,6 +17,7 @@ namespace web.Pages
     public class IndexModel : PageModel
     {
         public MenuItem[] menuItems {get; set;}
+
         public void OnGet()
         {
             SocketSession ss = new SocketSession();
@@ -25,12 +26,9 @@ namespace web.Pages
             string[] rs = r.Split(new char[]{'|'});
             menuItems = new MenuItem[rs.Length];
             int j = 0;
-            DataContractJsonSerializer ds = new DataContractJsonSerializer(typeof(MenuItem));
-            MemoryStream stream = new MemoryStream();
             foreach(string ms in rs)
             {
-                stream.Write(Encoding.UTF8.GetBytes(ms));
-                MenuItem m = (MenuItem) ds.ReadObject(stream);
+                MenuItem m = JsonConvert.DeserializeObject<MenuItem>(ms);
                 menuItems[j++] = m;
             }
         }
