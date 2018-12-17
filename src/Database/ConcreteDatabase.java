@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import Shared.ERROR;
-import Shared.Filter;
 import Shared.MenuItem;
 import Shared.Order;
 import Shared.Seat;
