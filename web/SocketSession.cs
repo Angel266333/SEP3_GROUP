@@ -9,7 +9,6 @@ namespace web
     public class SocketSession
     {
         Socket socket;
-        NetworkStream ns;
         IPEndPoint ipe;
 
         public SocketSession()
@@ -29,23 +28,21 @@ namespace web
 
         public string Receive()
         {
-            byte[] buff = new byte[256];
+            byte[] buff = new byte[32];
             int b = 1;
-            StringBuilder sb = new StringBuilder();
-            string data;
+            MemoryStream stream = new MemoryStream();
             bool reading = true;
             while(reading)
             {
-                Console.WriteLine("aaa");
                 b = socket.Receive(buff);
                 if(b > 1 && buff[b - 1] == 0x00) {
                     reading = false;
                 }
-                data = Encoding.UTF8.GetString(buff, 0, b);
-                sb.Append(data);
+                stream.Write(buff, 0, b);
             }
             socket.Close();
-            return sb.ToString();
+            int l = (int) stream.Length;
+            return Encoding.UTF8.GetString(stream.ToArray(), 0, l);
         }
     }
 }
