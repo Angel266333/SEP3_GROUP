@@ -11,12 +11,16 @@ using System.Runtime.Serialization.Json;
 using System.Runtime.Serialization;
 using System.IO;
 using System.Text;
+using System.Web;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Builder;
 
 namespace web.Pages
 {
     public class IndexModel : PageModel
     {
         public MenuItem[] menuItems {get; set;}
+        public string cartLogo{get; set;}
 
         public void OnGet()
         {
@@ -31,16 +35,14 @@ namespace web.Pages
                 MenuItem m = JsonConvert.DeserializeObject<MenuItem>(ms);
                 menuItems[j++] = m;
             }
-        }
 
-        public IActionResult OnPost()
-        {
-            KeyValuePair<string, StringValues>[] values = Request.Form.ToArray();
-            foreach(KeyValuePair<string, StringValues> kvp in values)
+            if(Request.Cookies.ContainsKey("cart"))
             {
-                Console.WriteLine(kvp.Key);
+                cartLogo = "/lib/img/cart.png";
             }
-            return RedirectToPage("Index");
+            else {
+                cartLogo = "/lib/img/cart_gray.png";
+            }
         }
     }
 }

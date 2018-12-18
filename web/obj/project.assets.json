@@ -11604,11 +11604,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/kup/pCloudDrive/VIA/SEP3/web/web.csproj",
+      "projectUniqueName": "/home/kup/pCloudDrive/VIA/SEP3x/web/web.csproj",
       "projectName": "web",
-      "projectPath": "/home/kup/pCloudDrive/VIA/SEP3/web/web.csproj",
+      "projectPath": "/home/kup/pCloudDrive/VIA/SEP3x/web/web.csproj",
       "packagesPath": "/home/kup/.nuget/packages/",
-      "outputPath": "/home/kup/pCloudDrive/VIA/SEP3/web/obj/",
+      "outputPath": "/home/kup/pCloudDrive/VIA/SEP3x/web/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/kup/.nuget/NuGet/NuGet.Config"

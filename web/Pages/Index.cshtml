@@ -5,11 +5,12 @@
 <!-- All credits go to their respective owners. Bootstrap is awesome, period.-->
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
         <link href="~/lib/css/bootstrap.css" rel="stylesheet">
   </head>
   <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a href = "index.html">
+	<a href = "/">
 	<img src="~/lib/img/logo.png" class="img-fluid" alt="LOGO"></img>
 	</a>
 
@@ -22,8 +23,8 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-	<a href = "cart.html">
-	<img src="~/lib/img/cart.png" class="img-fluid" alt="CART"></img>
+	<a href = "/Cart">
+	<img src="@Model.cartLogo" class="img-fluid" alt="CART"></img>
 </a>	
 	</a>
 		</li>	
@@ -36,10 +37,12 @@
   <h2><em>Kashikoi Menu</em></h2>
 </div>
 
-<form method="POST">
+<form method="POST" action="/Cart">
+@Html.AntiForgeryToken();
 <input type="submit" value="Add to cart" />
 <table>
   <tr>
+    <th></th>
     <th>Name</th>
     <th>Description</th>
     <th>Availability</th>
@@ -47,12 +50,17 @@
   </tr>
   @foreach (var item in @Model.menuItems)
   {
+    string inp = "checkbox";
+    if(!@item.isAvailable)
+    {
+      inp = "hidden";
+    }
       <tr>
-        <td><input type="checkbox" name="@item.name"></td>
+        <td><input type="@inp" name="@item.id"></td>
         <td>@item.name</td>
         <td>@item.description</td>
         <td>@item.isAvailable</td>
-        <td>@item.price</td>
+        <td>@item.price</td>  
       </tr>
   }
 </table>

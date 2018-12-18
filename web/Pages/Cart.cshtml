@@ -1,2 +1,89 @@
 @page
-@Model CartModel
+@model Cart
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="~/lib/css/bootstrap.css" rel="stylesheet">
+        <style>
+            table.cart_table th {
+                background-color: lightblue;
+                padding-right: 25px;
+                padding-left: 25px;
+            }
+
+            table.cart_table td {
+                border-bottom: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            #total td {
+                font-weight: bold;
+            }
+        </style>
+        <title>Cart</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a href = "/">
+	<img src="~/lib/img/logo.png" class="img-fluid" alt="LOGO"></img>
+	</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Menu<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+	<a href = "/Cart">
+	<img src="@Model.cartLogo" class="img-fluid" alt="CART"></img>
+</a>	
+	</a>
+		</li>	
+		</nav>
+  </div>
+</nav>
+
+<!-- Blue header line-->
+<div class="bg-primary text-white text-center">
+  <h2><em>Your shopping cart</em></h2>
+</div>
+
+
+    <form method="POST" action="/Pay">
+    @Html.AntiForgeryToken()
+        <table class="cart_table">
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+            @foreach (MenuItem item in @Model.cartItems)
+            {
+                <tr>
+                    <td><input type="hidden" name="item" value="@item.id"></td>
+                    <td>@item.name</td>
+                    <td>@item.price</td>
+                </tr>
+            }
+            <tr id="total">
+                <td></td>
+                <td>
+                    Total
+                </td>
+                <td>
+                    @Model.totalSum
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><input type="submit" value="Pay"></td>
+            </tr>
+        </table>
+    </form>
+    </body>
+</html>
