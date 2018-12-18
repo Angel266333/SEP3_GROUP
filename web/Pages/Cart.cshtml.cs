@@ -74,6 +74,10 @@ namespace web.Pages
                 }
             }
             Response.Cookies.Delete("cart");
+            if(sb.Length < 1)
+            {
+                return RedirectToPage("/Cart");
+            }
             sb.Remove(sb.Length - 1, 1);
             Response.Cookies.Append("cart", sb.ToString());
             return RedirectToPage("/Cart");
