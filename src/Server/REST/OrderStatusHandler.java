@@ -37,7 +37,6 @@ public class OrderStatusHandler implements HttpHandler {
 
 			String status = BodyReader.readString(httpExchange.getRequestBody());
 			int i = RestListener.server.updateOrderStatus(id, status);
-			//TODO Make accurate responses
 			if(i == 1) { // check what the numbers mean in Shared.ERROR
 				internalError(httpExchange);
 				return;

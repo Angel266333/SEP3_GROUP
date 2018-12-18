@@ -6,7 +6,7 @@ import Shared.MenuItem;
 import Shared.Order;
 import Shared.Seat;
 
-public class ProxyDatabase implements IDatabase {
+public class AdapterDatabase implements IDatabase {
 	private ConcreteDatabase database;
 
 	@Override
