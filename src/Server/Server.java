@@ -28,7 +28,7 @@ public class Server {
 			socketListenerThread = new Thread(socketListener);
 			socketListenerThread.start();
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 	}
 
@@ -64,7 +64,6 @@ public class Server {
 		try {
 			return database.search();
 		} catch(RemoteException re) {
-			System.out.println(re.getMessage());
 			re.printStackTrace();
 			return null;
 		}
@@ -108,7 +107,6 @@ public class Server {
 		try {
 			return database.getSeat(id);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
@@ -128,7 +126,6 @@ public class Server {
 
 			return a;
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return ERROR.REMOTE_EXCEPTION;
 		}

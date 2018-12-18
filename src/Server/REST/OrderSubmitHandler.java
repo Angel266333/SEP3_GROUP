@@ -23,10 +23,6 @@ public class OrderSubmitHandler implements HttpHandler
    @Override
    public void handle(HttpExchange httpExchange) throws IOException
    {
-		if(!Token.validate(httpExchange)) {
-			unauthorized(httpExchange);
-			return;
-		}
       switch (httpExchange.getRequestMethod())
       {
          case "PUT":
@@ -45,11 +41,9 @@ public class OrderSubmitHandler implements HttpHandler
         
          ObjectMapper mapper = new ObjectMapper();
          order1 = mapper.readValue(body, Order.class);
-         //System.out.println(order1.status);
-       
+
          
          int i = RestListener.server.addOrder(order1);// Indicates if the update was performed successfully.
-         System.out.println(i);
          if (i >= 0)
          {// If it succeeds.
         	 String response = "" + i;
@@ -63,7 +57,6 @@ public class OrderSubmitHandler implements HttpHandler
       // If there is no ID, we go to the ArrayIndexOutOfBoundsException.
       catch (ArrayIndexOutOfBoundsException e)
       {
-         System.out.println("bs");
          badRequest(httpExchange);
       }
       // If this exception is triggered, then the system throws a bad request -

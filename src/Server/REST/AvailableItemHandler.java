@@ -42,7 +42,6 @@ public class AvailableItemHandler implements HttpHandler{
 			OK(httpExchange, "OK".getBytes());
 		}
 		else {
-			System.out.println(p);
 			internalError(httpExchange);
 		}
 		}catch(Exception e)

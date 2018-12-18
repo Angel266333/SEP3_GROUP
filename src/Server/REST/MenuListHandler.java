@@ -15,11 +15,6 @@ import static Server.REST.Response.unauthorized;
 public class MenuListHandler implements HttpHandler {
 	@Override
 	public void handle(HttpExchange httpExchange) throws IOException {
-
-		if(!Token.validate(httpExchange)) {
-			unauthorized(httpExchange);
-			return;
-		}
 		MenuItem[] menuItems = RestListener.server.getMenuItems();
 		StringBuilder sb = new StringBuilder();
 		ObjectMapper mapper = new ObjectMapper();

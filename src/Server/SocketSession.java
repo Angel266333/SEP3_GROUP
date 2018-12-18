@@ -77,7 +77,6 @@ public class SocketSession implements Runnable {
 			}
 		}
 		else {
-			System.out.println(s);
 			reply("Hello world");
 		}
 	}

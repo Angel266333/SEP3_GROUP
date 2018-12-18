@@ -35,7 +35,6 @@ public class OrderListHandler implements HttpHandler
          sb.append(mapper.writeValueAsString(m));
          sb.append('\n');
       }
-      System.out.println("DFD" + sb.toString());
       OK(httpExchange, sb.toString().getBytes());
    }
 

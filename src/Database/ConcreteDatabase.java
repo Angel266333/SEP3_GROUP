@@ -37,7 +37,6 @@ public class ConcreteDatabase implements IDatabase
                .prepareStatement("SELECT * FROM \"Kartofil\".ingredient");
          ResultSet rs = statement.executeQuery();
          rs.next();
-         System.out.println(rs.getString(1));
 
       }
       catch (SQLException e)
@@ -56,8 +55,6 @@ public class ConcreteDatabase implements IDatabase
    @Override
    public MenuItem[] search()
    {
-      System.out.println("Running");
-
       PreparedStatement statement;
       try
       {
@@ -103,18 +100,6 @@ public class ConcreteDatabase implements IDatabase
       }
 
       return null;
-   }
-
-   // Main method used only for testing:
-   public static void main(String[] args)
-         throws ClassNotFoundException, SQLException
-   {
-      ConcreteDatabase database = new ConcreteDatabase();
-      MenuItem[] arrayTest = database.search();
-      for (MenuItem m : arrayTest)
-      {
-         System.out.println(m);
-      }
    }
 
    @Override
@@ -293,18 +278,15 @@ public class ConcreteDatabase implements IDatabase
          statement.setString(2, order.status);
          statement.setString(3, order.comment);
          statement.setString(4, order.receipt);
-         System.out.println(statement.toString());
          ResultSet rs = statement.executeQuery();
          rs.next();
          int oid = rs.getInt(1);
-         System.out.println(oid);
          for (int i : order.items)
          {
             statement = connection.prepareStatement(
                   "INSERT INTO \"Kartofil\".menuitem_order VALUES (?,?) ");
             statement.setInt(1, i);
             statement.setInt(2, oid);
-            System.out.println(statement.toString());
 
             statement.execute();
          }

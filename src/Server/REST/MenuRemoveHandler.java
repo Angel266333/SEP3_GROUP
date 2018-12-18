@@ -9,8 +9,6 @@ import com.sun.net.httpserver.HttpHandler;
 import static Server.REST.Response.*;
 
 import Shared.ERROR;
-import Shared.MenuItem;
-import Utils.BodyReader;
 import Utils.Token;
 
 public class MenuRemoveHandler implements HttpHandler {

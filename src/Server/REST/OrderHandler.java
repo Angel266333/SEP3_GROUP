@@ -13,7 +13,6 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
 import Shared.Order;
-import Utils.BodyReader;
 import Utils.Token;
 
 public class OrderHandler implements HttpHandler {
@@ -27,9 +26,6 @@ public class OrderHandler implements HttpHandler {
 		switch (httpExchange.getRequestMethod()) {
 		case "GET":
 			GET(httpExchange);
-			break;
-		case "PUT":
-			PUT(httpExchange);
 			break;
 		default:
 			badRequest(httpExchange);
@@ -53,25 +49,6 @@ public class OrderHandler implements HttpHandler {
 		} catch (ArrayIndexOutOfBoundsException q) {
 			notFound(httpExchange);
 		} catch (NumberFormatException x) {
-			badRequest(httpExchange);
-		}
-	}
-
-	public void PUT(HttpExchange httpExchange) throws IOException {
-		URI uri = httpExchange.getRequestURI();
-		byte[] respond = "".getBytes();
-		try {
-			String s = uri.getPath().split("/")[2];
-			int id = Integer.parseInt(s);
-			String body = BodyReader.readString(httpExchange.getRequestBody());
-			ObjectMapper mapper = new ObjectMapper();
-			Order order1 = mapper.readValue(body, Order.class);
-			if (order1.id != id) {
-				badRequest(httpExchange);
-				return;// break to not continue executing the method.
-			}
-			// TODO
-		} catch (Exception e) {
 			badRequest(httpExchange);
 		}
 	}

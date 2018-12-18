@@ -33,13 +33,11 @@ public class SeatHandler implements HttpHandler {
 		}
 	}
 
-	// user story two
 	public void GET(HttpExchange httpExchange) throws IOException {
 		URI uri = httpExchange.getRequestURI();
 		byte[] respond;
 		try {
 			String s = uri.getPath().split("/")[3];
-			System.out.println(s);
 			int id = Integer.parseInt(s);
 			// load data
 			Seat seat = RestListener.server.getSeat(id);
