@@ -13,12 +13,12 @@ VALUES	(true),
 	(false);
 
 INSERT INTO orders(table_id,status,feedback,receipt)
-VALUES(1,'in process', 'i like it','the price is 200DKK'),
-      (2,'done','i love it','the price is 100DKK');
+VALUES(1,'PENDING', 'extra chees','the price is 200DKK'),
+      (2,'DELIVERED','more sauce','the price is 100DKK');
 
 INSERT INTO menuItem(menu_name,description,isAvailable,price)
-VALUES ('pizza','salami and chees', TRUE, 783),
-       ('spagetti','Very delicious food', TRUE, 393);
+VALUES ('Pizza','salami and chees', TRUE, 100),
+       ('Spagetti','tomato and ham', TRUE, 150);
        
 INSERT INTO menuItem_order(item_id,order_id)
 VALUES (1,1),
@@ -27,11 +27,16 @@ VALUES (1,1),
 INSERT INTO ingredient(nameof)
 VALUES ('Tomato'),
        ('Salami'),
-       ('Apple'),
-       ('Orange');
+       ('Chees'),
+       ('Mushroom'),
+       ('Ketchap'),
+       ('Pasta');
        
 INSERT INTO menuItem_ingredient (item_id, nameof)
 VALUES (1,'Tomato'),
-       (2,'Salami'),
-       (1,'Apple');
+       (1,'Salami'),
+       (1,'Chees'),
+       (1,'Mushroom'),
+       (2,'Ketchap'),
+       (2,'Pasta');
        
