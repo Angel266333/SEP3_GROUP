@@ -79,7 +79,6 @@ public class MainViewController implements Initializable
             if(s.length() != 0) {
 				ing = new Label(s.substring(0, s.length() - 2));
 			}
-			System.out.println(ing.getText());
             ing.setStyle("-fx-font-style: italic");
             Insets ins = ing.getInsets();
 			ins = new Insets(ins.getTop(), ins.getRight(), ins.getBottom() + 10, ins.getLeft());

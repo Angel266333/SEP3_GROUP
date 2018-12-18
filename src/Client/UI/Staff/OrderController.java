@@ -41,7 +41,6 @@ public class OrderController implements Initializable {
 	   int count = 0;
       Order [] order = ClientEngine.getInstance().getAllOrders();
       MenuItem[] menuItems = ClientEngine.getInstance().getMenu();
-      System.out.println(order.length);
       for (Order o : order) {
          gridPane.addRow(count++, new Label(""+ o.idTable), new OrderStatusLabel(o), new Label(o.comment));
          for(int i : o.items) {
@@ -61,7 +60,6 @@ public class OrderController implements Initializable {
 				return item;
 			}
 		}
-		System.out.println("Returning null");
 		return null;
 	}
 	

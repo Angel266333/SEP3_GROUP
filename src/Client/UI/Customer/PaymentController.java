@@ -56,8 +56,7 @@ public class PaymentController implements Initializable
    {
       int count= 0 ; 
       int sum = ClientEngine.getInstance().getPrice();
-      System.out.println(sum);
-      
+
       gridPane.addRow(0,new Label("" + sum + "DKK"));
       
    }

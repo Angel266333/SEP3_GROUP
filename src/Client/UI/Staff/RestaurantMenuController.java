@@ -67,7 +67,7 @@ public class RestaurantMenuController implements Initializable {
     public void loadMenuItems() {
 		menuItemsPane.getChildren().clear();
 		for(MenuItem m : ClientEngine.getInstance().getMenu()) {
-			System.out.println(m);
+//			System.out.println(m);
 		}
 	}
     public void showItemsButton()
@@ -77,7 +77,6 @@ public class RestaurantMenuController implements Initializable {
         for (MenuItem m : ClientEngine.getInstance().getMenu())
         {
         	menuItemsPane.addRow(r++, new MenuItemLabelStaff(m), new AvailabilityLabel(m));
-            System.out.println(m.isAvailable);
         }
     }
     

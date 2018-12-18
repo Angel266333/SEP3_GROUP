@@ -41,7 +41,6 @@ public class RestHandler  {
 		try {
 			HttpGet req = new HttpGet(server + uri);
 			req.setHeader("token", token);
-			System.out.println(req.toString());
 			CloseableHttpResponse response = client.execute(req);
 
 			if(response.getStatusLine().getStatusCode() != 200) {
@@ -88,7 +87,6 @@ public class RestHandler  {
 				return -1;
 			}
 			String s = EntityUtils.toString(response.getEntity());
-			System.out.println("http response:" + s);
 			int key;
 			key = Integer.parseInt(s);
 			return key;
