@@ -1,0 +1,24 @@
+Supported methods:
+GET = read
+PUT = write
+
+Data format:
+JSON, multiple items are newline separated
+
+/* PUT
+400:"Bad Request"
+
+/menu/*
+Actions relating to menu items
+
+	/menu/list/ GET
+	200:List of menu items	
+	
+	/menu/list/ PUT
+	400:"Bad Request"
+
+/seat/*
+Actions relating to seats
+	
+	/seat/[0-9]+/ GET
+	200:Single seat object with id /seat/<id>/

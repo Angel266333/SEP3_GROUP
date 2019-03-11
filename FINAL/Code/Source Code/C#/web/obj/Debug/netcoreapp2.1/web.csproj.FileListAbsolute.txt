@@ -1,0 +1,91 @@
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.csprojAssemblyReference.cache
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.csproj.CoreCompileInputs.cache
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.RazorAssemblyInfo.cache
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.RazorAssemblyInfo.cs
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.AssemblyInfoInputs.cache
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.AssemblyInfo.cs
+/home/kup/pCloudDrive/VIA/SEP3/web/bin/Debug/netcoreapp2.1/web.deps.json
+/home/kup/pCloudDrive/VIA/SEP3/web/bin/Debug/netcoreapp2.1/web.runtimeconfig.json
+/home/kup/pCloudDrive/VIA/SEP3/web/bin/Debug/netcoreapp2.1/web.runtimeconfig.dev.json
+/home/kup/pCloudDrive/VIA/SEP3/web/bin/Debug/netcoreapp2.1/web.dll
+/home/kup/pCloudDrive/VIA/SEP3/web/bin/Debug/netcoreapp2.1/web.pdb
+/home/kup/pCloudDrive/VIA/SEP3/web/bin/Debug/netcoreapp2.1/web.Views.dll
+/home/kup/pCloudDrive/VIA/SEP3/web/bin/Debug/netcoreapp2.1/web.Views.pdb
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.TagHelpers.input.cache
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.TagHelpers.output.cache
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.RazorCoreGenerate.cache
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/Razor/Pages/Index.g.cshtml.cs
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/Razor/Pages/Shared/_CookieConsentPartial.g.cshtml.cs
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/Razor/Pages/Shared/_Layout.g.cshtml.cs
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/Razor/Pages/Shared/_ValidationScriptsPartial.g.cshtml.cs
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/Razor/Pages/_ViewImports.g.cshtml.cs
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/Razor/Pages/_ViewStart.g.cshtml.cs
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.RazorTargetAssemblyInfo.cache
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.RazorTargetAssemblyInfo.cs
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.Views.pdb
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.dll
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.pdb
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/web.csproj.CopyComplete
+/home/kup/pCloudDrive/VIA/SEP3/web/obj/Debug/netcoreapp2.1/Razor/Pages/Cart.g.cshtml.cs
+/home/kup/pCloudDrive/VIA/SEP3x/web/bin/Debug/netcoreapp2.1/web.deps.json
+/home/kup/pCloudDrive/VIA/SEP3x/web/bin/Debug/netcoreapp2.1/web.runtimeconfig.json
+/home/kup/pCloudDrive/VIA/SEP3x/web/bin/Debug/netcoreapp2.1/web.runtimeconfig.dev.json
+/home/kup/pCloudDrive/VIA/SEP3x/web/bin/Debug/netcoreapp2.1/web.dll
+/home/kup/pCloudDrive/VIA/SEP3x/web/bin/Debug/netcoreapp2.1/web.pdb
+/home/kup/pCloudDrive/VIA/SEP3x/web/bin/Debug/netcoreapp2.1/web.Views.dll
+/home/kup/pCloudDrive/VIA/SEP3x/web/bin/Debug/netcoreapp2.1/web.Views.pdb
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/web.csprojAssemblyReference.cache
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/web.csproj.CoreCompileInputs.cache
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/web.RazorAssemblyInfo.cache
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/web.RazorAssemblyInfo.cs
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/web.AssemblyInfoInputs.cache
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/web.AssemblyInfo.cs
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/web.TagHelpers.input.cache
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/web.TagHelpers.output.cache
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/web.RazorCoreGenerate.cache
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/Razor/Pages/Cart.g.cshtml.cs
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/Razor/Pages/Index.g.cshtml.cs
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/Razor/Pages/Shared/_CookieConsentPartial.g.cshtml.cs
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/Razor/Pages/Shared/_Layout.g.cshtml.cs
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/Razor/Pages/Shared/_ValidationScriptsPartial.g.cshtml.cs
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/Razor/Pages/_ViewImports.g.cshtml.cs
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/Razor/Pages/_ViewStart.g.cshtml.cs
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/web.RazorTargetAssemblyInfo.cache
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/web.RazorTargetAssemblyInfo.cs
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/web.Views.pdb
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/web.dll
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/web.pdb
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/web.csproj.CopyComplete
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/Razor/Pages/Pay.g.cshtml.cs
+/home/kup/pCloudDrive/VIA/SEP3x/web/obj/Debug/netcoreapp2.1/Razor/Pages/Receipt.g.cshtml.cs
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\bin\Debug\netcoreapp2.1\web.deps.json
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\bin\Debug\netcoreapp2.1\web.runtimeconfig.json
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\bin\Debug\netcoreapp2.1\web.runtimeconfig.dev.json
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\bin\Debug\netcoreapp2.1\web.dll
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\bin\Debug\netcoreapp2.1\web.pdb
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\bin\Debug\netcoreapp2.1\web.Views.dll
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\bin\Debug\netcoreapp2.1\web.Views.pdb
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\web.csprojAssemblyReference.cache
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\web.csproj.CoreCompileInputs.cache
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\web.RazorAssemblyInfo.cache
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\web.RazorAssemblyInfo.cs
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\web.AssemblyInfoInputs.cache
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\web.AssemblyInfo.cs
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\web.TagHelpers.input.cache
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\web.TagHelpers.output.cache
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\web.RazorCoreGenerate.cache
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\Razor\Pages\Cart.g.cshtml.cs
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\Razor\Pages\Index.g.cshtml.cs
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\Razor\Pages\Pay.g.cshtml.cs
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\Razor\Pages\Receipt.g.cshtml.cs
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_Layout.g.cshtml.cs
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewImports.g.cshtml.cs
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewStart.g.cshtml.cs
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\web.RazorTargetAssemblyInfo.cache
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\web.RazorTargetAssemblyInfo.cs
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\web.Views.pdb
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\web.dll
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\web.pdb
+C:\Users\AI2-PC\Desktop\Code\Source Code\C#\web\obj\Debug\netcoreapp2.1\web.csproj.CopyComplete

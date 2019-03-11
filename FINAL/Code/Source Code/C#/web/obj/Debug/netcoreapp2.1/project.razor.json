@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "c:\\Users\\AI2-PC\\Desktop\\Code\\Source Code\\C#\\web\\web.csproj",
+  "TargetFramework": "netcoreapp2.1",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "MVC-2.1",
+    "LanguageVersion": "2.1",
+    "Extensions": [
+      {
+        "ExtensionName": "MVC-2.1"
+      }
+    ]
+  }
+}

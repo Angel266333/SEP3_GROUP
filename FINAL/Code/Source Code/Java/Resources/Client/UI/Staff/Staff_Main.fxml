@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="87.0" fitWidth="490.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Graphics/bg_blue.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btn0_Menu" layoutX="32.0" layoutY="154.0" mnemonicParsing="false" onAction="#redirectToMenuSection" text="Menu" />
+      <Button fx:id="btn1_Orders" layoutX="217.0" layoutY="154.0" mnemonicParsing="false" onAction="#redirectToOrdersSection" text="Orders" />
+      <Button fx:id="btn2_Tables" layoutX="419.0" layoutY="154.0" mnemonicParsing="false" onAction="#redirectToTablesSection" text="Table" />
+      <Label layoutX="16.0" layoutY="31.0" prefHeight="25.0" prefWidth="135.0" text="Kashikoi Staff" />
+      <ImageView fitHeight="65.0" fitWidth="211.0" layoutX="300.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Graphics/logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

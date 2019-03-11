@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="440.0" fitWidth="400.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Graphics/yellow.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="payButton" layoutX="334.0" layoutY="368.0" mnemonicParsing="false" onAction="#payButton" prefHeight="25.0" prefWidth="57.0" text="Pay&gt;&gt;" textFill="#ab0000" />
+      <Text fill="#ab0000" layoutX="33.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="YOUR ITEMS:" wrappingWidth="180.13671875">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <GridPane fx:id="gridPane" layoutX="29.0" layoutY="64.0" prefHeight="307.0" prefWidth="261.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="178.0" minHeight="0.0" prefHeight="34.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="246.0" minHeight="10.0" prefHeight="246.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </GridPane>
+      <Button fx:id="goBack" layoutX="14.0" layoutY="368.0" mnemonicParsing="false" onAction="#goBack" text="&lt;&lt;Back" textFill="#ab0000" />
+      <ImageView fitHeight="93.0" fitWidth="200.0" layoutX="398.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Graphics/logo.png" />
+         </image>
+      </ImageView>
+      <Line endX="100.0" layoutX="123.0" layoutY="44.0" startX="-100.0" stroke="#ab0000" />
+      <TextArea fx:id="commentArea" layoutX="398.0" layoutY="157.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
+      <Label layoutX="398.0" layoutY="142.0" text="A comment for the order?" />
+   </children>
+</Pane>
